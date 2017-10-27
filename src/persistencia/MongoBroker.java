@@ -14,7 +14,6 @@ public class MongoBroker {
 	private MongoClient mongoClient;
 	private MongoDatabase db;
 	
-	
 	private MongoBroker(){
 		this.uri = new MongoClientURI("mongodb://disoft:disoft2017@ds135790.mlab.com:35790/usuarios");
 		this.mongoClient= new MongoClient(uri);
