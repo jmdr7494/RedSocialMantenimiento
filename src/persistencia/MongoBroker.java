@@ -1,7 +1,5 @@
 package persistencia;
 
-import java.net.UnknownHostException;
-
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
@@ -15,15 +13,12 @@ public class MongoBroker {
 	private MongoClientURI uri;
 	private MongoClient mongoClient;
 	private MongoDatabase db;
-	//private MongoCollection<Document> usuarios;
 	
 	
 	private MongoBroker(){
 		this.uri = new MongoClientURI("mongodb://disoft:disoft2017@ds135790.mlab.com:35790/usuarios");
 		this.mongoClient= new MongoClient(uri);
-         this.db= mongoClient.getDatabase("usuarios");
-         //this.usuarios=db.getCollection("Usuarios");
-         
+        this.db= mongoClient.getDatabase("usuarios");
 	}
 	
 	public static MongoBroker get(){
