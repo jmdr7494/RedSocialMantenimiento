@@ -17,12 +17,9 @@ import auxiliares.Utilidades;
 import modelo.Usuario;
 import persistencia.DAOUsuario;
 
-//Es un servlet controlado por el Spring MVC, sustituto por ejemplo de Struts
 @Controller
 public class UsuarioServlet {//eo
 
- // Aquí está la magia !! Con poner @autowired, spring inyecta automáticamente aquí nuestro bean con el servicio !!
- // No hay que preocuparse de inicializarlo ni gestionarlo ni nada parecido !!
  @Autowired
  private DAOUsuario servicioDAOUsuario;
  

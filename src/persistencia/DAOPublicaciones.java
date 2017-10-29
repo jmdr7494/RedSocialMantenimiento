@@ -1,12 +1,17 @@
 package persistencia;
 
-import java.util.LinkedList;
-import java.util.List;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Vector;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 
 import modelo.Publicacion;
 
@@ -15,7 +20,7 @@ import modelo.Publicacion;
 public class DAOPublicaciones {
 
     
-	public static void insert(Publicacion publicacion) {
+	public static ObjectId insert(Publicacion publicacion) {
 		Document doc=new Document();
 		doc.append("name", publicacion.getNombre());
 		doc.append("email", publicacion.getEmail());
@@ -23,37 +28,45 @@ public class DAOPublicaciones {
 		doc.append("mensaje", publicacion.getMensaje());
 		doc.append("imagen", publicacion.getImagen());
 		
-		
-		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
 		publicaciones.insertOne(doc);
 		
+		 ObjectId id = (ObjectId)doc.get( "_id" );
+		
+		 return id;
 	}
 	
 
 	
 	public static void update (Publicacion publicacion) throws Exception {
-		Document doc=new Document();
-		doc.append("id", publicacion.getIdPublicacion());
+		
+		// Montamos la fecha actual para saber cuando se hizo la publicación.
+		 Calendar fecha = new GregorianCalendar();
+		 String fechaPublicacion = "";
+	     int year = fecha.get(Calendar.YEAR);
+	     // Se le suma uno, porque calendar.month devuelve de 0-11
+	     int month = fecha.get(Calendar.MONTH)+1;
+	     int day = fecha.get(Calendar.DAY_OF_MONTH);
+	     int hour = fecha.get(Calendar.HOUR_OF_DAY);
+	     int minute = fecha.get(Calendar.MINUTE);
+	     String monthS = (month<10)?"0"+month:""+month;
+	     String dayS = (day<10)?"0"+day:""+day;
+	     fechaPublicacion = dayS+"/"+monthS+"/"+year+" "+hour+":"+minute;
+		
+		Document filter = new Document("_id", new ObjectId(publicacion.getIdPublicacion()));
+		Document newValue = new Document();
+		newValue.append("mensaje", publicacion.getMensaje());
+		newValue.append("fecha", fechaPublicacion);
+		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
-		publicaciones.deleteOne(doc);
-		
-		Document doc2=new Document();
-		doc2.append("name", publicacion.getNombre());
-		doc2.append("email", publicacion.getEmail());
-		doc2.append("mensaje",publicacion.getMensaje());
-		doc2.append("imagen", publicacion.getImagen());
-		doc2.append("fecha", publicacion.getFecha());
-		
-	
-		publicaciones.insertOne(doc2);
+		publicaciones.updateOne(filter, updateOperationDocument);
 		
 	}
 
-	public static Publicacion select(int idPublicacion) throws Exception {
+	public static Publicacion select(String idPublicacion) throws Exception {
 		Publicacion result = null;
 		MongoBroker broker = MongoBroker.get();
 		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
@@ -64,20 +77,36 @@ public class DAOPublicaciones {
 		Document publicacion=resultado.first();
 		
 		if (publicacion!=null) {
-			result = new Publicacion(publicacion.getInteger("idPublicacion"), publicacion.getString("email"), 
+			result = new Publicacion(publicacion.getString("idPublicacion"), publicacion.getString("email"), 
 			publicacion.getString("nombre"), publicacion.getString("fecha"), publicacion.getString("imagen"), publicacion.getString("mensaje"));
 		}
 		
 		return result;
 	}
 	
-	public static void delete(Publicacion publicacion) {
-		Document bso=new Document();
-		bso.append("idPublicacion", publicacion.getNombre());
+	public static ArrayList selectAll () {
+		
+		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
+		FindIterable<Document> it = publicaciones.find();
+		MongoCursor<Document> cursor = it.iterator();
+	
+		while (cursor.hasNext()) {
+			Document doc = cursor.next();
+			ObjectId id = (ObjectId)doc.get( "_id" );
+			Publicacion publi = new Publicacion(id.toString(), doc.getString("email"), doc.getString("name"), doc.getString("fecha"), doc.getString("imagen"), doc.getString("mensaje"));
+			result.add(publi);
+		}
+
+		return result;
+	}
+	
+	public static void delete(String id) {
 		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
-		publicaciones.deleteOne(bso);
+		publicaciones.deleteOne(new Document("_id", new ObjectId(id)));
 		
 	}
 	

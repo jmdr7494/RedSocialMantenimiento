@@ -2,7 +2,7 @@ package modelo;
 
 public class Publicacion {
 	
-	private int idPublicacion;
+	private String idPublicacion;
 	private String email;
 	private String nombre;
 	private String fecha;
@@ -13,7 +13,7 @@ public class Publicacion {
 		
 	}
 	
-	public Publicacion(int idPublicacion, String email, String nombre, String fecha, String imagen, String mensaje) {
+	public Publicacion(String idPublicacion, String email, String nombre, String fecha, String imagen, String mensaje) {
 		
 		this.idPublicacion= idPublicacion;
 		this.email=email;
@@ -23,11 +23,11 @@ public class Publicacion {
 		this.mensaje=mensaje;	
 	}
 
-	public int getIdPublicacion() {
+	public String getIdPublicacion() {
 		return idPublicacion;
 	}
 
-	public void setIdPublicacion(int idPublicacion) {
+	public void setIdPublicacion(String idPublicacion) {
 		this.idPublicacion = idPublicacion;
 	}
 
