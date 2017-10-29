@@ -56,12 +56,11 @@
 	
 	<div class="row">
 		<br>
-		<form action="publicar.do" method="post" enctype="multipart/form-data">
+		<form action="publicar.do" method="post">
 			<div class="col-md-6 col-md-offset-4">
 				<label>¿Que estás pensando?</label>
 				<div class="form-group">
 					<textarea rows="5" cols="70" name="mensaje"></textarea>
-					<input type="file" name="fileUpload" id="fileUpload">
 					<input type="hidden" id="nombre_hidden" name="nombre" value="">
 					<input type="hidden" id="email_hidden" name="email" value="">
 				</div>

@@ -64,7 +64,7 @@ function cargarPublicaciones(){
             html += "<p id='mensaje-"+i+"'>"+json[i].mensaje+"</p>";
             html += "</div>";
             html += "<div class='panel-footer'>";
-            html += "<button type='button' class='btn btn-default '> <span class='glyphicon glyphicon-thumbs-up'></span></button>";
+            html += "<button type='button' onclick='darLike("+i+");' class='btn btn-default '> <span class='glyphicon glyphicon-thumbs-up'></span></button>";
             html += "<input type='hidden' id='delete-"+i+"' value='"+json[i].idPublicacion+"'>";
             html += "</div>";
             html += "</div>";
@@ -99,4 +99,12 @@ function showModal(id){
 	$('#edit-name').val(nombre);
 	$('#edit-email').val(email);
 	$('#edit-id').val(id);
+}
+
+function darLike(id){
+	
+	var id = $('#delete-'+id).val();
+	$.post( "deletepubli.do",{ id: id}, function( ) {
+		location.href ="wall.jsp";
+	});
 }
