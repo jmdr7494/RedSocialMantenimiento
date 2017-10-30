@@ -1,22 +1,47 @@
 package persistencia;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.bson.BsonDocument;
+import org.bson.BsonString;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.MongoClientURI;
 
 import auxiliares.Utilidades;
+import modelo.Publicacion;
 import modelo.Usuario;
 
 @Component
 public class DAOUsuario {
 
+<<<<<<< HEAD
 
+=======
+    private List lista = new LinkedList();
+    
+	//public static void insert(Usuario usuario) {
+	/**	BsonDocument bso=new BsonDocument();
+		bso.append("nombre", new BsonString(usuario.getNombre()));
+		String pwd1="1234";
+		String pwdencriptada=Utilidades.Encriptar(pwd1);
+		bso.append("pwd", new BsonString(pwdencriptada));
+		
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<BsonDocument>usuarios=broker.getCollection("Usuarios");
+		usuarios.insertOne(bso);
+		*/
+	//}
+	
+>>>>>>> branch 'master' of https://github.com/alexsolanero/PracticaRedSocial
 	public static Usuario insertUserConPWD(Usuario usuario, String pwd) {
 		
 		
@@ -25,7 +50,7 @@ public class DAOUsuario {
 		bso.put("nombre", usuario.getNombre());
 		String pwdencriptada=Utilidades.Encriptar(pwd);
 		bso.append("pwd", pwdencriptada);
-		bso.append("email", usuario.getDireccion());
+		bso.append("email", usuario.getemail());
 		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
@@ -33,7 +58,7 @@ public class DAOUsuario {
 		
 		Usuario user=null;
 		try {
-			user = DAOUsuario.select(usuario.getDireccion(),pwd);
+			user = DAOUsuario.select(usuario.getemail(),pwd);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
@@ -57,8 +82,8 @@ public class DAOUsuario {
 		bso2.append("pwd", new BsonString(pwdencriptada));
 		
 	
-		usuarios.insertOne(bso2);
-		*/
+		usuarios.insertOne(bso2);*/
+		
 	}
 
 	public static Usuario select(String email,String pwd) throws Exception {
@@ -117,6 +142,7 @@ public class DAOUsuario {
 		return result;
 	}
 	
+<<<<<<< HEAD
 	/**Usuario select(Usuario user)
 	 * @param user
 	 * @return
@@ -147,9 +173,15 @@ public class DAOUsuario {
 		bso.put("nombre", usuario.getNombre());
 		bso.append("pwd", usuario.getPwd());
 		bso.append("email", usuario.getDireccion());
+=======
+	public static void delete(String id) {
+		/*Document bso=new Document();
+		bso.append("nombre", usuario.getNombre());
+>>>>>>> branch 'master' of https://github.com/alexsolanero/PracticaRedSocial
 		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+<<<<<<< HEAD
 		usuarios.insertOne(bso);
 		
 		return DAOUsuario.select(usuario);
@@ -182,8 +214,45 @@ public class DAOUsuario {
 		}catch(Exception e) {
 			return false;
 		}
+=======
+		usuarios.deleteOne(bso);*/
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		usuarios.deleteOne(new Document("_id", new ObjectId(id)));
+>>>>>>> branch 'master' of https://github.com/alexsolanero/PracticaRedSocial
 		
 	}
+public static ArrayList selectAll () {
+		
+		ArrayList<Usuario> result = new ArrayList<Usuario>();
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> usuarios=broker.getCollection("Usuarios");
+		FindIterable<Document> it = usuarios.find();
+		MongoCursor<Document> cursor = it.iterator();
 	
+		while (cursor.hasNext()) {
+			Document doc = cursor.next();
+			ObjectId id = (ObjectId)doc.get( "_id" );
+			Usuario usu = new Usuario(id.toString(),doc.getString("nombre"), doc.getString("email"), doc.getString("pwd"));
+			result.add(usu);
+		}
+
+		return result;
+	}
+public static ObjectId insert(Usuario usuario) {
+	Document doc=new Document();
+	doc.append("nombre", usuario.getNombre());
+	doc.append("email", usuario.getemail());
+	doc.append("password", usuario.getPwd());
+	
+	
+	MongoBroker broker= MongoBroker.get();
+	MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+	usuarios.insertOne(doc);
+	
+	 ObjectId id = (ObjectId)doc.get( "_id" );
+	
+	 return id;
+}
 
 }

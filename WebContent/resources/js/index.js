@@ -80,7 +80,7 @@ $( document ).ready(function() {
 						sessionStorage.setItem("status", json.status);
 						
 						// REDIRECCIÓN AL MURO.
-						location.href ="wall.jsp";
+						location.href ="walladmin.jsp";
 					}else{
 						alert(json.message);
 					}
@@ -110,7 +110,7 @@ $( document ).ready(function() {
 										sessionStorage.setItem("email", json.email);
 										sessionStorage.setItem("status", json.status);
 										// REDIRECCIÓN AL MURO.
-										location.href ="wall.jsp";
+										location.href ="walladmin.jsp";
 										
 									}else{
 										alert(json.message);
@@ -155,7 +155,7 @@ $( document ).ready(function() {
 								sessionStorage.setItem("email", json.email);
 								sessionStorage.setItem("status", json.status);
 								// REDIRECCIÓN AL MURO.
-								location.href ="wall.jsp";
+								location.href ="walladmin.jsp";
 								
 							}else{
 								alert(json.message);
@@ -189,7 +189,7 @@ $( document ).ready(function() {
 				sessionStorage.setItem("status", json.status);
 				
 				// REDIRECCIÓN AL MURO.
-				location.href ="wall.jsp";
+				location.href ="walladmin.jsp";
 			}else{
 				alert(json.message);
 			}
