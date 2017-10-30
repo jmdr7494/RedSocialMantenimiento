@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -85,8 +87,9 @@ public class DAOPublicaciones {
 		
 		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
 		MongoBroker broker = MongoBroker.get();
+		
 		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
-		FindIterable<Document> it = publicaciones.find();
+		FindIterable<Document> it = publicaciones.find().sort(new BasicDBObject("_id",-1));
 		MongoCursor<Document> cursor = it.iterator();
 	
 		while (cursor.hasNext()) {
