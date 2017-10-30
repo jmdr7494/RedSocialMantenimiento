@@ -4,11 +4,8 @@ package persistencia;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Vector;
-
 import org.bson.Document;
 import org.bson.types.ObjectId;
-
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -102,12 +99,15 @@ public class DAOPublicaciones {
 		return result;
 	}
 	
-	public static void delete(String id) {
-		
+	public static boolean delete(String id) {
+		try {
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
 		publicaciones.deleteOne(new Document("_id", new ObjectId(id)));
-		
+		return true;
+		}catch(Exception e){
+			return false;
+		}
 	}
 	
 
