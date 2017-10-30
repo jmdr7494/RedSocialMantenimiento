@@ -9,6 +9,7 @@ import org.bson.types.ObjectId;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.BasicDBObject;
 
 import modelo.Publicacion;
 
@@ -38,7 +39,7 @@ public class DAOPublicaciones {
 	
 	public static void update (Publicacion publicacion) throws Exception {
 		
-		// Montamos la fecha actual para saber cuando se hizo la publicación.
+		// Montamos la fecha actual para saber cuando se hizo la publicaciÃ³n.
 		 Calendar fecha = new GregorianCalendar();
 		 String fechaPublicacion = "";
 	     int year = fecha.get(Calendar.YEAR);
@@ -86,7 +87,7 @@ public class DAOPublicaciones {
 		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
 		MongoBroker broker = MongoBroker.get();
 		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
-		FindIterable<Document> it = publicaciones.find();
+		FindIterable<Document> it = publicaciones.find().sort(new BasicDBObject("_id",-1));
 		MongoCursor<Document> cursor = it.iterator();
 	
 		while (cursor.hasNext()) {
