@@ -107,7 +107,7 @@ $( document ).ready(function() {
 										//localStorage.setItem("email", json.mail);
 										//localStorage.setItem("status", json.status);
 										sessionStorage.setItem("name", json.name);
-										sessionStorage.setItem("email", json.mail);
+										sessionStorage.setItem("email", json.email);
 										sessionStorage.setItem("status", json.status);
 										// REDIRECCIÓN AL MURO.
 										location.href ="wall.jsp";
@@ -152,7 +152,7 @@ $( document ).ready(function() {
 								//localStorage.setItem("email", json.mail);
 								//localStorage.setItem("status", json.status);
 								sessionStorage.setItem("name", json.name);
-								sessionStorage.setItem("email", json.mail);
+								sessionStorage.setItem("email", json.email);
 								sessionStorage.setItem("status", json.status);
 								// REDIRECCIÓN AL MURO.
 								location.href ="wall.jsp";

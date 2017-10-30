@@ -22,6 +22,14 @@ $( document ).ready(function() {
 		location.href ="index.html";
 		
 	});
+	$('#menuNombre').click(function(){
+		location.href ="edit.jsp";
+		
+	});
+	$('#menuConfiguracion').click(function(){
+		location.href ="edit.jsp";
+		
+	});
 	
 	$('#sendForm').on('click', function(e){
 		$('#edit-form').submit();
