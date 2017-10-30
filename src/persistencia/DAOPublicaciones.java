@@ -87,7 +87,6 @@ public class DAOPublicaciones {
 		
 		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
 		MongoBroker broker = MongoBroker.get();
-		
 		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
 		FindIterable<Document> it = publicaciones.find().sort(new BasicDBObject("_id",-1));
 		MongoCursor<Document> cursor = it.iterator();
