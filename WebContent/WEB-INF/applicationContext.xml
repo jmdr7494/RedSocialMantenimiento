@@ -17,6 +17,6 @@
        
 	<!-- Configures the @controller programming model -->
 	
-   <bean id = "usuarioDAO" class = "persistencia.DAOUsuario"></bean>
-    <bean id = "publicacionDAO" class = "persistencia.DAOPublicaciones"></bean>
+   <bean id = "usuarioDAO" class = "main.persistencia.DAOUsuario"></bean>
+    <bean id = "publicacionDAO" class = "main.persistencia.DAOPublicaciones"></bean>
 </beans>
