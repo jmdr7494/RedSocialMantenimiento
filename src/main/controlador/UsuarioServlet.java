@@ -1,6 +1,8 @@
-package controlador;
+package main.controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
@@ -18,7 +20,7 @@ import main.persistencia.DAOUsuario;
 @Controller
 public class UsuarioServlet {//eo
 
- // Aquí está la magia !! Con poner @autowired, spring inyecta automáticamente aquí nuestro bean con el servicio !!
+ // Aquï¿½ estï¿½ la magia !! Con poner @autowired, spring inyecta automï¿½ticamente aquï¿½ nuestro bean con el servicio !!
  // No hay que preocuparse de inicializarlo ni gestionarlo ni nada parecido !!
  @Autowired
  private DAOUsuario servicioDAOUsuario;
@@ -60,9 +62,9 @@ public class UsuarioServlet {//eo
 	 
 	// control de errores
 	 boolean flag = true;
-	 String msj =" Modificación correcta";
+	 String msj =" Modificaciï¿½n correcta";
 	 
-	 //encripto la contraseña antigua
+	 //encripto la contraseï¿½a antigua
 	 String pwdencriptada=Utilidades.Encriptar(oldpassword);
 	 
 	 //saco el usuario del soporte
@@ -71,11 +73,11 @@ public class UsuarioServlet {//eo
 	 //control de erroes de coincidencia entre passwords
 	 if(!user.getPwd().equals(pwdencriptada)) {
 		 flag = false;
-		 msj ="Error en la contraseña antigua";
+		 msj ="Error en la contraseï¿½a antigua";
 	 }
 	 
 	 
-	//si la antigua contraseña encriptada coincide con la que habia...
+	//si la antigua contraseï¿½a encriptada coincide con la que habia...
 	 if(flag) {
 		 //actualizo la informacion
 		 user.setNombre(name);
@@ -152,7 +154,7 @@ public class UsuarioServlet {//eo
 	 Usuario result=DAOUsuario.select(email,pwd); 
 	 
 	 json.put("status", "ko");
-	 json.put("message", "Usuario o contraseña erroneas");
+	 json.put("message", "Usuario o contraseï¿½a erroneas");
 	 
 	 if (result!=null) {
 		 if (WallSupport.getWallSupport().deleteUser()) {
@@ -187,26 +189,31 @@ public class UsuarioServlet {//eo
  @RequestMapping("wall.do")
  public void wall(HttpServletRequest request,HttpServletResponse response) throws JSONException, Exception {
 	 
-	 JSONObject json = new JSONObject();
 	 final WallSupport soporte = WallSupport.getWallSupport();
 	 if(!soporte.isUser()) {
 		 //CARGAR EL  USUARIO
 		 
 	 }
-	 
+	 /**
 	 char value = request.getParameter("value").charAt(0);
 	 switch(value){
-	 case 'a':
-		 //Acabo de actualizar la informción de usuario (edit.js ln 150)
-		 json.put("status", "ok");
-		 json.put("name", soporte.getUser().getNombre());
-		 json.put("email", soporte.getUser().getEmail());
+	 case 'i':
+		 soporte.getUser();
+		 soporte.getPublicMesseges();
 		 break;
-	 
+	 case 'm':
+		 soporte.getPrivateMessages();
+		 break;
+	 case 'u':
+		 soporte.getUser();
+		 break;
+	 case 'c':
+		 soporte.getUser();
+		 break;
 		 
 	 }
+	 */
 	 
-	 response.getWriter().print(json);
 
  }
 }

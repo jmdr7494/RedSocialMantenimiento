@@ -1,4 +1,4 @@
-package persistencia;
+package main.persistencia;
 
 
 import java.util.ArrayList;
@@ -6,14 +6,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-
-import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
+import com.mongodb.BasicDBObject;
 
 import main.modelo.Publicacion;
-import main.persistencia.MongoBroker;
 
 
 
@@ -41,7 +39,7 @@ public class DAOPublicaciones {
 	
 	public static void update (Publicacion publicacion) throws Exception {
 		
-		// Montamos la fecha actual para saber cuando se hizo la publicación.
+		// Montamos la fecha actual para saber cuando se hizo la publicaciÃ³n.
 		 Calendar fecha = new GregorianCalendar();
 		 String fechaPublicacion = "";
 	     int year = fecha.get(Calendar.YEAR);

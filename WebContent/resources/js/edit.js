@@ -153,8 +153,9 @@ $( document ).ready(function() {
 						function( data ) {
 							var json = JSON.parse(data);
 							if(json.status=='ok'){
+								
 								//GUARDAR EL NOMBRE Y EMAIL EN LOCALSTORAGE
-								//$.post( "edit.do",{ email: em});
+								
 								sessionStorage.setItem("name", json.name);
 								sessionStorage.setItem("email", json.mail);
 								sessionStorage.setItem("status", json.status);
