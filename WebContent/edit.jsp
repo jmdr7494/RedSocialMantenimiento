@@ -71,7 +71,7 @@
 								
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id=password-register" tabindex="2" class="form-control" placeholder="Nueva contraseña" required>
+										<input type="password" name="password-register" id="password-register" tabindex="2" class="form-control" placeholder="Nueva contraseña" required>
 										<div class="pwstrength_viewport_progress"></div>
 									</div>
 									<div class="form-group">

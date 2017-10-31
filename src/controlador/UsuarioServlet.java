@@ -189,31 +189,26 @@ public class UsuarioServlet {//eo
  @RequestMapping("wall.do")
  public void wall(HttpServletRequest request,HttpServletResponse response) throws JSONException, Exception {
 	 
+	 JSONObject json = new JSONObject();
 	 final WallSupport soporte = WallSupport.getWallSupport();
 	 if(!soporte.isUser()) {
 		 //CARGAR EL  USUARIO
 		 
 	 }
-	 /**
+	 
 	 char value = request.getParameter("value").charAt(0);
 	 switch(value){
-	 case 'i':
-		 soporte.getUser();
-		 soporte.getPublicMesseges();
+	 case 'a':
+		 //Acabo de actualizar la informción de usuario (edit.js ln 150)
+		 json.put("status", "ok");
+		 json.put("name", soporte.getUser().getNombre());
+		 json.put("email", soporte.getUser().getEmail());
 		 break;
-	 case 'm':
-		 soporte.getPrivateMessages();
-		 break;
-	 case 'u':
-		 soporte.getUser();
-		 break;
-	 case 'c':
-		 soporte.getUser();
-		 break;
+	 
 		 
 	 }
-	 */
 	 
+	 response.getWriter().print(json);
 
  }
 }
