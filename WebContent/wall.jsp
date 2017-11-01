@@ -12,12 +12,13 @@
 </head>
 <body>
 	<div class="container-fluid">
-	<div class="row" style="background-color: lightblue">
+	<div class="row" style="background-color: lightgray">
 		<div class="col-md-12" style="text-align:center">
-			<img src="img/uclm.png" class="imgthumbnail">
+			<img src="img/uclm.png" width="60" height="60" class="imgthumbnail">
 		</div>
 		<div class="col-md-12" style="text-align:center">
-			<h4>Mens Ubiqua - Red Social</h4>
+		<font color="black" face="Comic Sans MS">
+			<h2>Mens Ubiqua - Red Social</h2>
 		</div>
 	</div>
 	<div class="row" style="background-color: lightgray">
@@ -29,7 +30,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#"><span class="glyphicon glyphiconuser"></span>
 							Inicio</a></li>
-					<li><a href="#"><span class="glyphicon glyphiconuser"></span>
+					<li><a href="#" onclick="location.href='wallMsg.jsp'"><span class="glyphicon glyphiconuser"></span>
 							Mensajes</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"> Menú <b class="caret"></b></a>
@@ -49,9 +50,9 @@
 	</div>
 
 	<div class="row" id="mesaggesPanel">
-		<div class="col-md-3" style="background-color: lightblue" id="infoUser" style="text-align:center">información de usuario</div>
+		<div class="col-md-3" style="background-color: lightgray" id="infoUser" style="text-align:center">información de usuario</div>
 		<div class="col-md-6" style="text-align:center"></div>
-		<div class="col-md-3" style="background-color: lightgray;text-align:center">otras opciones</div>
+		<div class="col-md-3" style="background-color: lightgray;text-align:center"></div>
 	</div>
 	
 	<div class="row">

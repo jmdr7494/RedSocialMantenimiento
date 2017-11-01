@@ -54,7 +54,6 @@ function cargarPublicaciones(){
             html +=  "<span class='dropdown-toggle' data-toggle='dropdown'>";
             html += "<span class='glyphicon glyphicon-chevron-down'></span>";
             html += "</span>";
-            
             html += "<ul class='dropdown-menu' role='menu'>";
             html += "<li role='presentation'><a href='#' onclick='showModal("+i+")'><span class='glyphicon glyphicon-edit'></span> Editar</a></li>";
             html += "<li role='presentation'><a href='#' onclick='eliminarPublicacion("+i+");' ><span class='glyphicon glyphicon-trash'></span> Eliminar</a></li>";
