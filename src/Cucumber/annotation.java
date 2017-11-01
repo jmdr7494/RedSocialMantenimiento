@@ -34,10 +34,10 @@ public class annotation {
 	public void usuario_correcto_y_password_correcta() {
 		String email="prueba@gmail.com";
 		String pwd="123456";
-		user.setDireccion(email);
+		user.setemail(email);
 		user.setPwd(pwd);
 		try {
-			user=usuario.select(user.getDireccion(), user.getPwd());
+			user=usuario.select(user.getemail(), user.getPwd());
 		} catch (Exception e) {
 			assertFalse(true);
 		}
@@ -49,10 +49,10 @@ public class annotation {
 	public void Usuario_incorrecto_y_una_password_incorrecta() {
 	   String email="prueba80@gmail.com";
 	   String pwd="12345";
-	   user.setDireccion(email);
+	   user.setemail(email);
 	   user.setPwd(pwd);
 	   try {
-		   user=usuario.select(user.getDireccion(),user.getPwd());
+		   user=usuario.select(user.getemail(),user.getPwd());
 	   }catch(Exception e) {
 		   assertFalse(true);
 	   }

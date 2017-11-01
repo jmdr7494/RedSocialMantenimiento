@@ -7,6 +7,7 @@ $( document ).ready(function() {
 	 		$("#register-form").fadeOut(100);
 			$('#register-form-link').removeClass('active');
 			$(this).addClass('active');
+			tab=1;
 			e.preventDefault();
 		});
 		$('#register-form-link').click(function(e) {
@@ -14,6 +15,7 @@ $( document ).ready(function() {
 	 		$("#login-form").fadeOut(100);
 			$('#login-form-link').removeClass('active');
 			$(this).addClass('active');
+			tab=2;
 			e.preventDefault();
 		});
 
@@ -66,6 +68,7 @@ $( document ).ready(function() {
 	$(document).keypress(function (e){
 		if(e.which == 13){
 			if (tab==1){
+
 				var email = $('#email').val();
 				var pwd = $('#password').val();
 				$.post( "login.do",{ email: email, password: pwd}, function( data ) {
@@ -79,13 +82,17 @@ $( document ).ready(function() {
 						sessionStorage.setItem("email", json.email);
 						sessionStorage.setItem("status", json.status);
 						
-						// REDIRECCIÓN AL MURO.
-						location.href ="wall.jsp";
+						if((json.name=='admin')){
+							location.href="walladmin.jsp";
+						}else{
+							location.href="wall.jsp";
+						}
 					}else{
 						alert(json.message);
 					}
 				});
 			}else if(tab==2){
+			
 				var email = $('#email-register').val();
 				var username = $('#username').val();
 				var password = $('#password-register').val();
@@ -109,8 +116,12 @@ $( document ).ready(function() {
 										sessionStorage.setItem("name", json.name);
 										sessionStorage.setItem("email", json.mail);
 										sessionStorage.setItem("status", json.status);
-										// REDIRECCIÓN AL MURO.
-										location.href ="wall.jsp";
+										
+										if((json.name)=="admin"){
+											location.href="walladmin.jsp";
+										}else{
+											location.href="wall.jsp";
+										}
 										
 									}else{
 										alert(json.message);
@@ -154,8 +165,11 @@ $( document ).ready(function() {
 								sessionStorage.setItem("name", json.name);
 								sessionStorage.setItem("email", json.mail);
 								sessionStorage.setItem("status", json.status);
-								// REDIRECCIÓN AL MURO.
-								location.href ="wall.jsp";
+								if((json.name)=="admin"){
+									location.href="walladmin.jsp";
+								}else{
+									location.href="wall.jsp";
+								}
 								
 							}else{
 								alert(json.message);
@@ -187,9 +201,13 @@ $( document ).ready(function() {
 				sessionStorage.setItem("name", json.name);
 				sessionStorage.setItem("email", json.email);
 				sessionStorage.setItem("status", json.status);
+				//for para adminisradores
+				if((json.name)=="admin"){
+					location.href="walladmin.jsp";
+				}else{
+					location.href="wall.jsp";
+				}
 				
-				// REDIRECCIÓN AL MURO.
-				location.href ="wall.jsp";
 			}else{
 				alert(json.message);
 			}

@@ -47,6 +47,7 @@ function cargarMensajes(){
 		
 		var json = JSON.parse(data);
 		for(i=0;i<json.length;i++){
+			if (sessionStorage.getItem("email")==json[i].emaildestinatario || sessionStorage.getItem("email")=="admin@hotmail.com") {
 			var html = "<div class='col-md-6 col-md-offset-4'>";
 			html += "<div class='row'>";
 			html += "<div class='col-md-10'>";
@@ -72,7 +73,8 @@ function cargarMensajes(){
             html += "</div>";
             html += "</div>";
             html += "</div>";
-			$('#div_mensajesprivados').append(html);	
+			$('#div_mensajesprivados').append(html);
+			}
 		}
 	});
 }

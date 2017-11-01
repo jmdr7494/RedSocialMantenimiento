@@ -28,7 +28,7 @@
 
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#"><span class="glyphicon glyphiconuser"></span>
+						<li><a href="#" onclick="location.href='wall.jsp'"><span class="glyphicon glyphiconuser"></span>
 								Inicio</a></li>
 						<li><a href="#"><span class="glyphicon glyphiconuser"></span>
 								Mensajes</a></li>
