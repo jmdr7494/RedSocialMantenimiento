@@ -43,7 +43,6 @@
 							<li class="divider"></li>
 							<li><a href="#" id="logOut">Salir</a></li>
 						</ul></li>
-
 				</ul>
 			</div>
 		</div>
