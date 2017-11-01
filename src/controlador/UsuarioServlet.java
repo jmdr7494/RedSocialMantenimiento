@@ -18,10 +18,7 @@ import modelo.Usuario;
 import persistencia.DAOUsuario;
 
 @Controller
-public class UsuarioServlet {//eo
-
- @Autowired
- private DAOUsuario servicioDAOUsuario;
+public class UsuarioServlet {
  
  @RequestMapping("registro.do")
  public void registro(HttpServletRequest request,HttpServletResponse response) throws IOException {

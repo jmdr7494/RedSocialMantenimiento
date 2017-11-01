@@ -6,6 +6,7 @@
   <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>src</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -72,8 +73,6 @@
     <artifactId>bson</artifactId>
     <version>3.5.0</version>
 </dependency>
-
-
 	<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 	<dependency>
     	<groupId>commons-codec</groupId>

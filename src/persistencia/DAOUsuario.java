@@ -1,14 +1,10 @@
 package persistencia;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import org.bson.Document;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.MongoClientURI;
 
 import auxiliares.Utilidades;
 import modelo.Usuario;
@@ -16,7 +12,6 @@ import modelo.Usuario;
 @Component
 public class DAOUsuario {
 
-    private List lista = new LinkedList();
     
 	public static void insert(Usuario usuario) {
 	/**	BsonDocument bso=new BsonDocument();

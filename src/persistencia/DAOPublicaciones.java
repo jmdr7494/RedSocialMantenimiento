@@ -4,7 +4,6 @@ package persistencia;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Vector;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -84,7 +83,7 @@ public class DAOPublicaciones {
 		return result;
 	}
 	
-	public static ArrayList selectAll () {
+	public static ArrayList<Publicacion> selectAll () {
 		
 		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
 		MongoBroker broker = MongoBroker.get();
