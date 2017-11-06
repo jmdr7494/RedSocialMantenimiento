@@ -7,6 +7,7 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
+
 public class MongoBroker {
 
 	private static MongoBroker yo;

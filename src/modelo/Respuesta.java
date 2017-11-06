@@ -1,5 +1,6 @@
 package modelo;
 
+
 public class Respuesta {
 
 	private String email;

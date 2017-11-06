@@ -78,8 +78,7 @@
 		<br>
 	</div>
 	<div class="row" id="div_publicaciones">
-		
-					
+			
 	</div>
 	
 </div>

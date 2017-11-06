@@ -1,5 +1,6 @@
 package modelo;
 
+
 public class Publicacion {
 	
 	private String idPublicacion;

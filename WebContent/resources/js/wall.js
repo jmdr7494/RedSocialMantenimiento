@@ -200,7 +200,6 @@ function cargarRespuestas(){
 		});
 	}
 }
-
 function cargarLikes(){
 	
 	for(i=0;i<arrayIdPublicaciones.length;i++){

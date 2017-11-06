@@ -106,4 +106,3 @@ function showModal(id){
 	$('#edit-id').val(id);
 	
 }
-

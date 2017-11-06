@@ -94,8 +94,7 @@
         		<textarea id="edit-mensaje" rows="5" cols="70" name="mensaje"></textarea>
         		<input type="hidden" id="edit-name" name="edit-name" value="">
         		<input type="hidden" id="edit-email" name="edit-email" value="">
-        		<input type="hidden" id="edit-id" name="edit-id" value="">
-        	
+        		<input type="hidden" id="edit-id" name="edit-id" value="">	
       </div>
       <div class="modal-footer">
       	 <button type="button" id="sendForm" class="btn btn-primary" data-dismiss="modal">Guardar</button>

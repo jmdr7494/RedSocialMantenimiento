@@ -15,8 +15,6 @@ import com.mongodb.client.MongoCursor;
 
 import modelo.Publicacion;
 
-
-
 public class DAOPublicaciones {
 
     

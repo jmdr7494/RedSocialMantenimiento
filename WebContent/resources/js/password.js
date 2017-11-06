@@ -682,7 +682,6 @@ var methods = {};
         } else {
             $.error("Method " +  method + " does not exist on jQuery.pwstrength-bootstrap");
         }
-
         return result;
     };
 }(jQuery, methods));
