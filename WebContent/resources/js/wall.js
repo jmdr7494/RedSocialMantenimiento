@@ -212,9 +212,9 @@ function cargarLikes(){
 						 if (json.length>0){
 							 $('#numberLike-'+json[0].idPublicacion).append(" ("+json.length+")"); 
 						 }
-					for (i=0;i<json.length;i++){
-						if (sessionStorage.getItem("email")==json[i].emailUsuario){
-							 $('#numberLike-'+json[i].idPublicacion).css('border-color','blue'); 
+					for (j=0;j<json.length;j++){
+						if (sessionStorage.getItem("email")==json[j].emailUsuario){
+							 $('#numberLike-'+json[j].idPublicacion).css('border-color','blue'); 
 						}
 					}
 		});
