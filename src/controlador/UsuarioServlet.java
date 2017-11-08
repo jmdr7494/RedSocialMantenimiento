@@ -31,6 +31,11 @@ public class UsuarioServlet {
 private DAOUsuario servicioDAOUsuario;
 
 
+private final static String emaill = "email";
+private final static String status = "status";
+private final static String ko = "ko";
+private final static String ok = "ok";
+
 @RequestMapping("deleteuser.do")
 public void deleteuser(HttpServletRequest request,HttpServletResponse response) throws IOException {
 	
@@ -51,7 +56,7 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
  public void registro(HttpServletRequest request,HttpServletResponse response) throws IOException {
 	
 	 String name = request.getParameter("username");
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String password = request.getParameter("password");
 	 
 	 Usuario user = new Usuario(name, email, password);
@@ -59,11 +64,11 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
 	 
 	 JSONObject json = new JSONObject();
 	 if (usuario!=null) {
-		 json.put("status", "ok");
+		 json.put(status, ok);
 		 json.put("name", usuario.getNombre());
-		 json.put("email", usuario.getemail());
+		 json.put(emaill, usuario.getemail());
 	 }else {
-		 json.put("status", "ko");
+		 json.put(status, ko);
 		 json.put("message", "No se ha podido loguear");
 	 }
 	
@@ -101,7 +106,7 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
  public void registroadmin(HttpServletRequest request,HttpServletResponse response) throws IOException {
 	
 	 String name = request.getParameter("nombre");
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String password = request.getParameter("pwd");
 	 System.out.println("nombre:"+name+"email:"+email+"pass:"+password);
 	 Usuario user = new Usuario(name, email, password);
@@ -109,11 +114,11 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
 	
 	 JSONObject json = new JSONObject();
 	 if (usuario!=null) {
-		 json.put("status", "ok");
+		 json.put(status, ok);
 		 json.put("name", usuario.getNombre());
-		 json.put("email", usuario.getemail());
+		 json.put(emaill, usuario.getemail());
 	 }else {
-		 json.put("status", "ko");
+		 json.put(status, ko);
 		 json.put("message", "No se ha podido loguear");
 	 }
 	 
@@ -129,7 +134,7 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
  @RequestMapping("consultar.do")
  public void consultar(HttpServletRequest request,HttpServletResponse response) throws IOException {
 	
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String result ="";
 	 result=DAOUsuario.selectEmail(email);
 	 response.getWriter().write(result); 
@@ -139,18 +144,18 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
  @RequestMapping("login.do")
  public void login(HttpServletRequest request,HttpServletResponse response) throws Exception {
 	
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String pwd = request.getParameter("password");
 	 Usuario result=DAOUsuario.select(email,pwd); 
 	 
 	 
 	JSONObject json = new JSONObject();
 	 if (result!=null) {
-		 json.put("status", "ok");
+		 json.put(status, ok);
 		 json.put("name", result.getNombre());
-		 json.put("email", result.getemail());
+		 json.put(emaill, result.getemail());
 	 }else {
-		 json.put("status", "ko");
+		 json.put(status, ko);
 		 json.put("message", "No se ha podido loguear");
 	 }
 	
@@ -160,11 +165,11 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
  @RequestMapping("forgotpassword.do")
  public void forgotpassword(HttpServletRequest request,HttpServletResponse response) throws JSONException, Exception {
 	
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String result ="";
 	 result=DAOUsuario.selectEmail(email);
 	 
-	 if (result=="ko") {
+	 if (result==ko) {
 		
 			Usuario user = DAOUsuario.selectSinPWD(email);
 			SendMail send = new SendMail();
@@ -180,7 +185,7 @@ public void usuarios(HttpServletRequest request,HttpServletResponse response) th
 	 
 	 
 	 String nombre = request.getParameter("nombre");
-	 String email = request.getParameter("email");
+	 String email = request.getParameter(emaill);
 	 String id_usuario = request.getParameter("id");
 	 String pwd= Utilidades.Encriptar(request.getParameter("pwd"));
 	 

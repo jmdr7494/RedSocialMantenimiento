@@ -21,20 +21,29 @@ import modelo.Publicacion;
  */
 public class DAOPublicaciones {
 
-    
+	private final static String name = "name";
+	private final static String emaill = "email";
+	private final static String fechaa= "fecha";
+	private final static String sms = "mensaje";
+	private final static String img = "imagen";
+	private final static String pub = "Publicaciones";
+	private final static String idd = "_id";
+	private final static String iid = "id";
+	private final static String idp = "idPublicacion";
+	
 	public static ObjectId insert(Publicacion publicacion) {
 		Document doc=new Document();
-		doc.append("name", publicacion.getNombre());
-		doc.append("email", publicacion.getEmail());
-		doc.append("fecha", publicacion.getFecha());
-		doc.append("mensaje", publicacion.getMensaje());
-		doc.append("imagen", publicacion.getImagen());
+		doc.append(name, publicacion.getNombre());
+		doc.append(emaill, publicacion.getEmail());
+		doc.append(fechaa, publicacion.getFecha());
+		doc.append(sms, publicacion.getMensaje());
+		doc.append(img, publicacion.getImagen());
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
+		MongoCollection<Document>publicaciones=broker.getCollection(pub);
 		publicaciones.insertOne(doc);
 		
-		 ObjectId id = (ObjectId)doc.get( "_id" );
+		 ObjectId id = (ObjectId)doc.get( idd );
 		
 		 return id;
 	}
@@ -56,14 +65,14 @@ public class DAOPublicaciones {
 	     String dayS = (day<10)?"0"+day:""+day;
 	     fechaPublicacion = dayS+"/"+monthS+"/"+year+" "+hour+":"+minute;
 		
-		Document filter = new Document("_id", new ObjectId(publicacion.getIdPublicacion()));
+		Document filter = new Document(idd, new ObjectId(publicacion.getIdPublicacion()));
 		Document newValue = new Document();
-		newValue.append("mensaje", publicacion.getMensaje());
-		newValue.append("fecha", fechaPublicacion);
+		newValue.append(sms, publicacion.getMensaje());
+		newValue.append(fechaa, fechaPublicacion);
 		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
+		MongoCollection<Document>publicaciones=broker.getCollection(pub);
 		publicaciones.updateOne(filter, updateOperationDocument);
 		
 	}
@@ -71,16 +80,16 @@ public class DAOPublicaciones {
 	public static Publicacion select(String idPublicacion) throws Exception {
 		Publicacion result = null;
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
+		MongoCollection<Document> publicaciones=broker.getCollection(pub);
 		Document criterio=new Document();
-		criterio.append("id", idPublicacion);
+		criterio.append(iid, idPublicacion);
 		
 		FindIterable<Document> resultado=publicaciones.find(criterio);
 		Document publicacion=resultado.first();
 		
 		if (publicacion!=null) {
-			result = new Publicacion(publicacion.getString("idPublicacion"), publicacion.getString("email"), 
-			publicacion.getString("nombre"), publicacion.getString("fecha"), publicacion.getString("imagen"), publicacion.getString("mensaje"));
+			result = new Publicacion(publicacion.getString(idp), publicacion.getString(emaill), 
+			publicacion.getString(name), publicacion.getString(fechaa), publicacion.getString(img), publicacion.getString(sms));
 		}
 		
 		return result;
@@ -90,14 +99,14 @@ public class DAOPublicaciones {
 		
 		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
-		FindIterable<Document> it = publicaciones.find().sort(new BasicDBObject("_id",-1));
+		MongoCollection<Document> publicaciones=broker.getCollection(pub);
+		FindIterable<Document> it = publicaciones.find().sort(new BasicDBObject(idd,-1));
 		MongoCursor<Document> cursor = it.iterator();
 	
 		while (cursor.hasNext()) {
 			Document doc = cursor.next();
-			ObjectId id = (ObjectId)doc.get( "_id" );
-			Publicacion publi = new Publicacion(id.toString(), doc.getString("email"), doc.getString("name"), doc.getString("fecha"), doc.getString("imagen"), doc.getString("mensaje"));
+			ObjectId id = (ObjectId)doc.get( idd );
+			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), doc.getString(img), doc.getString(sms));
 			result.add(publi);
 		}
 
@@ -107,8 +116,8 @@ public class DAOPublicaciones {
 	public static void delete(String id) {
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>publicaciones=broker.getCollection("Publicaciones");
-		publicaciones.deleteOne(new Document("_id", new ObjectId(id)));
+		MongoCollection<Document>publicaciones=broker.getCollection(pub);
+		publicaciones.deleteOne(new Document(idd, new ObjectId(id)));
 		
 	}
 	

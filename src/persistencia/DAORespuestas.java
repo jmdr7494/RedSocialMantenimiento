@@ -19,19 +19,28 @@ import modelo.Respuesta;
  */
 public class DAORespuestas {
 
+	private final static String nombre = "nombre";
+	private final static String emaill = "email";
+	private final static String fechaa= "fecha";
+	private final static String sms = "mensaje";
+	private final static String idp = "idPublicacion";
+	private final static String rtas = "Respuestas";
+	private final static String idd = "_id";
+	
+	
 	public static ObjectId insert(Respuesta respuesta) {
 		Document doc=new Document();
-		doc.append("email", respuesta.getEmail());
-		doc.append("fecha", respuesta.getFecha());
-		doc.append("idPublicacion", respuesta.getIdPublicacion());
-		doc.append("mensaje", respuesta.getMensaje());
-		doc.append("nombre", respuesta.getNombre());
+		doc.append(emaill, respuesta.getEmail());
+		doc.append(fechaa, respuesta.getFecha());
+		doc.append(idp, respuesta.getIdPublicacion());
+		doc.append(sms, respuesta.getMensaje());
+		doc.append(nombre, respuesta.getNombre());
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>publicaciones=broker.getCollection("Respuestas");
+		MongoCollection<Document>publicaciones=broker.getCollection(rtas);
 		publicaciones.insertOne(doc);
 		
-		 ObjectId id = (ObjectId)doc.get( "_id" );
+		 ObjectId id = (ObjectId)doc.get( idd );
 		
 		 return id;
 	}
@@ -40,16 +49,16 @@ public class DAORespuestas {
 		
 		ArrayList<Respuesta> result = new ArrayList<Respuesta>();
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> publicaciones=broker.getCollection("Respuestas");
+		MongoCollection<Document> publicaciones=broker.getCollection(rtas);
 		Document criterio=new Document();
-		criterio.append("idPublicacion", idPublicacion);
+		criterio.append(idp, idPublicacion);
 		
 		FindIterable<Document> resultado=publicaciones.find(criterio);
 		MongoCursor<Document> cursor = resultado.iterator();
 		
 		while (cursor.hasNext()) {
 			Document doc = cursor.next();
-			Respuesta resp = new Respuesta(doc.getString("email"), doc.getString("fecha"), doc.getString("idPublicacion"), doc.getString("mensaje"), doc.getString("nombre"));
+			Respuesta resp = new Respuesta(doc.getString(emaill), doc.getString(fechaa), doc.getString(idp), doc.getString(sms), doc.getString(nombre));
 			result.add(resp);
 		}
 				
@@ -59,9 +68,9 @@ public class DAORespuestas {
 public static void delete(String id) {
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>respuestas=broker.getCollection("Respuestas");
+		MongoCollection<Document>respuestas=broker.getCollection(rtas);
 		Document criterio=new Document();
-		criterio.append("idPublicacion", id);
+		criterio.append(idp, id);
 		respuestas.deleteMany(criterio);
 		
 	}

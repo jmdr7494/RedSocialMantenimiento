@@ -20,20 +20,30 @@ import modelo.MensajesPrivados;
  */
 public class DAOMensajesPrivados {
 	
+	private final static String idmensajee = "idmensaje";
+	private final static String fechaa = "fecha";
+	private final static String dto = "destinatario";
+	private final static String rte = "emisor";
+	private final static String edto = "emaildestinatario";
+	private final static String erte = "emailemisor";
+	private final static String sms = "mensaje";
+	private final static String mp = "MensajesPrivados";
+	private final static String idd = "_id";
+	
 	public static ObjectId insert(MensajesPrivados msg) {
 		Document doc=new Document();
-		doc.append("idmensaje", msg.getIdmensaje());
-		doc.append("fecha", msg.getFecha());
-		doc.append("destinatario", msg.getDestinatario());
-		doc.append("emisor", msg.getEmisor());
-		doc.append("mensaje", msg.getMensaje());
+		doc.append(idmensajee, msg.getIdmensaje());
+		doc.append(fechaa, msg.getFecha());
+		doc.append(dto, msg.getDestinatario());
+		doc.append(rte, msg.getEmisor());
+		doc.append(sms, msg.getMensaje());
 		
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>mensajes=broker.getCollection("MensajesPrivados");
+		MongoCollection<Document>mensajes=broker.getCollection(mp);
 		mensajes.insertOne(doc);
 		
-		 ObjectId id = (ObjectId)doc.get( "_id" );
+		 ObjectId id = (ObjectId)doc.get( idd );
 		
 		 return id;
 	}
@@ -55,14 +65,14 @@ public class DAOMensajesPrivados {
 	     String dayS = (day<10)?"0"+day:""+day;
 	     fechaMensaje = dayS+"/"+monthS+"/"+year+" "+hour+":"+minute;
 		
-		Document filter = new Document("_id", new ObjectId(msg.getIdmensaje()));
+		Document filter = new Document(idd, new ObjectId(msg.getIdmensaje()));
 		Document newValue = new Document();
-		newValue.append("mensaje", msg.getMensaje());
-		newValue.append("fecha", fechaMensaje);
+		newValue.append(sms, msg.getMensaje());
+		newValue.append(fechaa, fechaMensaje);
 		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>mensajes=broker.getCollection("MensajesPrivados");
+		MongoCollection<Document>mensajes=broker.getCollection(mp);
 		mensajes.updateOne(filter, updateOperationDocument);
 		
 	}
@@ -70,16 +80,16 @@ public class DAOMensajesPrivados {
 	public static MensajesPrivados select(String idmensaje) throws Exception {
 		MensajesPrivados result = null;
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> mensajes=broker.getCollection("MensajesPrivados");
+		MongoCollection<Document> mensajes=broker.getCollection(mp);
 		Document criterio=new Document();
-		criterio.append("id", idmensaje);
+		criterio.append(idd, idmensaje);
 		
 		FindIterable<Document> resultado=mensajes.find(criterio);
 		Document mensaje=resultado.first();
 		
 		if (mensaje!=null) {
-			result = new MensajesPrivados(mensaje.getString("idmensaje"), mensaje.getString("fecha"), 
-					mensaje.getString("emaildestinatario"), mensaje.getString("emailemisor"), mensaje.getString("mensaje"));
+			result = new MensajesPrivados(mensaje.getString(idmensajee), mensaje.getString(fechaa), 
+					mensaje.getString(edto), mensaje.getString(erte), mensaje.getString(sms));
 			
 		}
 		
@@ -90,14 +100,14 @@ public class DAOMensajesPrivados {
 		
 		ArrayList<MensajesPrivados> result = new ArrayList<MensajesPrivados>();
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> mensajes=broker.getCollection("MensajesPrivados");
+		MongoCollection<Document> mensajes=broker.getCollection(mp);
 		FindIterable<Document> it = mensajes.find();
 		MongoCursor<Document> cursor = it.iterator();
 	
 		while (cursor.hasNext()) {
 			Document doc = cursor.next();
-			ObjectId id = (ObjectId)doc.get( "_id" );
-			MensajesPrivados msg = new MensajesPrivados(id.toString(), doc.getString("fecha"), doc.getString("destinatario"), doc.getString("emisor"), doc.getString("mensaje"));
+			ObjectId id = (ObjectId)doc.get( idd );
+			MensajesPrivados msg = new MensajesPrivados(id.toString(), doc.getString(fechaa), doc.getString(dto), doc.getString(rte), doc.getString(sms));
 			result.add(msg);
 		}
 
@@ -108,15 +118,15 @@ public class DAOMensajesPrivados {
 		
 		ArrayList<MensajesPrivados> result = new ArrayList<MensajesPrivados>();
 		MongoBroker broker = MongoBroker.get();
-		MongoCollection<Document> mensajes=broker.getCollection("MensajesPrivados");
+		MongoCollection<Document> mensajes=broker.getCollection(mp);
 		FindIterable<Document> it = mensajes.find();
 		MongoCursor<Document> cursor = it.iterator();
 	
 		while (cursor.hasNext()) {
 			Document doc = cursor.next();
-			ObjectId id = (ObjectId)doc.get( "_id" );
-			MensajesPrivados msg = new MensajesPrivados(id.toString(), doc.getString("fecha"), doc.getString("destinatario"), doc.getString("emisor"), doc.getString("mensaje"));
-			if(doc.getString("emaildestinatario")==emailUser)
+			ObjectId id = (ObjectId)doc.get( idd );
+			MensajesPrivados msg = new MensajesPrivados(id.toString(), doc.getString(fechaa), doc.getString(dto), doc.getString(rte), doc.getString(sms));
+			if(doc.getString(edto)==emailUser)
 				result.add(msg);
 		}
 
@@ -126,8 +136,8 @@ public class DAOMensajesPrivados {
 	public static void delete(String id) {
 		
 		MongoBroker broker= MongoBroker.get();
-		MongoCollection<Document>mensajes=broker.getCollection("MensajesPrivados");
-		mensajes.deleteOne(new Document("_id", new ObjectId(id)));
+		MongoCollection<Document>mensajes=broker.getCollection(mp);
+		mensajes.deleteOne(new Document(idd, new ObjectId(id)));
 		
 	}
 
