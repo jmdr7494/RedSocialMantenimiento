@@ -18,7 +18,7 @@ public class Utilidades {
  
         try {
  
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
  
@@ -43,7 +43,7 @@ public class Utilidades {
  
         try {
             byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
-            MessageDigest md = MessageDigest.getInstance("MD5");
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
             SecretKey key = new SecretKeySpec(keyBytes, "DESede");
