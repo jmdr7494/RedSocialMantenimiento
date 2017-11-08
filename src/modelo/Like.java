@@ -1,6 +1,10 @@
 package modelo;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class Like {
   private String emailUsuario;
   private String idPublicacion;

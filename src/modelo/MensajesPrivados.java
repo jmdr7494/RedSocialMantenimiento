@@ -1,6 +1,10 @@
 package modelo;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class MensajesPrivados {
 	private String idmensaje;
 	private String fecha;

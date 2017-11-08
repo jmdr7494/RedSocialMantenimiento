@@ -10,7 +10,11 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
 import modelo.Like;
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class DAOLike {
   
   public static void insert(Like like) throws Exception {

@@ -1,6 +1,10 @@
 package modelo;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class Respuesta {
 
 	private String email;

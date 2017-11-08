@@ -14,7 +14,11 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
 import modelo.Publicacion;
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class DAOPublicaciones {
 
     

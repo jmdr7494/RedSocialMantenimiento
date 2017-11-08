@@ -1,6 +1,10 @@
 package modelo;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class Usuario {
 	private String idUsuario;
 	private String nombre;

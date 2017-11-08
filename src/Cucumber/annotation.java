@@ -11,7 +11,11 @@ import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 import modelo.Usuario;
 import persistencia.DAOUsuario;
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class annotation {
 	
 	private DAOUsuario usuario=null;

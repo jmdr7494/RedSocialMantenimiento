@@ -19,7 +19,11 @@ import com.google.gson.Gson;
 import modelo.MensajesPrivados;
 import persistencia.DAOMensajesPrivados;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Controller
 public class MensajesPrivadosServlet {
 

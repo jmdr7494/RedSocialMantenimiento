@@ -12,7 +12,11 @@ import com.google.gson.Gson;
 import modelo.Like;
 import persistencia.DAOLike;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Controller
 public class LikeServlet {
 

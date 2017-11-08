@@ -13,7 +13,11 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
 import modelo.MensajesPrivados;
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class DAOMensajesPrivados {
 	
 	public static ObjectId insert(MensajesPrivados msg) {

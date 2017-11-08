@@ -17,7 +17,11 @@ import com.google.gson.Gson;
 import modelo.Respuesta;
 import persistencia.DAORespuestas;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Controller
 public class RespuestasServlet {
 

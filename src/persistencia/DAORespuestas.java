@@ -12,7 +12,11 @@ import com.mongodb.client.MongoCursor;
 
 import modelo.Respuesta;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class DAORespuestas {
 
 	public static ObjectId insert(Respuesta respuesta) {

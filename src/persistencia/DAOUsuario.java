@@ -13,7 +13,11 @@ import com.mongodb.client.MongoCursor;
 import auxiliares.Utilidades;
 import modelo.Usuario;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Component
 public class DAOUsuario {
 	

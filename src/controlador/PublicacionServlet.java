@@ -23,7 +23,11 @@ import persistencia.DAOLike;
 import persistencia.DAOPublicaciones;
 import persistencia.DAORespuestas;
 
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Controller
 public class PublicacionServlet {
 
