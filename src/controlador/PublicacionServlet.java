@@ -5,30 +5,32 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.GregorianCalendar;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.google.gson.Gson;
 
+import modelo.Like;
 import modelo.Publicacion;
+import modelo.Respuesta;
+import persistencia.DAOLike;
 import persistencia.DAOPublicaciones;
+import persistencia.DAORespuestas;
 
+/**
+ * 
+ * @author Usuario
+ *
+ */
 @Controller
 public class PublicacionServlet {
 
- @Autowired
- private DAOPublicaciones servicioDAOPublicacion;
 
  @RequestMapping("publicar.do")
 
@@ -38,7 +40,7 @@ public class PublicacionServlet {
 	 String email = request.getParameter("email");
 	 String mensaje = request.getParameter("mensaje");
  
-	 // Montamos la fecha actual para saber cuando se hizo la publicación.
+	 // Montamos la fecha actual para saber cuando se hizo la publicacion.
 	 Calendar fecha = new GregorianCalendar();
 	 String fechaPublicacion = "";
      int year = fecha.get(Calendar.YEAR);
@@ -75,10 +77,17 @@ public class PublicacionServlet {
  }
  
  @RequestMapping("deletepubli.do")
- public void deletepubli(HttpServletRequest request,HttpServletResponse response) throws IOException {
+ public void deletepubli(HttpServletRequest request,HttpServletResponse response) throws Exception {
 	
 	 String id_publicacion = request.getParameter("id");
-	 DAOPublicaciones.delete(id_publicacion);
+	 DAORespuestas.delete(id_publicacion);
+	 DAOLike.deleteAll(id_publicacion);
+	 ArrayList<Like> likes = DAOLike.select(id_publicacion);
+	 ArrayList<Respuesta> respuestas = DAORespuestas.select(id_publicacion);
+	 if (respuestas.size()==0 && likes.size()==0) {
+		 DAOPublicaciones.delete(id_publicacion); 
+	 }
+	 
 
  }
  
@@ -90,7 +99,7 @@ public class PublicacionServlet {
 	 String idPublicacion = request.getParameter("edit-id");
 	 String mensaje = request.getParameter("mensaje");
 	 
-	// Montamos la fecha actual para saber cuando se hizo la publicación.
+	// Montamos la fecha actual para saber cuando se hizo la publicacion.
 	 Calendar fecha = new GregorianCalendar();
 	 String fechaPublicacion = "";
      int year = fecha.get(Calendar.YEAR);

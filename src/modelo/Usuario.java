@@ -1,26 +1,48 @@
 package modelo;
 
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class Usuario {
-	
+	private String idUsuario;
 	private String nombre;
 	private String pwd;
-	private String direccion;
+	private String email;
 	
 	
 	public Usuario() {
 		
 	}
+	
+	public Usuario(String idUsuario,String nombre, String email, String pwd) {
+		this.idUsuario=idUsuario;
+		this.nombre=nombre;
+		this.email=email;
+		this.pwd=pwd;
+	}
+	
 
-	public Usuario(String nombre, String direccion, String pwd) {
-		setNombre(nombre);
-		setDireccion(direccion);
-		setPwd(pwd);
+	public Usuario(String nombre, String email, String pwd) {
+		
+		this.nombre=nombre;
+		this.email=email;
+		this.pwd=pwd;
 	}
 
 	public Usuario(String nombre) {
 		setNombre(nombre);
 	}
-
+	
+	public String getid() {
+		return idUsuario;
+	}
+	
+	public void setid(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -29,12 +51,12 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getemail() {
+		return email;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setemail(String direccion) {
+		this.email = direccion;
 	}
 	
 	public String getPwd() {
@@ -47,7 +69,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", pwd=" + pwd + ", direccion=" + direccion + "]";
+		return "Usuario [nombre=" + nombre + ", pwd=" + pwd + ", email=" + email + "]";
 	}
 
 

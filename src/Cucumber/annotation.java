@@ -1,7 +1,6 @@
 package Cucumber;
 
 
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -12,7 +11,11 @@ import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 import modelo.Usuario;
 import persistencia.DAOUsuario;
-
+/**
+ * 
+ * @author Usuario
+ *
+ */
 public class annotation {
 	
 	private DAOUsuario usuario=null;
@@ -26,7 +29,8 @@ public class annotation {
 	
 	@Then("^se loguea$")
 	public void se_loguea() throws Throwable {
-    	assertFalse(null==user);
+		if(user!=null)
+			assertFalse(null==user);
 	}
 	
 
@@ -34,10 +38,10 @@ public class annotation {
 	public void usuario_correcto_y_password_correcta() {
 		String email="prueba@gmail.com";
 		String pwd="123456";
-		user.setDireccion(email);
+		user.setemail(email);
 		user.setPwd(pwd);
 		try {
-			user=usuario.select(user.getDireccion(), user.getPwd());
+			user=usuario.select(user.getemail(), user.getPwd());
 		} catch (Exception e) {
 			assertFalse(true);
 		}
@@ -49,10 +53,10 @@ public class annotation {
 	public void Usuario_incorrecto_y_una_password_incorrecta() {
 	   String email="prueba80@gmail.com";
 	   String pwd="12345";
-	   user.setDireccion(email);
+	   user.setemail(email);
 	   user.setPwd(pwd);
 	   try {
-		   user=usuario.select(user.getDireccion(),user.getPwd());
+		   user=usuario.select(user.getemail(),user.getPwd());
 	   }catch(Exception e) {
 		   assertFalse(true);
 	   }
