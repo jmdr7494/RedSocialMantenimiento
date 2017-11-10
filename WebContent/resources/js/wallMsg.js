@@ -7,7 +7,8 @@ $( document ).ready(function() {
 		
 		if(_status != "ok"){
 			
-			alert("No ha iniciado sesion");
+			var msge= "No ha iniciado sesion";
+			alert(msge);
 			location.href ="index.html";
 		}
 		

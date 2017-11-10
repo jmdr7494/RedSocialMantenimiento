@@ -6,8 +6,8 @@ $( document ).ready(function() {
 		var _status = sessionStorage.getItem("status"); 
 		//alert("wall.js SESSION ln10--> name: "+_name+" email: "+_email+" status: "+_status);
 		if(_status != "ok"){
-			//ERROR DE ESTADO
-			alert("No ha iniciado sesion");
+			var mesg="No ha iniciado sesion";
+			alert(mesg);
 			location.href ="index.html";
 		}
 		//$('#menuNombre').val();

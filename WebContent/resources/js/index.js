@@ -121,7 +121,8 @@ function register(){
 		 if(data=='ok'){
 	
 			 if (email=='' || username==''){
-				 alert("No puedes dejar vacio el usuario o la contraseña");
+				 var mensaje= "No puedes dejar vacio el usuario o la contraseña";
+				 alert(mensaje);
 			 }else{
 				 $.post( "registro.do",
 						 { email: email, password: password , username:username, 'confirm-password': password2}, 		 
