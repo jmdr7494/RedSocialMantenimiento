@@ -45,7 +45,7 @@ function cargarPublicaciones(){
 	
 	$.post( "publicaciones.do", function( data ) {
 		var json = JSON.parse(data);
-		for(i=0;i<json.length;i++){
+		for(var i=0;i<json.length;i++){
 			arrayIdPublicaciones.push(json[i].idPublicacion);
 			var html = "<div class='col-md-4 col-md-offset-4'>";
 			html += "<div class='panel panel-default panel-google-plus'>"; 
@@ -88,7 +88,7 @@ function cargarPublicaciones(){
 		}
 		   $('.panel-google-plus > .panel-footer > .input-placeholder, .panel-google-plus > .panel-google-plus-comment > .panel-google-plus-textarea > button[type="reset"]').on('click', function(event) {
 		        var $panel = $(this).closest('.panel-google-plus');
-		            $comment = $panel.find('.panel-google-plus-comment');
+		        var $comment = $panel.find('.panel-google-plus-comment');
 		            
 		        $comment.find('.btn:first-child').addClass('disabled');
 		        $comment.find('textarea').val('');
@@ -182,13 +182,13 @@ function sendRespuesta(id){
 
 function cargarRespuestas(){
 	
-	for(i=0;i<arrayIdPublicaciones.length;i++){
+	for(var i=0;i<arrayIdPublicaciones.length;i++){
 		var html = "";
 		$.post( "respuestas.do",
 				  { idPublicacion: arrayIdPublicaciones[i],
 				  }, function(data) {
 					 var json = JSON.parse(data);
-					for (j=0;j<json.length;j++){
+					for (var j=0;j<json.length;j++){
 						
 						 html += "<div class='panel panel-default'>";
 						 html += "<div class='panel-heading'><p>"+json[j].nombre+" respondió el <span style='float:right;'>"+json[j].fecha+"</span></p></div>";
@@ -202,7 +202,7 @@ function cargarRespuestas(){
 }
 function cargarLikes(){
 	
-	for(i=0;i<arrayIdPublicaciones.length;i++){
+	for(var i=0;i<arrayIdPublicaciones.length;i++){
 		var html = "";
 		$.post( "likes.do",
 				  { idPublicacion: arrayIdPublicaciones[i],
@@ -212,7 +212,7 @@ function cargarLikes(){
 						 if (json.length>0){
 							 $('#numberLike-'+json[0].idPublicacion).append(" ("+json.length+")"); 
 						 }
-					for (j=0;j<json.length;j++){
+					for (var j=0;j<json.length;j++){
 						if (sessionStorage.getItem("email")==json[j].emailUsuario){
 							 $('#numberLike-'+json[j].idPublicacion).css('border-color','blue'); 
 						}

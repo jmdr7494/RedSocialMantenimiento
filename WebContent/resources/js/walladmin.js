@@ -43,7 +43,7 @@ function cargarUsuarios(){
 	
 	$.post( "usuarios.do", function( data ) {
 		var json = JSON.parse(data);
-		for(i=0;i<json.length;i++){
+		for(var i=0;i<json.length;i++){
 			var html = "<div class='col-md-4 col-md-offset-4'>";
 			html += "<div class='panel panel-default panel-google-plus'>"; 
             html += "<div class='dropdown'>";

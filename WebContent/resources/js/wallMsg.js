@@ -46,7 +46,7 @@ function cargarMensajes(){
 	$.post( "mensajes.do", function( data ) {
 		
 		var json = JSON.parse(data);
-		for(i=0;i<json.length;i++){
+		for(var i=0;i<json.length;i++){
 			if (sessionStorage.getItem("email")==json[i].emaildestinatario || sessionStorage.getItem("email")=="admin@hotmail.com") {
 			var html = "<div class='col-md-6 col-md-offset-4'>";
 			html += "<div class='row'>";
