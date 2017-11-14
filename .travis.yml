@@ -8,7 +8,7 @@ deploy:
   secure: 00b2aadb-407c-47d2-a761-c09a6a8c0008
  app: redsocial1718v2
  on:
-  repo: AlbaAM/redSocial
+  repo: alexsolanero/redSocial
   branch: master
   
 notifications:
