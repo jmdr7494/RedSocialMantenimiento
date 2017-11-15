@@ -133,20 +133,23 @@ public static ArrayList<Usuario> selectAll () {
 
 		return result;
 	}
-public static ObjectId insert(Usuario usuario) {
+public static Usuario insert(Usuario usuario) {
 	Document doc=new Document();
 	doc.append(nombre, usuario.getNombre());
 	doc.append(emaill, usuario.getemail());
 	doc.append(pwrd, usuario.getPwd());
 	
-	
 	MongoBroker broker= MongoBroker.get();
 	MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
 	usuarios.insertOne(doc);
 	
-	 ObjectId id = (ObjectId)doc.get( idd );
+	ObjectId id = (ObjectId)doc.get( idd );
+	 Usuario result = null;
+	 if (id!=null) {
+		 result = usuario;
+	 }
 	
-	 return id;
+	 return result;
 }
 
 public static void update (Usuario usuario) throws Exception {
