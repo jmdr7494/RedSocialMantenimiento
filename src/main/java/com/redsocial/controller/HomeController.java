@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
 
@@ -28,21 +29,47 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		//logger.info("Welcome home! The client locale is {}.", locale);
 		
 		return "home";
 	}
-	@SuppressWarnings("unused")
+	
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response)throws Exception{
 		String email = request.getParameter("username");
 		String password = request.getParameter("password");
-		
+		ModelAndView modelAndView;
 		Usuario user = DAOUsuario.select(email, password);
-		ModelAndView modelAndView = new ModelAndView("wall");
-		modelAndView.addObject("nombre", "prueba");
+		if (user!=null) {
+			modelAndView = new ModelAndView("redirect:wall");
+			modelAndView.addObject("user", user);
+		}else {
+			modelAndView = new ModelAndView("home");
+			modelAndView.addObject("message", "No se puede loguear");
+		}
 		
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="registrar", method = RequestMethod.POST)
+	public ModelAndView registrar(HttpServletRequest request, HttpServletResponse response)throws Exception{
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		String username = request.getParameter("username");
+		
+		Usuario usuario = new Usuario(username, email, Utilidades.Encriptar(password));
+		ModelAndView modelAndView = null;
+		Usuario usuarioInsertado = DAOUsuario.insert(usuario);
+		
+		if (usuarioInsertado!=null) {
+			modelAndView = new ModelAndView("wall");
+			modelAndView.addObject("user", usuarioInsertado);
+		}else {
+			modelAndView = new ModelAndView("home");
+			modelAndView.addObject("message", "No se ha podido registrar");
+		}
+		
+		return modelAndView;
+	}
+	
 	
 }
