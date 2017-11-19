@@ -6,7 +6,7 @@ deploy:
  provider: heroku
  api_key:
   secure: 00b2aadb-407c-47d2-a761-c09a6a8c0008
- app: redsocial1718
+ app: redsocial1718v2
  on:
   repo: alexsolanero/redSocial
   branch: master
