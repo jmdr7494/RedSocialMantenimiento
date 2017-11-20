@@ -45,21 +45,21 @@ formatter.match({
   "location": "annotation.Un_usuario_y_password()"
 });
 formatter.result({
-  "duration": 113331382,
+  "duration": 103807981,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.usuario_correcto_y_password_correcta()"
 });
 formatter.result({
-  "duration": 4322406680,
+  "duration": 3078482675,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_loguea()"
 });
 formatter.result({
-  "duration": 5383401,
+  "duration": 9951557,
   "status": "passed"
 });
 formatter.scenario({
@@ -95,21 +95,21 @@ formatter.match({
   "location": "annotation.Un_usuario_y_password()"
 });
 formatter.result({
-  "duration": 40198,
+  "duration": 16221,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.Usuario_incorrecto_y_una_password_incorrecta()"
 });
 formatter.result({
-  "duration": 175223383,
+  "duration": 124939614,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_loguea()"
 });
 formatter.result({
-  "duration": 69465,
+  "duration": 20805,
   "status": "passed"
 });
 formatter.scenario({
@@ -145,21 +145,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 31736,
+  "duration": 20452,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.pwduno_es_igual_a_pwddos()"
 });
 formatter.result({
-  "duration": 219014154,
+  "duration": 180016630,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_registra()"
 });
 formatter.result({
-  "duration": 49366,
+  "duration": 38435,
   "status": "passed"
 });
 formatter.scenario({
@@ -195,21 +195,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 40551,
+  "duration": 33851,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.pwduno_es_distinto_a_pwddos()"
 });
 formatter.result({
-  "duration": 53245,
+  "duration": 42667,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_registra()"
 });
 formatter.result({
-  "duration": 52187,
+  "duration": 31383,
   "status": "passed"
 });
 formatter.scenario({
@@ -245,21 +245,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 24331,
+  "duration": 32441,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.email_ya_esta_en_la_base_de_datos()"
 });
 formatter.result({
-  "duration": 136546965,
+  "duration": 124468166,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_registra()"
 });
 formatter.result({
-  "duration": 57829,
+  "duration": 49366,
   "status": "passed"
 });
 formatter.scenario({
@@ -295,28 +295,28 @@ formatter.match({
   "location": "annotation.Un_idUsuario()"
 });
 formatter.result({
-  "duration": 82512,
+  "duration": 78634,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.datos_correctos()"
 });
 formatter.result({
-  "duration": 192966000,
+  "duration": 274848040,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_borra()"
 });
 formatter.result({
-  "duration": 70876,
+  "duration": 70524,
   "status": "passed"
 });
 formatter.scenario({
   "line": 36,
-  "name": "Hacer una publicacion",
+  "name": "Modificacion de cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;hacer-una-publicacion",
+  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;modificacion-de-cuenta-de-usuario",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -328,45 +328,45 @@ formatter.scenario({
 });
 formatter.step({
   "line": 37,
-  "name": "Usuario en wall",
+  "name": "Un Usuario",
   "keyword": "Given "
 });
 formatter.step({
   "line": 38,
-  "name": "escribes publicacion",
+  "name": "datos usuario correctos",
   "keyword": "When "
 });
 formatter.step({
   "line": 39,
-  "name": "publicas",
+  "name": "se modifica usuario",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Usuario_en_wall()"
+  "location": "annotation.Un_Usuario()"
 });
 formatter.result({
-  "duration": 5573461,
+  "duration": 72286,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.escribes_publicacion()"
+  "location": "annotation.datos_usuario_correctos()"
 });
 formatter.result({
-  "duration": 200328991,
+  "duration": 125928705,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.publicas()"
+  "location": "annotation.se_modifica_usuario()"
 });
 formatter.result({
-  "duration": 91328,
+  "duration": 127388892,
   "status": "passed"
 });
 formatter.scenario({
   "line": 41,
-  "name": "Borrar una publicacion",
+  "name": "Hacer una publicacion",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;borrar-una-publicacion",
+  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;hacer-una-publicacion",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -378,16 +378,66 @@ formatter.scenario({
 });
 formatter.step({
   "line": 42,
-  "name": "Un idpublicacion",
+  "name": "Usuario en wall",
   "keyword": "Given "
 });
 formatter.step({
   "line": 43,
-  "name": "datos publicacion correctos",
+  "name": "escribes publicacion",
   "keyword": "When "
 });
 formatter.step({
   "line": 44,
+  "name": "publicas",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "annotation.Usuario_en_wall()"
+});
+formatter.result({
+  "duration": 1320550,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.escribes_publicacion()"
+});
+formatter.result({
+  "duration": 124960066,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.publicas()"
+});
+formatter.result({
+  "duration": 22920,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 46,
+  "name": "Borrar una publicacion",
+  "description": "",
+  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;borrar-una-publicacion",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 45,
+      "name": "@Scenario9"
+    }
+  ]
+});
+formatter.step({
+  "line": 47,
+  "name": "Un idpublicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 48,
+  "name": "datos publicacion correctos",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 49,
   "name": "se borra publicacion",
   "keyword": "Then "
 });
@@ -395,21 +445,121 @@ formatter.match({
   "location": "annotation.Un_idpublicacion()"
 });
 formatter.result({
-  "duration": 98380,
+  "duration": 40551,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.datos_publicacion_correctos()"
 });
 formatter.result({
-  "duration": 208522042,
+  "duration": 126159670,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_borra_publicacion()"
 });
 formatter.result({
-  "duration": 213541189,
+  "duration": 96265,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 51,
+  "name": "Modificar una publicacion",
+  "description": "",
+  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;modificar-una-publicacion",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 50,
+      "name": "@Scenario10"
+    }
+  ]
+});
+formatter.step({
+  "line": 52,
+  "name": "Una publicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 53,
+  "name": "publicacion correcta",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 54,
+  "name": "se modifica publicacion",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "annotation.Una_publicacion()"
+});
+formatter.result({
+  "duration": 95912,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.publicacion_correcta()"
+});
+formatter.result({
+  "duration": 126597620,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.se_modifica_publicacion()"
+});
+formatter.result({
+  "duration": 124642711,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 56,
+  "name": "Hacer un mensaje privado",
+  "description": "",
+  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;hacer-un-mensaje-privado",
+  "type": "scenario",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "line": 55,
+      "name": "@Scenario11"
+    }
+  ]
+});
+formatter.step({
+  "line": 57,
+  "name": "Un mensaje privado",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 58,
+  "name": "mensaje privado correcto",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 59,
+  "name": "se manda mensaje privado",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "annotation.Un_mensaje_privado()"
+});
+formatter.result({
+  "duration": 2836451,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.mensaje_privado_correcto()"
+});
+formatter.result({
+  "duration": 125886038,
+  "status": "passed"
+});
+formatter.match({
+  "location": "annotation.se_manda_mensaje_privado()"
+});
+formatter.result({
+  "duration": 80749,
   "status": "passed"
 });
 });

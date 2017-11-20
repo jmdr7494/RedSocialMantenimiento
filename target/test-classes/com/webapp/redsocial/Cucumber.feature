@@ -33,12 +33,27 @@ Given Un idUsuario
 When datos correctos
 Then se borra
 @Scenario7
+Scenario: Modificacion de cuenta de usuario
+Given Un Usuario
+When datos usuario correctos
+Then se modifica usuario
+@Scenario8
 Scenario: Hacer una publicacion
 Given Usuario en wall
 When escribes publicacion
 Then publicas
-@Scenario8
+@Scenario9
 Scenario: Borrar una publicacion
 Given Un idpublicacion
 When datos publicacion correctos
 Then se borra publicacion
+@Scenario10
+Scenario: Modificar una publicacion
+Given Una publicacion
+When publicacion correcta
+Then se modifica publicacion
+@Scenario11
+Scenario: Hacer un mensaje privado
+Given Un mensaje privado
+When mensaje privado correcto
+Then se manda mensaje privado

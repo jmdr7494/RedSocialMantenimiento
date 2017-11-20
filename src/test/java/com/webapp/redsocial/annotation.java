@@ -4,8 +4,10 @@ package com.webapp.redsocial;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.redsocial.modelo.MensajesPrivados;
 import com.redsocial.modelo.Publicacion;
 import com.redsocial.modelo.Usuario;
+import com.redsocial.persistencia.DAOMensajesPrivados;
 import com.redsocial.persistencia.DAOPublicacion;
 import com.redsocial.persistencia.DAOUsuario;
 
@@ -24,6 +26,8 @@ public class annotation {
 		private Usuario user;
 		private DAOPublicacion publicacion;
 		private Publicacion publi;
+		private MensajesPrivados msgprivate;
+		private DAOMensajesPrivados daomsgprivate;
 		
 		@Given("^Un usuario y password$")
 		public void Un_usuario_y_password() {
@@ -189,5 +193,72 @@ public class annotation {
 		public void se_borra_publicacion() {
 		    if(publi!=null)
 		    	DAOPublicacion.delete("5a11bd290799532628e929fd");
+		}
+		
+		@Given("^Un Usuario$")
+		public void Un_Usuario() {
+			usuario= new DAOUsuario(); 
+			user=new Usuario();
+		}
+
+		@When("^datos usuario correctos$")
+		public void datos_usuario_correctos() throws Exception {
+			String nombre="prueba30";
+		    Usuario user1 = new Usuario(nombre);
+		    user=DAOUsuario.select(user1);
+		}
+
+		@Then("^se modifica usuario$")
+		public void se_modifica_usuario() throws Exception {
+			if(user!=null)
+				user.setPwd("PRUEBAprueba");
+		    	DAOUsuario.update(user);
+		}
+		
+		@Given("^Una publicacion$")
+		public void Una_publicacion() {
+			publicacion=new DAOPublicacion();
+		    publi=new Publicacion();
+		}
+
+		@When("^publicacion correcta$")
+		public void publicacion_correcta() throws Exception {
+			Publicacion publi2=new Publicacion();
+		    publi2.setIdPublicacion("5a03545d56320321f49b7810");
+			publi=DAOPublicacion.select(publi2.getIdPublicacion());
+		}
+
+		@Then("^se modifica publicacion$")
+		public void se_modifica_publicacion() throws Exception {
+			if(publi!=null)
+		    	DAOPublicacion.delete("5a03545d56320321f49b7810");
+				Publicacion publi2=new Publicacion();
+				publi2.setNombre("alba");
+				publi2.setEmail("alba@hotmail.com");
+				publi2.setFecha("20/11/2017 12:24");
+				publi2.setMensaje("mod testing");
+				publi=DAOPublicacion.insert(publi2);
+		}
+		
+		@Given("^Un mensaje privado$")
+		public void Un_mensaje_privado() {
+		   msgprivate=new MensajesPrivados();
+		   daomsgprivate=new DAOMensajesPrivados();
+		}
+
+		@When("^mensaje privado correcto$")
+		public void mensaje_privado_correcto() {
+			
+		    msgprivate.setEmisor("prueba30@hotmail.com");
+		    msgprivate.setDestinatario("bu@hotmail.com");
+		    msgprivate.setFecha("20/11/2017 12:15");
+		    msgprivate.setMensaje("hola esto es testing");
+		    DAOMensajesPrivados.insert(msgprivate);
+		}
+
+		@Then("^se manda mensaje privado$")
+		public void se_manda_mensaje_privado() {
+		    if(msgprivate!=null)
+		    	assertTrue(msgprivate!=null);
 		}
 }
