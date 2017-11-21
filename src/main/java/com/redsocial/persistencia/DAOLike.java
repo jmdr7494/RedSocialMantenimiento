@@ -21,17 +21,17 @@ public class DAOLike {
 	private final static String idp = "idPublicacion";
 	private final static String likess = "Likes";
 	
- /* public static void insert(Like like) throws Exception {
-
-    
-    Document doc=new Document();
-    doc.append(eu, like.getEmailUsuario());
-    doc.append(idp, like.getIdPublicacion());    
-    
-    MongoBroker broker= MongoBroker.get();
-    MongoCollection<Document>likes=broker.getCollection(likess);
-    likes.insertOne(doc);
-  }*/
+	 public static void insert(Like like) throws Exception {
+	
+	    
+	    Document doc=new Document();
+	    doc.append(eu, like.getEmailUsuario());
+	    doc.append(idp, like.getIdPublicacion());    
+	    
+	    MongoBroker broker= MongoBroker.get();
+	    MongoCollection<Document>likes=broker.getCollection(likess);
+	    likes.insertOne(doc);
+	  }
   
 
   
@@ -52,7 +52,7 @@ public class DAOLike {
   }*/
 
   
-  /*public static void delete(Like like) {
+  public static void delete(Like like) {
     Document doc=new Document();
     doc.append(idp, like.getIdPublicacion());
     doc.append(eu, like.getEmailUsuario());
@@ -61,7 +61,7 @@ public class DAOLike {
     MongoCollection<Document>likes=broker.getCollection(likess);
     likes.findOneAndDelete(doc);
     
-  }*/
+  }
   
  /* public static void deleteAll(String idPublicacion) {
 	    Document doc=new Document();
@@ -93,7 +93,7 @@ public class DAOLike {
 		return result;
 	}
   	
-  /*public static Like checkLike(String idPublicacion,String emailUsuario) throws Exception {
+  public static Like checkLike(String idPublicacion,String emailUsuario) throws Exception {
 		Like result = null;
 		MongoBroker broker = MongoBroker.get();
 		MongoCollection<Document> likes=broker.getCollection(likess);
@@ -105,10 +105,10 @@ public class DAOLike {
 		Document doc=resultado.first();
 		
 		if (doc!=null) {
-			result = new Like (doc.getString(idp), doc.getString(eu));
+			result = new Like(doc.getString("emailUsuario"), doc.getString("idPublicacion"));
 		}
 		
 		return result;
-	}*/
+	}
 
 }

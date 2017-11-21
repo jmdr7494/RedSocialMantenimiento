@@ -7,4 +7,6 @@
 	<bean id = "DAOUsuario" class = "com.redsocial.persistencia.DAOUsuario"></bean>
 	<bean id = "DAOPublicacion" class = "com.redsocial.persistencia.DAOPublicacion"></bean>
 	<bean id = "DAOLike" class = "com.redsocial.persistencia.DAOLike"></bean>
+	<bean id = "DAORespuesta" class = "com.redsocial.persistencia.DAORespuesta"></bean>
+	<bean id = "DAOMensajesPrivados" class = "com.redsocial.persistencia.DAOMensajesPrivados"></bean>
 </beans>

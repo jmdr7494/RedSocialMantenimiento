@@ -1,7 +1,6 @@
 package com.redsocial.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,11 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
+
+import com.redsocial.auxiliares.SendMail;
 
 /**
  * Handles requests for the application home page.
@@ -34,42 +34,64 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public ModelAndView login(HttpServletRequest request, HttpServletResponse response)throws Exception{
+	public String login(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("username");
 		String password = request.getParameter("password");
-		ModelAndView modelAndView;
-		Usuario user = DAOUsuario.select(email, password);
+		Usuario user = DAOUsuario.login(email, password);
 		if (user!=null) {
-			modelAndView = new ModelAndView("redirect:wall");
-			modelAndView.addObject("user", user);
+			model.addAttribute("user",user);
+			request.getSession().setMaxInactiveInterval(600);
+			request.getSession().setAttribute("user", user);
+			return "redirect:wall";
+		
 		}else {
-			modelAndView = new ModelAndView("home");
-			modelAndView.addObject("message", "No se puede loguear");
+			model.addAttribute("message", "No se puede loguear");
+			return "home";
 		}
 		
-		return modelAndView;
 	}
 	
 	@RequestMapping(value="registrar", method = RequestMethod.POST)
-	public ModelAndView registrar(HttpServletRequest request, HttpServletResponse response)throws Exception{
+	public String registrar(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = request.getParameter("password-register");
 		String username = request.getParameter("username");
 		
 		Usuario usuario = new Usuario(username, email, Utilidades.Encriptar(password));
-		ModelAndView modelAndView = null;
 		Usuario usuarioInsertado = DAOUsuario.insert(usuario);
 		
 		if (usuarioInsertado!=null) {
-			modelAndView = new ModelAndView("wall");
-			modelAndView.addObject("user", usuarioInsertado);
+			request.getSession().invalidate();
+			model.addAttribute("user",usuario);
+			request.getSession().setMaxInactiveInterval(600);
+			request.getSession().setAttribute("user", usuario);
+			return "redirect:wall";
 		}else {
-			modelAndView = new ModelAndView("home");
-			modelAndView.addObject("message", "No se ha podido registrar");
+			model.addAttribute("message", "No se puede registrar");
+			return "home";
 		}
 		
-		return modelAndView;
 	}
 	
+	@RequestMapping(value="viewRecordarPass", method = RequestMethod.GET)
+	public String recordarPass(Model model)throws Exception{
+		
+		return "viewRecordarPass";
+	}
+	
+	@RequestMapping(value="forgotpassword", method = RequestMethod.POST)
+	public String forgotpassword(HttpServletRequest request,Model model)throws Exception{
+		
+		String email = request.getParameter("email");
+		Usuario usuario = new Usuario("", email, "");
+		Usuario user = DAOUsuario.select(usuario);
+		 
+		 if (user!=null) {
+				SendMail send = new SendMail();
+				send.sendMail(user.getemail(), Utilidades.Desencriptar(user.getPwd()));
+				model.addAttribute("message", "Se ha enviado correctamente la contraseña");
+		 }
+		return "viewRecordarPass";
+	}
 	
 }
