@@ -9,7 +9,7 @@ When usuario correcto y password correcta
 Then se loguea
 @Scenario2
 Scenario: Login incorrecto de usuario
-Given Un usuario y una password
+Given Un usuario y password
 When Usuario incorrecto y una password incorrecta
 Then no se loguea
 @Scenario3

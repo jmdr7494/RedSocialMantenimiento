@@ -45,21 +45,21 @@ formatter.match({
   "location": "annotation.Un_usuario_y_password()"
 });
 formatter.result({
-  "duration": 187491784,
+  "duration": 150418663,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.usuario_correcto_y_password_correcta()"
 });
 formatter.result({
-  "duration": 3807325047,
+  "duration": 4181029346,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_loguea()"
 });
 formatter.result({
-  "duration": 2060635,
+  "duration": 26573571,
   "status": "passed"
 });
 formatter.scenario({
@@ -78,7 +78,7 @@ formatter.scenario({
 });
 formatter.step({
   "line": 12,
-  "name": "Un usuario y una password",
+  "name": "Un usuario y password",
   "keyword": "Given "
 });
 formatter.step({
@@ -91,21 +91,26 @@ formatter.step({
   "name": "no se loguea",
   "keyword": "Then "
 });
-formatter.match({});
+formatter.match({
+  "location": "annotation.Un_usuario_y_password()"
+});
 formatter.result({
-  "status": "undefined"
+  "duration": 37730,
+  "status": "passed"
 });
 formatter.match({
   "location": "annotation.Usuario_incorrecto_y_una_password_incorrecta()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 147772977,
+  "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_loguea()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 55361,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 16,
@@ -140,21 +145,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 20133,
+  "duration": 46545,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.pwduno_es_igual_a_pwddos()"
 });
 formatter.result({
-  "duration": 159893874,
+  "duration": 235788300,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_registra()"
 });
 formatter.result({
-  "duration": 19343,
+  "duration": 57124,
   "status": "passed"
 });
 formatter.scenario({
@@ -190,21 +195,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 20133,
+  "duration": 35262,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.pwduno_es_distinto_a_pwddos()"
 });
 formatter.result({
-  "duration": 27239,
+  "duration": 43725,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_registra()"
 });
 formatter.result({
-  "duration": 22501,
+  "duration": 43724,
   "status": "passed"
 });
 formatter.scenario({
@@ -240,21 +245,21 @@ formatter.match({
   "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
 });
 formatter.result({
-  "duration": 18554,
+  "duration": 31031,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.email_ya_esta_en_la_base_de_datos()"
 });
 formatter.result({
-  "duration": 131787909,
+  "duration": 306634700,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.no_se_registra()"
 });
 formatter.result({
-  "duration": 19343,
+  "duration": 40198,
   "status": "passed"
 });
 formatter.scenario({
@@ -290,21 +295,21 @@ formatter.match({
   "location": "annotation.Un_idUsuario()"
 });
 formatter.result({
-  "duration": 21711,
+  "duration": 48308,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.datos_correctos()"
 });
 formatter.result({
-  "duration": 122594001,
+  "duration": 223785217,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_borra()"
 });
 formatter.result({
-  "duration": 19343,
+  "duration": 75108,
   "status": "passed"
 });
 formatter.scenario({
@@ -340,21 +345,21 @@ formatter.match({
   "location": "annotation.Un_Usuario()"
 });
 formatter.result({
-  "duration": 24870,
+  "duration": 161498,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.datos_usuario_correctos()"
 });
 formatter.result({
-  "duration": 122362278,
+  "duration": 184519901,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_modifica_usuario()"
 });
 formatter.result({
-  "duration": 129493182,
+  "duration": 203499865,
   "status": "passed"
 });
 formatter.scenario({
@@ -390,21 +395,21 @@ formatter.match({
   "location": "annotation.Usuario_en_wall()"
 });
 formatter.result({
-  "duration": 2023923,
+  "duration": 1548342,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.escribes_publicacion()"
 });
 formatter.result({
-  "duration": 129320674,
+  "duration": 197895722,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.publicas()"
 });
 formatter.result({
-  "duration": 21317,
+  "duration": 32441,
   "status": "passed"
 });
 formatter.scenario({
@@ -440,21 +445,21 @@ formatter.match({
   "location": "annotation.Un_idpublicacion()"
 });
 formatter.result({
-  "duration": 25264,
+  "duration": 26799,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.datos_publicacion_correctos()"
 });
 formatter.result({
-  "duration": 122226876,
+  "duration": 202694135,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_borra_publicacion()"
 });
 formatter.result({
-  "duration": 24870,
+  "duration": 98380,
   "status": "passed"
 });
 formatter.scenario({
@@ -490,21 +495,21 @@ formatter.match({
   "location": "annotation.Una_publicacion()"
 });
 formatter.result({
-  "duration": 25265,
+  "duration": 104374,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.publicacion_correcta()"
 });
 formatter.result({
-  "duration": 122101343,
+  "duration": 190729487,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_modifica_publicacion()"
 });
 formatter.result({
-  "duration": 122355567,
+  "duration": 201866896,
   "status": "passed"
 });
 formatter.scenario({
@@ -540,21 +545,21 @@ formatter.match({
   "location": "annotation.Un_mensaje_privado()"
 });
 formatter.result({
-  "duration": 3867047,
+  "duration": 2919317,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.mensaje_privado_correcto()"
 });
 formatter.result({
-  "duration": 153729336,
+  "duration": 197956725,
   "status": "passed"
 });
 formatter.match({
   "location": "annotation.se_manda_mensaje_privado()"
 });
 formatter.result({
-  "duration": 24081,
+  "duration": 35615,
   "status": "passed"
 });
 });
