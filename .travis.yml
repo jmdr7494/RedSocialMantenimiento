@@ -6,7 +6,7 @@ deploy:
  provider: heroku
  api_key:
   secure: e109a861-ecbd-4a0c-9653-c650019d489a
- app: 
+ app: intravita-g1-maintenance-g4
  on:
   repo: jmdr7494/RedSocialMantenimiento
   branch: master
