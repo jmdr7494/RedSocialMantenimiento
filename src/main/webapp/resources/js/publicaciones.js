@@ -28,13 +28,13 @@ $( document ).ready(function() {
 		$('#modal-perfil').modal('show');
 	});
 	
-	$('#btn-delete-user').click(function(){
+	/*$('#btn-delete-user').click(function(){
 		if (confirm("¿Estás seguro de eliminar la cuenta de usuario?")){
-			$.get( "borrarusuario", function() {
-
+			$.post( "borrarusuario", function() {
+				
 			});
 		}
-	});
+	});*/
 	
 	$('.delete-publicacion').click(function(){
 		var id = $(this).data("id");

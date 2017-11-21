@@ -7,11 +7,11 @@
   				<form action="updateuser" method="post">
        	 <div class="form-group">
 		    <label for="edit-nombre">Nombre</label>
-		    <input type="text" class="form-control" readonly name="update-name" readonly value="${usuario.nombre}">
+		    <input type="text" class="form-control" name="update-name" value="${usuario.nombre}">
 		  </div>
 		  <div class="form-group">
 		    <label for="edit-mail">Correo electrónico</label>
-		    <input type="email" class="form-control" readonly name="update-email" readonly value="${usuario.email}">
+		    <input type="email" class="form-control"  name="update-email" value="${usuario.email}">
 		  </div>
 		  <div class="form-group">
 		    <label for="edit-pwd">Contraseña</label>

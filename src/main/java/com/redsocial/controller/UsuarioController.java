@@ -47,8 +47,8 @@ public class UsuarioController {
 		
 	}
 	
-	@RequestMapping(value = "borrarusuario", method = RequestMethod.POST)
-	public void borrarusuario(HttpServletRequest request,Model model) throws Exception {
+	@RequestMapping(value = "borrarusuario", method = RequestMethod.GET)
+	public String borrarusuario(HttpServletRequest request,Model model) throws Exception {
 		
 		if (request.getSession().getAttribute("user")!=null) {
 			
@@ -82,7 +82,10 @@ public class UsuarioController {
 				}
 			}
 			DAOUsuario.delete(usuario.getid());
+			request.getSession().invalidate();
+			return "home";
 		}
+		return "home";
 	}
 	
 	@RequestMapping(value = "listadousuarios", method = RequestMethod.GET)

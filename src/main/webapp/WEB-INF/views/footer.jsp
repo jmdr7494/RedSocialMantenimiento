@@ -23,10 +23,6 @@
 		    <input type="email" class="form-control" readonly name="edit-email" id="edit-email" value="${user.email}">
 		  </div>
 		  <div class="form-group">
-		    <label for="edit-pwd">Contraseña actual</label>
-		    <input type="password" class="form-control" id="edit-pwd" name="edit-pwd" placeholder="Contraseña actual">
-		  </div>
-		  <div class="form-group">
 		    <label for="edit-new-pwd">Contraseña nueva</label>
 		    <input type="password" class="form-control" id="edit-new-pwd" name="edit-new-pwd" placeholder="Contraseña nueva">
 		  </div>

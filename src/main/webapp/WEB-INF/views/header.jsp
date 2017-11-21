@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="col-md-12" style="position: fixed; z-index: 100;">
 <div class="row">
 		<nav class="navbar navbar-inverse" style="margin-bottom: -20px;">
@@ -13,7 +14,9 @@
 				    <li><label>Email: ${user.email}</label></li>
 				    <li role="separator" class="divider"></li>
 				    <li><a href="#" id="showPerfil"><i class="fa fa-pencil" aria-hidden="true"></i> Editar perfil</a></li>
-				    <li><a href="#" id="btn-delete-user" style="color:red;"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar cuenta</a></li>
+				    <c:if test="${user.email!='admin@hotmail.com'}">
+				    	<li><a href="borrarusuario" style="color:red;"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar cuenta</a></li>
+				   </c:if>
 				  </ul>
 		      </li>
 		      <li><a href="logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>

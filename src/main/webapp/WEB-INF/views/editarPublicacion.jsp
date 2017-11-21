@@ -19,7 +19,7 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="edit-new-pwd">Mensaje</label><br/>
-		   <textarea name="update-mensaje" style="width:500px;height:150px;" rows="4" cols="50">${publi.mensaje}</textarea>
+		   <textarea name="update-mensaje" style="width:400px;height:150px;" rows="4" cols="50">${publi.mensaje}</textarea>
 		   <input type="hidden" name="idPublicacion" value="${id}">
 		  </div>
 		  <div class="modal-footer">
