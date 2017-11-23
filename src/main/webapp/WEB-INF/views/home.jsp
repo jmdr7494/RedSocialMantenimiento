@@ -11,8 +11,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 	<script src="resources/js/index.js"></script>
 	<script type="text/javascript" src="resources/js/password.js"></script>
-	<%-- By JA captcha registro--%>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<%-- By JA captcha registro
+	<script src='https://www.google.com/recaptcha/api.js'></script>--%>
 	<title>redSocial</title>
 </head>
 <body>
@@ -96,8 +96,8 @@
 											</div>
 										</div>
 									</div>
-									<%-- By JA captcha registro--%>
-									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu"></div>
+									<%-- By JA captcha registro
+									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu"></div>--%>
 								</form>
 							</div>
 						</div>
