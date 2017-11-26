@@ -1,565 +1,1965 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri('com\webapp\redsocial\Cucumber.feature');
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri('com\webapp\redsocial\BorrarCuenta.feature');
 formatter.feature({
-  "line": 2,
-  "name": "Uso de cucumber en el que se va a probar el funcionamiento",
-  "description": "de una red social.",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento",
-  "keyword": "Feature",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@featureTest"
-    }
-  ]
+  "line": 1,
+  "name": "Test del registro en el sistema",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema",
+  "keyword": "Feature"
 });
 formatter.scenario({
-  "line": 6,
-  "name": "Login correcto de un usuario",
+  "line": 11,
+  "name": "Borrado de cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;login-correcto-de-un-usuario",
+  "id": "test-del-registro-en-el-sistema;borrado-de-cuenta-de-usuario;;2",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 5,
+      "line": 3,
       "name": "@Scenario1"
     }
   ]
 });
 formatter.step({
-  "line": 7,
-  "name": "Un usuario y password",
+  "line": 5,
+  "name": "Un usuario quiere borrar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 8,
-  "name": "usuario correcto y password correcta",
+  "line": 6,
+  "name": "\"meborraran\" \"meborraran@gmail.com\" \"1234\" para borrar correctos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 9,
-  "name": "se loguea",
+  "line": 7,
+  "name": "se borra al usuario",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_usuario_y_password()"
+  "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 150418663,
+  "duration": 349380599,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.usuario_correcto_y_password_correcta()"
+  "arguments": [
+    {
+      "val": "meborraran",
+      "offset": 1
+    },
+    {
+      "val": "meborraran@gmail.com",
+      "offset": 14
+    },
+    {
+      "val": "1234",
+      "offset": 37
+    }
+  ],
+  "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 4181029346,
+  "duration": 4995187900,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_loguea()"
+  "location": "BorrarCuentaTest.se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 26573571,
+  "duration": 276180800,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 11,
-  "name": "Login incorrecto de usuario",
+  "line": 12,
+  "name": "Borrado de cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;login-incorrecto-de-usuario",
+  "id": "test-del-registro-en-el-sistema;borrado-de-cuenta-de-usuario;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 10,
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un usuario quiere borrar su cuenta",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"meborraran2\" \"meborraran@hotmail.com\" \"4321\" para borrar correctos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "se borra al usuario",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
+});
+formatter.result({
+  "duration": 17500,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "meborraran2",
+      "offset": 1
+    },
+    {
+      "val": "meborraran@hotmail.com",
+      "offset": 15
+    },
+    {
+      "val": "4321",
+      "offset": 40
+    }
+  ],
+  "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
+});
+formatter.result({
+  "duration": 415239999,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BorrarCuentaTest.se_borra_al_usuario()"
+});
+formatter.result({
+  "duration": 344131099,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 22,
+  "name": "Borrado incorrecto de una cuenta de usuario",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 15,
       "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
-  "line": 12,
-  "name": "Un usuario y password",
+  "line": 17,
+  "name": "Un usuario quiere borrar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 13,
-  "name": "Usuario incorrecto y una password incorrecta",
+  "line": 18,
+  "name": "\"nomeborraran\" \"nomeborraran@gmail.com\" \"1234\" para borrarincorrectos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 14,
-  "name": "no se loguea",
+  "line": 19,
+  "name": "no se borra al usuario",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_usuario_y_password()"
+  "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 37730,
+  "duration": 17700,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.Usuario_incorrecto_y_una_password_incorrecta()"
+  "arguments": [
+    {
+      "val": "nomeborraran",
+      "offset": 1
+    },
+    {
+      "val": "nomeborraran@gmail.com",
+      "offset": 16
+    },
+    {
+      "val": "1234",
+      "offset": 41
+    }
+  ],
+  "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 147772977,
+  "duration": 164045901,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.no_se_loguea()"
+  "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 55361,
+  "duration": 42200,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 16,
-  "name": "Registro correcto de un usuario",
+  "line": 23,
+  "name": "Borrado incorrecto de una cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;registro-correcto-de-un-usuario",
+  "id": "test-del-registro-en-el-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
       "line": 15,
-      "name": "@Scenario3"
+      "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
   "line": 17,
-  "name": "Un nombre, un email, una pwduno y una pwddos",
+  "name": "Un usuario quiere borrar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
   "line": 18,
-  "name": "pwduno es igual a pwddos",
+  "name": "\"nomeborraran2\" \"nomeborraran@hotmail.com\" \"4321\" para borrarincorrectos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
   "line": 19,
-  "name": "se registra",
+  "name": "no se borra al usuario",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
+  "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 46545,
+  "duration": 44400,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.pwduno_es_igual_a_pwddos()"
+  "arguments": [
+    {
+      "val": "nomeborraran2",
+      "offset": 1
+    },
+    {
+      "val": "nomeborraran@hotmail.com",
+      "offset": 17
+    },
+    {
+      "val": "4321",
+      "offset": 44
+    }
+  ],
+  "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 235788300,
+  "duration": 151234000,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_registra()"
+  "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 57124,
+  "duration": 21201,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\BorrarPublicacion.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test de borrado de publicaciones",
+  "description": "",
+  "id": "test-de-borrado-de-publicaciones",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Borrar una publicacion correctamente",
+  "description": "",
+  "id": "test-de-borrado-de-publicaciones;borrar-una-publicacion-correctamente;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Usuario en el muro quiere borrar una publicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Fernando\" \"fernycozar@hotmail.com\" es autor de \"Test de borrar publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "borrado de publicacion correcto",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
+});
+formatter.result({
+  "duration": 10417000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 1
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 12
+    },
+    {
+      "val": "Test de borrar publicacion",
+      "offset": 49
+    }
+  ],
+  "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
+});
+formatter.result({
+  "duration": 282246000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
+});
+formatter.result({
+  "duration": 145451001,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 12,
+  "name": "Borrar una publicacion correctamente",
+  "description": "",
+  "id": "test-de-borrado-de-publicaciones;borrar-una-publicacion-correctamente;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Usuario en el muro quiere borrar una publicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Mariap\" \"asdf@gmail.com\" es autor de \"Test de borrar publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "borrado de publicacion correcto",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
+});
+formatter.result({
+  "duration": 26900,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 1
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 10
+    },
+    {
+      "val": "Test de borrar publicacion",
+      "offset": 39
+    }
+  ],
+  "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
+});
+formatter.result({
+  "duration": 314038500,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
+});
+formatter.result({
+  "duration": 145060500,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 22,
+  "name": "Fallo al borrar una publicacion",
+  "description": "",
+  "id": "test-de-borrado-de-publicaciones;fallo-al-borrar-una-publicacion;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Usuario en el muro quiere borrar una publicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "\"nosoyautor\" \"nolosoy@hotmail.com\" no es autor del \"Test de borrar publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "borrado de publicacion incorrecto",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
+});
+formatter.result({
+  "duration": 21501,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "nosoyautor",
+      "offset": 1
+    },
+    {
+      "val": "nolosoy@hotmail.com",
+      "offset": 14
+    },
+    {
+      "val": "Test de borrar publicacion",
+      "offset": 52
+    }
+  ],
+  "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
+});
+formatter.result({
+  "duration": 193429601,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
+});
+formatter.result({
+  "duration": 143856900,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 23,
+  "name": "Fallo al borrar una publicacion",
+  "description": "",
+  "id": "test-de-borrado-de-publicaciones;fallo-al-borrar-una-publicacion;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Usuario en el muro quiere borrar una publicacion",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "\"nosoyautor\" \"nolosoy@hotmail.com\" no es autor del \"Test de borrar publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "borrado de publicacion incorrecto",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
+});
+formatter.result({
+  "duration": 24199,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "nosoyautor",
+      "offset": 1
+    },
+    {
+      "val": "nolosoy@hotmail.com",
+      "offset": 14
+    },
+    {
+      "val": "Test de borrar publicacion",
+      "offset": 52
+    }
+  ],
+  "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
+});
+formatter.result({
+  "duration": 151166900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
+});
+formatter.result({
+  "duration": 181471600,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\Login.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test del login en el sistema",
+  "description": "",
+  "id": "test-del-login-en-el-sistema",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 10,
+  "name": "Login suscessful de un usuario",
+  "description": "",
+  "id": "test-del-login-en-el-sistema;login-suscessful-de-un-usuario;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un usuario y password para login",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"asdf@gmail.com\"  y \"1234\" se quiere loguear",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "se loguea correctamente",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginTest.Un_usuario_y_password_para_login()"
+});
+formatter.result({
+  "duration": 5288599,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "asdf@gmail.com",
+      "offset": 1
+    },
+    {
+      "val": "1234",
+      "offset": 21
+    }
+  ],
+  "location": "LoginTest.y_se_quiere_loguear(String,String)"
+});
+formatter.result({
+  "duration": 143708000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginTest.se_loguea_correctamente()"
+});
+formatter.result({
+  "duration": 36800,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Login suscessful de un usuario",
+  "description": "",
+  "id": "test-del-login-en-el-sistema;login-suscessful-de-un-usuario;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un usuario y password para login",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"fernycozar@hotmail.com\"  y \"supersecreto\" se quiere loguear",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "se loguea correctamente",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginTest.Un_usuario_y_password_para_login()"
+});
+formatter.result({
+  "duration": 25200,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 1
+    },
+    {
+      "val": "supersecreto",
+      "offset": 29
+    }
+  ],
+  "location": "LoginTest.y_se_quiere_loguear(String,String)"
+});
+formatter.result({
+  "duration": 179978600,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginTest.se_loguea_correctamente()"
+});
+formatter.result({
+  "duration": 28400,
   "status": "passed"
 });
 formatter.scenario({
   "line": 21,
-  "name": "Registro incorrecto de un usuario",
+  "name": "Login invalido de un usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;registro-incorrecto-de-un-usuario",
+  "id": "test-del-login-en-el-sistema;login-invalido-de-un-usuario;;2",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 20,
-      "name": "@Scenario4"
+      "line": 14,
+      "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
+  "line": 16,
+  "name": "Un usuario y password para login",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "\"meloinvento\t\t\"  y \"1asdfasdf4\" se quiere loguear",
+  "matchedColumns": [
+    0,
+    1
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "no consigue loguearse",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "LoginTest.Un_usuario_y_password_para_login()"
+});
+formatter.result({
+  "duration": 22900,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "meloinvento\t\t",
+      "offset": 1
+    },
+    {
+      "val": "1asdfasdf4",
+      "offset": 20
+    }
+  ],
+  "location": "LoginTest.y_se_quiere_loguear(String,String)"
+});
+formatter.result({
+  "duration": 149111100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "LoginTest.no_consigue_loguearse()"
+});
+formatter.result({
+  "duration": 44201,
+  "status": "passed"
+});
+formatter.scenario({
   "line": 22,
-  "name": "Un nombre, un email, una pwduno y una pwddos",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 23,
-  "name": "pwduno es distinto a pwddos",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 24,
-  "name": "no se registra",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
-});
-formatter.result({
-  "duration": 35262,
-  "status": "passed"
-});
-formatter.match({
-  "location": "annotation.pwduno_es_distinto_a_pwddos()"
-});
-formatter.result({
-  "duration": 43725,
-  "status": "passed"
-});
-formatter.match({
-  "location": "annotation.no_se_registra()"
-});
-formatter.result({
-  "duration": 43724,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 26,
-  "name": "Registro incorrecto de un usuario",
+  "name": "Login invalido de un usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;registro-incorrecto-de-un-usuario",
+  "id": "test-del-login-en-el-sistema;login-invalido-de-un-usuario;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 25,
-      "name": "@Scenario5"
+      "line": 14,
+      "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
-  "line": 27,
-  "name": "Un nombre, un email, una pwduno y una pwddos",
+  "line": 16,
+  "name": "Un usuario y password para login",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 28,
-  "name": "email ya esta en la base de datos",
+  "line": 17,
+  "name": "\"fasdfasdfasdfasdfasdfa\"  y \"asdfasdfasdfasdf\" se quiere loguear",
+  "matchedColumns": [
+    0,
+    1
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 29,
-  "name": "no se registra",
+  "line": 18,
+  "name": "no consigue loguearse",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_nombre_un_email_una_pwduno_y_una_pwddos()"
+  "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 31031,
+  "duration": 20000,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.email_ya_esta_en_la_base_de_datos()"
-});
-formatter.result({
-  "duration": 306634700,
-  "status": "passed"
-});
-formatter.match({
-  "location": "annotation.no_se_registra()"
-});
-formatter.result({
-  "duration": 40198,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 31,
-  "name": "Borrado de cuenta de usuario",
-  "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;borrado-de-cuenta-de-usuario",
-  "type": "scenario",
-  "keyword": "Scenario",
-  "tags": [
+  "arguments": [
     {
-      "line": 30,
-      "name": "@Scenario6"
+      "val": "fasdfasdfasdfasdfasdfa",
+      "offset": 1
+    },
+    {
+      "val": "asdfasdfasdfasdf",
+      "offset": 29
     }
-  ]
-});
-formatter.step({
-  "line": 32,
-  "name": "Un idUsuario",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 33,
-  "name": "datos correctos",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 34,
-  "name": "se borra",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "annotation.Un_idUsuario()"
+  ],
+  "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 48308,
+  "duration": 324955701,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.datos_correctos()"
+  "location": "LoginTest.no_consigue_loguearse()"
 });
 formatter.result({
-  "duration": 223785217,
+  "duration": 24900,
   "status": "passed"
 });
-formatter.match({
-  "location": "annotation.se_borra()"
-});
-formatter.result({
-  "duration": 75108,
-  "status": "passed"
+formatter.uri('com\webapp\redsocial\ModificarCuenta.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test del registro en el sistema",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema",
+  "keyword": "Feature"
 });
 formatter.scenario({
-  "line": 36,
+  "line": 11,
   "name": "Modificacion de cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;modificacion-de-cuenta-de-usuario",
+  "id": "test-del-registro-en-el-sistema;modificacion-de-cuenta-de-usuario;;2",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 35,
-      "name": "@Scenario7"
+      "line": 3,
+      "name": "@Scenario1"
     }
   ]
 });
 formatter.step({
-  "line": 37,
-  "name": "Un Usuario",
+  "line": 5,
+  "name": "Un Usuario quiere modificar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 38,
-  "name": "datos usuario correctos",
+  "line": 6,
+  "name": "\"meeditaron\" \"meeditaron@gmail.com\" \"1234\" usuario correctos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 39,
-  "name": "se modifica usuario",
+  "line": 7,
+  "name": "\"meeditaron\" \"meeditaron@gmail.com\" \"1234\" modificado correctamente",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_Usuario()"
+  "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 161498,
+  "duration": 6651000,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.datos_usuario_correctos()"
+  "arguments": [
+    {
+      "val": "meeditaron",
+      "offset": 1
+    },
+    {
+      "val": "meeditaron@gmail.com",
+      "offset": 14
+    },
+    {
+      "val": "1234",
+      "offset": 37
+    }
+  ],
+  "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 184519901,
+  "duration": 533114701,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_modifica_usuario()"
+  "arguments": [
+    {
+      "val": "meeditaron",
+      "offset": 1
+    },
+    {
+      "val": "meeditaron@gmail.com",
+      "offset": 14
+    },
+    {
+      "val": "1234",
+      "offset": 37
+    }
+  ],
+  "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 203499865,
+  "duration": 138336800,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 41,
-  "name": "Hacer una publicacion",
+  "line": 12,
+  "name": "Modificacion de cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;hacer-una-publicacion",
+  "id": "test-del-registro-en-el-sistema;modificacion-de-cuenta-de-usuario;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 40,
-      "name": "@Scenario8"
+      "line": 3,
+      "name": "@Scenario1"
     }
   ]
 });
 formatter.step({
-  "line": 42,
-  "name": "Usuario en wall",
+  "line": 5,
+  "name": "Un Usuario quiere modificar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 43,
-  "name": "escribes publicacion",
+  "line": 6,
+  "name": "\"meeditaron2\" \"meeditaron@hotmail.com\" \"4321\" usuario correctos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 44,
-  "name": "publicas",
+  "line": 7,
+  "name": "\"meeditaron2\" \"meeditaron@hotmail.com\" \"4321\" modificado correctamente",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Usuario_en_wall()"
+  "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 1548342,
+  "duration": 22600,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.escribes_publicacion()"
+  "arguments": [
+    {
+      "val": "meeditaron2",
+      "offset": 1
+    },
+    {
+      "val": "meeditaron@hotmail.com",
+      "offset": 15
+    },
+    {
+      "val": "4321",
+      "offset": 40
+    }
+  ],
+  "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 197895722,
+  "duration": 438525899,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.publicas()"
+  "arguments": [
+    {
+      "val": "meeditaron2",
+      "offset": 1
+    },
+    {
+      "val": "meeditaron@hotmail.com",
+      "offset": 15
+    },
+    {
+      "val": "4321",
+      "offset": 40
+    }
+  ],
+  "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 32441,
+  "duration": 139090100,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 46,
-  "name": "Borrar una publicacion",
+  "line": 22,
+  "name": "Modificacion incorrecta de una cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;borrar-una-publicacion",
+  "id": "test-del-registro-en-el-sistema;modificacion-incorrecta-de-una-cuenta-de-usuario;;2",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 45,
-      "name": "@Scenario9"
+      "line": 15,
+      "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
-  "line": 47,
-  "name": "Un idpublicacion",
+  "line": 17,
+  "name": "Un Usuario quiere modificar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 48,
-  "name": "datos publicacion correctos",
+  "line": 18,
+  "name": "\"nomeeditaron\" \"nomeeditaron@gmail.com\" \"1234\" usuario incorrectos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 49,
-  "name": "se borra publicacion",
+  "line": 19,
+  "name": "usuario no sufre cambios",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_idpublicacion()"
+  "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 26799,
+  "duration": 39600,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.datos_publicacion_correctos()"
+  "arguments": [
+    {
+      "val": "nomeeditaron",
+      "offset": 1
+    },
+    {
+      "val": "nomeeditaron@gmail.com",
+      "offset": 16
+    },
+    {
+      "val": "1234",
+      "offset": 41
+    }
+  ],
+  "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 202694135,
+  "duration": 158308101,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_borra_publicacion()"
+  "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 98380,
+  "duration": 28600,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 51,
-  "name": "Modificar una publicacion",
+  "line": 23,
+  "name": "Modificacion incorrecta de una cuenta de usuario",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;modificar-una-publicacion",
+  "id": "test-del-registro-en-el-sistema;modificacion-incorrecta-de-una-cuenta-de-usuario;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 50,
-      "name": "@Scenario10"
+      "line": 15,
+      "name": "@Scenario2"
     }
   ]
 });
 formatter.step({
-  "line": 52,
-  "name": "Una publicacion",
+  "line": 17,
+  "name": "Un Usuario quiere modificar su cuenta",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 53,
-  "name": "publicacion correcta",
+  "line": 18,
+  "name": "\"nomeeditaron2\" \"nomeeditaron@hotmail.com\" \"4321\" usuario incorrectos",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 54,
-  "name": "se modifica publicacion",
+  "line": 19,
+  "name": "usuario no sufre cambios",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Una_publicacion()"
+  "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 104374,
+  "duration": 20701,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.publicacion_correcta()"
+  "arguments": [
+    {
+      "val": "nomeeditaron2",
+      "offset": 1
+    },
+    {
+      "val": "nomeeditaron@hotmail.com",
+      "offset": 17
+    },
+    {
+      "val": "4321",
+      "offset": 44
+    }
+  ],
+  "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 190729487,
+  "duration": 162978501,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_modifica_publicacion()"
+  "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 201866896,
+  "duration": 27100,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\ModificarPublicacion.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test de modificacion de publicaciones",
+  "description": "",
+  "id": "test-de-modificacion-de-publicaciones",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Editar una publicacion correctamente",
+  "description": "",
+  "id": "test-de-modificacion-de-publicaciones;editar-una-publicacion-correctamente;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Usuario en el muro quiere editar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "Cuando coinciden \"Fernando\" \"fernycozar@hotmail.com\" y \"Fernando\" \"fernycozar@hotmail.com\"  para modificar \"Test de publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "sustituir la publicacion por \"Test editado\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
+});
+formatter.result({
+  "duration": 5590600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 18
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 29
+    },
+    {
+      "val": "Fernando",
+      "offset": 56
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 67
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 108
+    }
+  ],
+  "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
+});
+formatter.result({
+  "duration": 139313900,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test editado",
+      "offset": 30
+    }
+  ],
+  "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
+});
+formatter.result({
+  "duration": 144111999,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 56,
-  "name": "Hacer un mensaje privado",
+  "line": 12,
+  "name": "Editar una publicacion correctamente",
   "description": "",
-  "id": "uso-de-cucumber-en-el-que-se-va-a-probar-el-funcionamiento;hacer-un-mensaje-privado",
+  "id": "test-de-modificacion-de-publicaciones;editar-una-publicacion-correctamente;;3",
   "type": "scenario",
-  "keyword": "Scenario",
+  "keyword": "Scenario Outline",
   "tags": [
     {
-      "line": 55,
-      "name": "@Scenario11"
+      "line": 3,
+      "name": "@Scenario1"
     }
   ]
 });
 formatter.step({
-  "line": 57,
-  "name": "Un mensaje privado",
+  "line": 5,
+  "name": "Usuario en el muro quiere editar",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 58,
-  "name": "mensaje privado correcto",
+  "line": 6,
+  "name": "Cuando coinciden \"Mariap\" \"asdf@gmail.com\" y \"Mariap\" \"asdf@gmail.com\"  para modificar \"Test de publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
   "keyword": "When "
 });
 formatter.step({
-  "line": 59,
-  "name": "se manda mensaje privado",
+  "line": 7,
+  "name": "sustituir la publicacion por \"Test editado\"",
+  "matchedColumns": [
+    5
+  ],
   "keyword": "Then "
 });
 formatter.match({
-  "location": "annotation.Un_mensaje_privado()"
+  "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 2919317,
+  "duration": 24101,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.mensaje_privado_correcto()"
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 18
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 27
+    },
+    {
+      "val": "Mariap",
+      "offset": 46
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 55
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 88
+    }
+  ],
+  "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 197956725,
+  "duration": 146378400,
   "status": "passed"
 });
 formatter.match({
-  "location": "annotation.se_manda_mensaje_privado()"
+  "arguments": [
+    {
+      "val": "Test editado",
+      "offset": 30
+    }
+  ],
+  "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 35615,
+  "duration": 135754600,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 22,
+  "name": "Editar una publicacion incorrectamente",
+  "description": "",
+  "id": "test-de-modificacion-de-publicaciones;editar-una-publicacion-incorrectamente;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Usuario en el muro quiere editar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "Cuando no coinciden \"Fernando\" \"fernycozar@hotmail.com\" y \"Fernando2\" \"fernycozar2@hotmail.com\"  para modificar \"Test de publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "no sustituir la publicacion por \"Test editado\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
+});
+formatter.result({
+  "duration": 26201,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 21
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 32
+    },
+    {
+      "val": "Fernando2",
+      "offset": 59
+    },
+    {
+      "val": "fernycozar2@hotmail.com",
+      "offset": 71
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 113
+    }
+  ],
+  "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
+});
+formatter.result({
+  "duration": 135482999,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test editado",
+      "offset": 33
+    }
+  ],
+  "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
+});
+formatter.result({
+  "duration": 59700,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 23,
+  "name": "Editar una publicacion incorrectamente",
+  "description": "",
+  "id": "test-de-modificacion-de-publicaciones;editar-una-publicacion-incorrectamente;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Usuario en el muro quiere editar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "Cuando no coinciden \"Mariap\" \"asdf@gmail.com\" y \"Mariap2\" \"asdf2@gmail.com\"  para modificar \"Test de publicacion\"",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "no sustituir la publicacion por \"Test editado\"",
+  "matchedColumns": [
+    5
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
+});
+formatter.result({
+  "duration": 21500,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 21
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 30
+    },
+    {
+      "val": "Mariap2",
+      "offset": 49
+    },
+    {
+      "val": "asdf2@gmail.com",
+      "offset": 59
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 93
+    }
+  ],
+  "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
+});
+formatter.result({
+  "duration": 215958400,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test editado",
+      "offset": 33
+    }
+  ],
+  "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
+});
+formatter.result({
+  "duration": 57200,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\Publicar.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test del registro en el sistema",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Hacer una publicacion correctamente",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;hacer-una-publicacion-correctamente;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Usuario en el muro quiere publicar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Fernando\" \"fernycozar@hotmail.com\" \"Test de publicacion\" con privacidad publica",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "publicacion publica correcta",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
+});
+formatter.result({
+  "duration": 2940500,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 1
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 12
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 37
+    }
+  ],
+  "location": "PublicarTest.con_privacidad_publica(String,String,String)"
+});
+formatter.result({
+  "duration": 154154301,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PublicarTest.publicacion_publica_correcta()"
+});
+formatter.result({
+  "duration": 275312700,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 12,
+  "name": "Hacer una publicacion correctamente",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;hacer-una-publicacion-correctamente;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Usuario en el muro quiere publicar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Mariap\" \"asdf@gmail.com\" \"Test de publicacion\" con privacidad publica",
+  "matchedColumns": [
+    0,
+    1,
+    2
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "publicacion publica correcta",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
+});
+formatter.result({
+  "duration": 56599,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 1
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 10
+    },
+    {
+      "val": "Test de publicacion",
+      "offset": 27
+    }
+  ],
+  "location": "PublicarTest.con_privacidad_publica(String,String,String)"
+});
+formatter.result({
+  "duration": 170252300,
+  "status": "passed"
+});
+formatter.match({
+  "location": "PublicarTest.publicacion_publica_correcta()"
+});
+formatter.result({
+  "duration": 272279301,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\Registrar.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test del registro en el sistema",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 10,
+  "name": "Registro suscessful de un usuario",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;registro-suscessful-de-un-usuario;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un nombre, email, dos pwd para registrar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"soynuevo\" \"soynuevo@gmail.com\"  y \"1234\" \"1234\" se quiere registrar",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "se registra correctamente",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
+});
+formatter.result({
+  "duration": 3883801,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "soynuevo",
+      "offset": 1
+    },
+    {
+      "val": "soynuevo@gmail.com",
+      "offset": 12
+    },
+    {
+      "val": "1234",
+      "offset": 36
+    },
+    {
+      "val": "1234",
+      "offset": 43
+    }
+  ],
+  "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
+});
+formatter.result({
+  "duration": 412087800,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegistrarTest.se_registra_correctamente()"
+});
+formatter.result({
+  "duration": 74700,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Registro suscessful de un usuario",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;registro-suscessful-de-un-usuario;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un nombre, email, dos pwd para registrar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"yotambiensoynuevo\" \"yotambiensoynuevo@hotmail.com\"  y \"4321\" \"4321\" se quiere registrar",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "se registra correctamente",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
+});
+formatter.result({
+  "duration": 82000,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "yotambiensoynuevo",
+      "offset": 1
+    },
+    {
+      "val": "yotambiensoynuevo@hotmail.com",
+      "offset": 21
+    },
+    {
+      "val": "4321",
+      "offset": 56
+    },
+    {
+      "val": "4321",
+      "offset": 63
+    }
+  ],
+  "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
+});
+formatter.result({
+  "duration": 410879000,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegistrarTest.se_registra_correctamente()"
+});
+formatter.result({
+  "duration": 21699,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 21,
+  "name": "Registro invalido de un usuario",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;registro-invalido-de-un-usuario;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Un nombre, email, dos pwd para registrar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "\"noloconsigo\" \"noloconsigo@gmail.com\"  y \"1234\" \"4321\" se quiere registrar",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "no consigue registrarse",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
+});
+formatter.result({
+  "duration": 24500,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "noloconsigo",
+      "offset": 1
+    },
+    {
+      "val": "noloconsigo@gmail.com",
+      "offset": 15
+    },
+    {
+      "val": "1234",
+      "offset": 42
+    },
+    {
+      "val": "4321",
+      "offset": 49
+    }
+  ],
+  "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
+});
+formatter.result({
+  "duration": 211042700,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegistrarTest.no_consigue_registrarse()"
+});
+formatter.result({
+  "duration": 545201,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 22,
+  "name": "Registro invalido de un usuario",
+  "description": "",
+  "id": "test-del-registro-en-el-sistema;registro-invalido-de-un-usuario;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 14,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 16,
+  "name": "Un nombre, email, dos pwd para registrar",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 17,
+  "name": "\"suplantoid\" \"soynuevo@gmail.com\"  y \"1234\" \"1234\" se quiere registrar",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 18,
+  "name": "no consigue registrarse",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
+});
+formatter.result({
+  "duration": 20700,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "suplantoid",
+      "offset": 1
+    },
+    {
+      "val": "soynuevo@gmail.com",
+      "offset": 14
+    },
+    {
+      "val": "1234",
+      "offset": 38
+    },
+    {
+      "val": "1234",
+      "offset": 45
+    }
+  ],
+  "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
+});
+formatter.result({
+  "duration": 171603200,
+  "status": "passed"
+});
+formatter.match({
+  "location": "RegistrarTest.no_consigue_registrarse()"
+});
+formatter.result({
+  "duration": 22000,
   "status": "passed"
 });
 });
