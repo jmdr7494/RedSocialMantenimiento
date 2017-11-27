@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,14 @@ import com.redsocial.persistencia.DAOPublicacion;
 import com.redsocial.persistencia.DAORespuesta;
 import com.redsocial.persistencia.DAOUsuario;
 
+/***
+ * 
+ *@method Funciones para editar a un usuario, borrarlo, listar todos los usuarios
+ *Funcion que permite al admin borrar a un usuario, añadir un nuevo usuario,
+ *editarlo y actualizarlo
+ * 
+ */
+
 @Controller
 public class UsuarioController {
 	
@@ -37,7 +46,7 @@ public class UsuarioController {
 			String email = request.getParameter("edit-email");
 			String newpwd = request.getParameter("edit-new-pwd");
 			
-			Usuario usuario = new Usuario(((Usuario)request.getSession().getAttribute("user")).getid(),nombre, email, Utilidades.Encriptar(newpwd));
+			Usuario usuario = new Usuario(((Usuario)request.getSession().getAttribute("user")).getid(),nombre, email, DigestUtils.md5Hex(newpwd));
 			
 			DAOUsuario.update(usuario);
 			return "redirect:wall";
@@ -135,7 +144,7 @@ public class UsuarioController {
 			String email = request.getParameter("update-email");
 			String pwd = request.getParameter("update-pwd");
 			
-			Usuario user = new Usuario(idUsuario, nombre, email, Utilidades.Encriptar(pwd));
+			Usuario user = new Usuario(idUsuario, nombre, email, DigestUtils.md5Hex(pwd));
 			ArrayList<MensajesPrivados> mensajes = DAOMensajesPrivados.selectMsgUser(((Usuario) request.getSession().getAttribute("user")).getemail());
 			
 			DAOUsuario.update(user);
@@ -209,7 +218,7 @@ public class UsuarioController {
 			String email = request.getParameter("add-email");
 			String pwd = request.getParameter("add-pwd");
 			
-			Usuario usuario = new Usuario(nombre, email, Utilidades.Encriptar(pwd));
+			Usuario usuario = new Usuario(nombre, email, DigestUtils.md5Hex(pwd));
 			
 			Usuario usuarioInsertado = DAOUsuario.select(usuario);
 			

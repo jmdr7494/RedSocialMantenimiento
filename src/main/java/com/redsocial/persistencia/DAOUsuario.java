@@ -2,6 +2,7 @@ package com.redsocial.persistencia;
 
 import java.util.ArrayList;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
@@ -41,7 +42,7 @@ public class DAOUsuario {
 		MongoCollection<Document> usuarios=broker.getCollection("Usuarios");
 		Document criterio=new Document();
 		criterio.append("email", email);
-		criterio.append("pwd", Utilidades.Encriptar(pwd));
+		criterio.append("pwd", DigestUtils.md5Hex(pwd));
 		
 		FindIterable<Document> resultado=usuarios.find(criterio);
 		Document usuario=resultado.first();

@@ -23,6 +23,14 @@ import com.redsocial.persistencia.DAOPublicacion;
 import com.redsocial.persistencia.DAORespuesta;
 import com.redsocial.persistencia.DAOUsuario;
 
+/***
+ * 
+ * @method permite realizar publicaciones a un usuario
+ * Poder borrar un usuario sus propias publicaciones
+ * Un usuario puede comentar sus publicaciones
+ * Tambien podra editar sus publicaciones
+ * 
+ */
 @Controller
 public class PublicacionController {
 
