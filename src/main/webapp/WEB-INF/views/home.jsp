@@ -46,7 +46,7 @@
 										<input type="text" name="username" tabindex="1" class="form-control" placeholder="Correo Electronico" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
 									</div>
 									<div class="form-group">
 										<div class="row">
@@ -78,11 +78,11 @@
 										</div>
 									</div>
 									<div class="form-group" id="#pwd-container">
-										<input type="password" id="password-register" name="password-register" tabindex="2" class="form-control" placeholder="Contraseña" required>
+										<input type="password" id="password-register" name="password-register" autocomplete="off" tabindex="2" class="form-control" placeholder="Contraseña" required>
 										<div class="pwstrength_viewport_progress"></div>
 									</div>
 									<div class="form-group">
-										<input type="password" id="confirm-password" name="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña" required>
+										<input type="password" id="confirm-password" name="confirm-password" autocomplete="off" tabindex="2" class="form-control" placeholder="Confirmar contraseña" required>
 									</div>
 									<div id="status">
 									
