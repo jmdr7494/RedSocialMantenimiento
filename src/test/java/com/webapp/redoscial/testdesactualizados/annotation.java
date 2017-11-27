@@ -219,7 +219,7 @@ public class annotation {
 	public void se_modifica_usuario() throws Exception {
 		if(user!=null)
 			user.setPwd(DigestUtils.md5Hex("PRUEBAprueba"));
-	    	DAOUsuario.update(user);
+	    	DAOUsuario.update(user, 1);
 	}
 	
 	@Given("^Una publicacion$")

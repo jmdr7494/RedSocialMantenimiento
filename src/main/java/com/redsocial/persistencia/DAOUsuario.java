@@ -1,6 +1,7 @@
 package com.redsocial.persistencia;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
@@ -29,7 +30,7 @@ public class DAOUsuario {
 	private final static String emaill = "email";
 	private final static String Usuarioss = "Usuarios";
 	private final static String idd = "_id";
-	
+	private final static String modPwd= "modificacionPwd";
 	/**
 	 * 
 	 * @param email
@@ -48,7 +49,10 @@ public class DAOUsuario {
 		Document usuario=resultado.first();
 		
 		if (usuario!=null) {
+			ObjectId id = (ObjectId)usuario.get( idd );
 			result = new Usuario (usuario.getString(nombre), usuario.getString(emaill), usuario.getString(pwdd));
+			result.setid(id.toString());
+			result.setFechaModPwd(usuario.getLong(modPwd));
 		}
 		
 		return result;
@@ -71,6 +75,7 @@ public class DAOUsuario {
 			ObjectId id = (ObjectId)doc.get( idd );
 			result = new Usuario (id.toString(),doc.getString(nombre), doc.getString(emaill), doc.getString(pwdd));
 			result.setid(id.toString());
+			result.setFechaModPwd(doc.getLong(modPwd));
 		}
 		
 		return result;
@@ -95,6 +100,7 @@ public class DAOUsuario {
 		if (doc!=null) {
 			ObjectId id = (ObjectId)doc.get("_id");
 			result = new Usuario(id.toString(), doc.getString("nombre"), doc.getString("email"), doc.getString("pwd"));
+			result.setFechaModPwd(doc.getLong(modPwd));
 		}
 		
 		return result;
@@ -141,6 +147,7 @@ public class DAOUsuario {
 			Document doc = cursor.next();
 			ObjectId id = (ObjectId)doc.get("_id");
 			Usuario usu = new Usuario(id.toString(),doc.getString(nombre), doc.getString(emaill), doc.getString(pwdd));
+			usu.setFechaModPwd(doc.getLong(modPwd));
 			result.add(usu);
 		}
 
@@ -160,7 +167,7 @@ public class DAOUsuario {
 		doc.append(nombre, usuario.getNombre());
 		doc.append(emaill, usuario.getemail());
 		doc.append("pwd", usuario.getPwd());
-
+		doc.append(modPwd, new Date().getTime());
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
 		usuarios.insertOne(doc);
@@ -180,13 +187,36 @@ public class DAOUsuario {
 	 * @param usuario (lo identificamos con el id)
 	 * @method modifica el resto de campos del usuario con el id en cuestion
 	 */
-	public static void update (Usuario usuario) throws Exception {
+	public static void update (Usuario usuario, int pwdModificada) throws Exception {
 		
 		Document filter = new Document("_id", new ObjectId(usuario.getid()));
 		Document newValue = new Document();
 		newValue.append(nombre, usuario.getNombre());
 		newValue.append(emaill, usuario.getemail());
+		if(pwdModificada==1) {
+			newValue.append("pwd", usuario.getPwd());
+			newValue.append(modPwd, new Date().getTime());
+		}
+
+		Document updateOperationDocument = new Document("$set", newValue);
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+	}
+	
+	/**
+	 * 
+	 * @param usuario (lo identificamos con el id)
+	 * @method modifica la pwd del usuario
+	 */
+	public static void updatePwd (Usuario usuario) throws Exception {
+		
+		Document filter = new Document("_id", new ObjectId(usuario.getid()));
+		Document newValue = new Document();
 		newValue.append("pwd", usuario.getPwd());
+		newValue.append(modPwd, new Date().getTime());
 		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();

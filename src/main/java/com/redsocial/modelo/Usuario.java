@@ -1,5 +1,6 @@
 package com.redsocial.modelo;
 
+
 /**
  * 
  * @author Usuario
@@ -10,7 +11,7 @@ public class Usuario {
 	private String nombre;
 	private String pwd;
 	private String email;
-	
+	private Long fechaModPwd;
 	
 	public Usuario() {
 		
@@ -70,6 +71,13 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", pwd=" + pwd + ", email=" + email + "]";
+	}
+
+	public void setFechaModPwd(Long date) {
+		this.fechaModPwd=date;
+	}
+	public Long getFechaModPwd() {
+		return this.fechaModPwd;
 	}
 
 
