@@ -12,8 +12,8 @@ import javax.mail.internet.MimeMessage;
  *
  */
 public class SendMail {
-	private static String userName = "atencion.cliente.dissw@gmail.com";
-	private static String password = "atencioncliente1234";
+
+	static DatosUsuario userData = new DatosUsuario();
 
 	public SendMail() {
 		
@@ -29,7 +29,7 @@ public class SendMail {
 		props.put("mail.smtp.port", "465");
 		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(userName, password);
+				return new PasswordAuthentication(userData.getUserName(), userData.getPassword());
 			}
 		});
 		return session;
@@ -38,7 +38,7 @@ public class SendMail {
 		try {
 
 			Message message = new MimeMessage(getSession());
-			message.setFrom(new InternetAddress(userName));
+			message.setFrom(new InternetAddress(userData.getUserName()));
 			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
 			message.setSubject("Recupera tu contrasena");
 			message.setText("La contrasena para acceder a tu cuenta es:"+pwd);
@@ -50,9 +50,3 @@ public class SendMail {
 		}
 	}
 }
-
-
-
-
-
-

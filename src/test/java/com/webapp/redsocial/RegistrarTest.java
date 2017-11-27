@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
@@ -32,7 +34,7 @@ public class RegistrarTest {
 		user.setemail(email);
 		if(DAOUsuario.select(user)==null) {
 			if(pwd.equals(pwd2)) {
-				user.setPwd(Utilidades.Encriptar(pwd2));
+				user.setPwd(DigestUtils.md5Hex(pwd2));
 				try {
 					user=DAOUsuario.insert(user);
 				}catch(Exception e) {
