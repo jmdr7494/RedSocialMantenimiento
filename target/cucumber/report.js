@@ -1,16 +1,16 @@
 $(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri('com\webapp\redsocial\BorrarCuenta.feature');
 formatter.feature({
   "line": 1,
-  "name": "Test del registro en el sistema",
+  "name": "Test del borrado de cuenta del sistema",
   "description": "",
-  "id": "test-del-registro-en-el-sistema",
+  "id": "test-del-borrado-de-cuenta-del-sistema",
   "keyword": "Feature"
 });
 formatter.scenario({
   "line": 11,
   "name": "Borrado de cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;borrado-de-cuenta-de-usuario;;2",
+  "id": "test-del-borrado-de-cuenta-del-sistema;borrado-de-cuenta-de-usuario;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -44,7 +44,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 349380599,
+  "duration": 440755600,
   "status": "passed"
 });
 formatter.match({
@@ -65,21 +65,21 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 4995187900,
+  "duration": 4191547800,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 276180800,
+  "duration": 254840700,
   "status": "passed"
 });
 formatter.scenario({
   "line": 12,
   "name": "Borrado de cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;borrado-de-cuenta-de-usuario;;3",
+  "id": "test-del-borrado-de-cuenta-del-sistema;borrado-de-cuenta-de-usuario;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -113,7 +113,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 17500,
+  "duration": 19900,
   "status": "passed"
 });
 formatter.match({
@@ -134,21 +134,21 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 415239999,
+  "duration": 389038300,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 344131099,
+  "duration": 245594400,
   "status": "passed"
 });
 formatter.scenario({
   "line": 22,
   "name": "Borrado incorrecto de una cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;2",
+  "id": "test-del-borrado-de-cuenta-del-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -182,7 +182,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 17700,
+  "duration": 16200,
   "status": "passed"
 });
 formatter.match({
@@ -203,21 +203,21 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 164045901,
+  "duration": 134939200,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 42200,
+  "duration": 22000,
   "status": "passed"
 });
 formatter.scenario({
   "line": 23,
   "name": "Borrado incorrecto de una cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;3",
+  "id": "test-del-borrado-de-cuenta-del-sistema;borrado-incorrecto-de-una-cuenta-de-usuario;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -251,7 +251,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 44400,
+  "duration": 216200,
   "status": "passed"
 });
 formatter.match({
@@ -272,14 +272,14 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 151234000,
+  "duration": 156115100,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 21201,
+  "duration": 19300,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\BorrarPublicacion.feature');
@@ -328,7 +328,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 10417000,
+  "duration": 24843000,
   "status": "passed"
 });
 formatter.match({
@@ -349,14 +349,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
 });
 formatter.result({
-  "duration": 282246000,
+  "duration": 316313300,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
 });
 formatter.result({
-  "duration": 145451001,
+  "duration": 122606000,
   "status": "passed"
 });
 formatter.scenario({
@@ -397,7 +397,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 26900,
+  "duration": 24600,
   "status": "passed"
 });
 formatter.match({
@@ -418,14 +418,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
 });
 formatter.result({
-  "duration": 314038500,
+  "duration": 249337300,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
 });
 formatter.result({
-  "duration": 145060500,
+  "duration": 125029500,
   "status": "passed"
 });
 formatter.scenario({
@@ -466,7 +466,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 21501,
+  "duration": 17700,
   "status": "passed"
 });
 formatter.match({
@@ -487,14 +487,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
 });
 formatter.result({
-  "duration": 193429601,
+  "duration": 124494500,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
 });
 formatter.result({
-  "duration": 143856900,
+  "duration": 126278300,
   "status": "passed"
 });
 formatter.scenario({
@@ -535,7 +535,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 24199,
+  "duration": 32000,
   "status": "passed"
 });
 formatter.match({
@@ -556,14 +556,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
 });
 formatter.result({
-  "duration": 151166900,
+  "duration": 140523700,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
 });
 formatter.result({
-  "duration": 181471600,
+  "duration": 129947600,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Login.feature');
@@ -611,7 +611,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 5288599,
+  "duration": 4970900,
   "status": "passed"
 });
 formatter.match({
@@ -628,14 +628,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 143708000,
+  "duration": 145871700,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.se_loguea_correctamente()"
 });
 formatter.result({
-  "duration": 36800,
+  "duration": 47000,
   "status": "passed"
 });
 formatter.scenario({
@@ -675,7 +675,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 25200,
+  "duration": 24400,
   "status": "passed"
 });
 formatter.match({
@@ -692,14 +692,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 179978600,
+  "duration": 152900300,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.se_loguea_correctamente()"
 });
 formatter.result({
-  "duration": 28400,
+  "duration": 28000,
   "status": "passed"
 });
 formatter.scenario({
@@ -739,7 +739,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 22900,
+  "duration": 19900,
   "status": "passed"
 });
 formatter.match({
@@ -756,14 +756,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 149111100,
+  "duration": 192382900,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.no_consigue_loguearse()"
 });
 formatter.result({
-  "duration": 44201,
+  "duration": 31100,
   "status": "passed"
 });
 formatter.scenario({
@@ -803,7 +803,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 20000,
+  "duration": 19600,
   "status": "passed"
 });
 formatter.match({
@@ -820,29 +820,369 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 324955701,
+  "duration": 151234500,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.no_consigue_loguearse()"
 });
 formatter.result({
-  "duration": 24900,
+  "duration": 18400,
+  "status": "passed"
+});
+formatter.uri('com\webapp\redsocial\MensajesPrivados.feature');
+formatter.feature({
+  "line": 1,
+  "name": "Test de envio de mensaje privado",
+  "description": "",
+  "id": "test-de-envio-de-mensaje-privado",
+  "keyword": "Feature"
+});
+formatter.scenario({
+  "line": 11,
+  "name": "Envio correcto de un mensaje privado",
+  "description": "",
+  "id": "test-de-envio-de-mensaje-privado;envio-correcto-de-un-mensaje-privado;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un usuario quiere enviar un mensaje privado",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Fernando\" \"fernycozar@hotmail.com\" son correctos y \"Mariap\" \"asdf@gmail.com\" existe",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "\"Test de mensaje\" enviado",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
+});
+formatter.result({
+  "duration": 6379600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 1
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 12
+    },
+    {
+      "val": "Mariap",
+      "offset": 53
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 62
+    }
+  ],
+  "location": "MensajesPrivadosTest.son_correctos_y_existe(String,String,String,String)"
+});
+formatter.result({
+  "duration": 251386600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test de mensaje",
+      "offset": 1
+    }
+  ],
+  "location": "MensajesPrivadosTest.enviado(String)"
+});
+formatter.result({
+  "duration": 255193100,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 12,
+  "name": "Envio correcto de un mensaje privado",
+  "description": "",
+  "id": "test-de-envio-de-mensaje-privado;envio-correcto-de-un-mensaje-privado;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 3,
+      "name": "@Scenario1"
+    }
+  ]
+});
+formatter.step({
+  "line": 5,
+  "name": "Un usuario quiere enviar un mensaje privado",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 6,
+  "name": "\"Mariap\" \"asdf@gmail.com\" son correctos y \"Fernando\" \"fernycozar@hotmail.com\" existe",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 7,
+  "name": "\"Test de mensaje2\" enviado",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
+});
+formatter.result({
+  "duration": 19600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 1
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 10
+    },
+    {
+      "val": "Fernando",
+      "offset": 43
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 54
+    }
+  ],
+  "location": "MensajesPrivadosTest.son_correctos_y_existe(String,String,String,String)"
+});
+formatter.result({
+  "duration": 280562400,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test de mensaje2",
+      "offset": 1
+    }
+  ],
+  "location": "MensajesPrivadosTest.enviado(String)"
+});
+formatter.result({
+  "duration": 244850400,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 23,
+  "name": "Envio incorrecto de un mensaje privado",
+  "description": "",
+  "id": "test-de-envio-de-mensaje-privado;envio-incorrecto-de-un-mensaje-privado;;2",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 16,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 18,
+  "name": "Un usuario quiere enviar un mensaje privado",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 19,
+  "name": "\"Fernando\" \"fernycozar@hotmail.com\" son correctos pero \"jghjhhj\" \"ghdfghdfgh@gmail.com\" no existe",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 20,
+  "name": "\"Test de mensaje\" no enviado",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
+});
+formatter.result({
+  "duration": 30800,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Fernando",
+      "offset": 1
+    },
+    {
+      "val": "fernycozar@hotmail.com",
+      "offset": 12
+    },
+    {
+      "val": "jghjhhj",
+      "offset": 56
+    },
+    {
+      "val": "ghdfghdfgh@gmail.com",
+      "offset": 66
+    }
+  ],
+  "location": "MensajesPrivadosTest.son_correctos_pero_no_existe(String,String,String,String)"
+});
+formatter.result({
+  "duration": 245570900,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test de mensaje",
+      "offset": 1
+    }
+  ],
+  "location": "MensajesPrivadosTest.no_enviado(String)"
+});
+formatter.result({
+  "duration": 58700,
+  "status": "passed"
+});
+formatter.scenario({
+  "line": 24,
+  "name": "Envio incorrecto de un mensaje privado",
+  "description": "",
+  "id": "test-de-envio-de-mensaje-privado;envio-incorrecto-de-un-mensaje-privado;;3",
+  "type": "scenario",
+  "keyword": "Scenario Outline",
+  "tags": [
+    {
+      "line": 16,
+      "name": "@Scenario2"
+    }
+  ]
+});
+formatter.step({
+  "line": 18,
+  "name": "Un usuario quiere enviar un mensaje privado",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 19,
+  "name": "\"Mariap\" \"asdf@gmail.com\" son correctos pero \"fgjgfhgfhj\" \"dfhgdfhgdfhg@hotmail.com\" no existe",
+  "matchedColumns": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "keyword": "When "
+});
+formatter.step({
+  "line": 20,
+  "name": "\"Test de mensaje2\" no enviado",
+  "matchedColumns": [
+    4
+  ],
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
+});
+formatter.result({
+  "duration": 22500,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Mariap",
+      "offset": 1
+    },
+    {
+      "val": "asdf@gmail.com",
+      "offset": 10
+    },
+    {
+      "val": "fgjgfhgfhj",
+      "offset": 46
+    },
+    {
+      "val": "dfhgdfhgdfhg@hotmail.com",
+      "offset": 59
+    }
+  ],
+  "location": "MensajesPrivadosTest.son_correctos_pero_no_existe(String,String,String,String)"
+});
+formatter.result({
+  "duration": 252680600,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Test de mensaje2",
+      "offset": 1
+    }
+  ],
+  "location": "MensajesPrivadosTest.no_enviado(String)"
+});
+formatter.result({
+  "duration": 32700,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\ModificarCuenta.feature');
 formatter.feature({
   "line": 1,
-  "name": "Test del registro en el sistema",
+  "name": "Test de modificacion de cuenta de un usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema",
+  "id": "test-de-modificacion-de-cuenta-de-un-usuario",
   "keyword": "Feature"
 });
 formatter.scenario({
   "line": 11,
   "name": "Modificacion de cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;modificacion-de-cuenta-de-usuario;;2",
+  "id": "test-de-modificacion-de-cuenta-de-un-usuario;modificacion-de-cuenta-de-usuario;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -881,7 +1221,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 6651000,
+  "duration": 4868300,
   "status": "passed"
 });
 formatter.match({
@@ -902,7 +1242,7 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 533114701,
+  "duration": 527996200,
   "status": "passed"
 });
 formatter.match({
@@ -923,14 +1263,14 @@ formatter.match({
   "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 138336800,
+  "duration": 122627600,
   "status": "passed"
 });
 formatter.scenario({
   "line": 12,
   "name": "Modificacion de cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;modificacion-de-cuenta-de-usuario;;3",
+  "id": "test-de-modificacion-de-cuenta-de-un-usuario;modificacion-de-cuenta-de-usuario;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -969,7 +1309,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 22600,
+  "duration": 25600,
   "status": "passed"
 });
 formatter.match({
@@ -990,7 +1330,7 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 438525899,
+  "duration": 381100400,
   "status": "passed"
 });
 formatter.match({
@@ -1011,14 +1351,14 @@ formatter.match({
   "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 139090100,
+  "duration": 126204600,
   "status": "passed"
 });
 formatter.scenario({
   "line": 22,
   "name": "Modificacion incorrecta de una cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;modificacion-incorrecta-de-una-cuenta-de-usuario;;2",
+  "id": "test-de-modificacion-de-cuenta-de-un-usuario;modificacion-incorrecta-de-una-cuenta-de-usuario;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -1052,7 +1392,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 39600,
+  "duration": 18800,
   "status": "passed"
 });
 formatter.match({
@@ -1073,21 +1413,21 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 158308101,
+  "duration": 159073300,
   "status": "passed"
 });
 formatter.match({
   "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 28600,
+  "duration": 155500,
   "status": "passed"
 });
 formatter.scenario({
   "line": 23,
   "name": "Modificacion incorrecta de una cuenta de usuario",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;modificacion-incorrecta-de-una-cuenta-de-usuario;;3",
+  "id": "test-de-modificacion-de-cuenta-de-un-usuario;modificacion-incorrecta-de-una-cuenta-de-usuario;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -1121,7 +1461,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 20701,
+  "duration": 25500,
   "status": "passed"
 });
 formatter.match({
@@ -1142,14 +1482,14 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 162978501,
+  "duration": 217132000,
   "status": "passed"
 });
 formatter.match({
   "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 27100,
+  "duration": 20800,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\ModificarPublicacion.feature');
@@ -1203,7 +1543,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 5590600,
+  "duration": 2842400,
   "status": "passed"
 });
 formatter.match({
@@ -1232,7 +1572,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 139313900,
+  "duration": 142644000,
   "status": "passed"
 });
 formatter.match({
@@ -1245,7 +1585,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 144111999,
+  "duration": 123772100,
   "status": "passed"
 });
 formatter.scenario({
@@ -1291,7 +1631,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 24101,
+  "duration": 23500,
   "status": "passed"
 });
 formatter.match({
@@ -1320,7 +1660,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 146378400,
+  "duration": 143637000,
   "status": "passed"
 });
 formatter.match({
@@ -1333,7 +1673,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 135754600,
+  "duration": 148894200,
   "status": "passed"
 });
 formatter.scenario({
@@ -1379,7 +1719,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 26201,
+  "duration": 21800,
   "status": "passed"
 });
 formatter.match({
@@ -1408,7 +1748,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 135482999,
+  "duration": 124759400,
   "status": "passed"
 });
 formatter.match({
@@ -1421,7 +1761,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 59700,
+  "duration": 311400,
   "status": "passed"
 });
 formatter.scenario({
@@ -1467,7 +1807,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 21500,
+  "duration": 25700,
   "status": "passed"
 });
 formatter.match({
@@ -1496,7 +1836,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 215958400,
+  "duration": 123798300,
   "status": "passed"
 });
 formatter.match({
@@ -1509,22 +1849,22 @@ formatter.match({
   "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 57200,
+  "duration": 31800,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Publicar.feature');
 formatter.feature({
   "line": 1,
-  "name": "Test del registro en el sistema",
+  "name": "Test de publicar en el sistema",
   "description": "",
-  "id": "test-del-registro-en-el-sistema",
+  "id": "test-de-publicar-en-el-sistema",
   "keyword": "Feature"
 });
 formatter.scenario({
   "line": 11,
   "name": "Hacer una publicacion correctamente",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;hacer-una-publicacion-correctamente;;2",
+  "id": "test-de-publicar-en-el-sistema;hacer-una-publicacion-correctamente;;2",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -1558,7 +1898,7 @@ formatter.match({
   "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
 });
 formatter.result({
-  "duration": 2940500,
+  "duration": 6107600,
   "status": "passed"
 });
 formatter.match({
@@ -1579,21 +1919,21 @@ formatter.match({
   "location": "PublicarTest.con_privacidad_publica(String,String,String)"
 });
 formatter.result({
-  "duration": 154154301,
+  "duration": 151860100,
   "status": "passed"
 });
 formatter.match({
   "location": "PublicarTest.publicacion_publica_correcta()"
 });
 formatter.result({
-  "duration": 275312700,
+  "duration": 250684600,
   "status": "passed"
 });
 formatter.scenario({
   "line": 12,
   "name": "Hacer una publicacion correctamente",
   "description": "",
-  "id": "test-del-registro-en-el-sistema;hacer-una-publicacion-correctamente;;3",
+  "id": "test-de-publicar-en-el-sistema;hacer-una-publicacion-correctamente;;3",
   "type": "scenario",
   "keyword": "Scenario Outline",
   "tags": [
@@ -1627,7 +1967,7 @@ formatter.match({
   "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
 });
 formatter.result({
-  "duration": 56599,
+  "duration": 21400,
   "status": "passed"
 });
 formatter.match({
@@ -1648,14 +1988,14 @@ formatter.match({
   "location": "PublicarTest.con_privacidad_publica(String,String,String)"
 });
 formatter.result({
-  "duration": 170252300,
+  "duration": 140940200,
   "status": "passed"
 });
 formatter.match({
   "location": "PublicarTest.publicacion_publica_correcta()"
 });
 formatter.result({
-  "duration": 272279301,
+  "duration": 245953700,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Registrar.feature');
@@ -1705,7 +2045,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 3883801,
+  "duration": 4560100,
   "status": "passed"
 });
 formatter.match({
@@ -1730,14 +2070,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 412087800,
+  "duration": 418325100,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.se_registra_correctamente()"
 });
 formatter.result({
-  "duration": 74700,
+  "duration": 36200,
   "status": "passed"
 });
 formatter.scenario({
@@ -1779,7 +2119,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 82000,
+  "duration": 20400,
   "status": "passed"
 });
 formatter.match({
@@ -1804,14 +2144,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 410879000,
+  "duration": 389801500,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.se_registra_correctamente()"
 });
 formatter.result({
-  "duration": 21699,
+  "duration": 32000,
   "status": "passed"
 });
 formatter.scenario({
@@ -1853,7 +2193,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 24500,
+  "duration": 18500,
   "status": "passed"
 });
 formatter.match({
@@ -1878,14 +2218,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 211042700,
+  "duration": 149915900,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.no_consigue_registrarse()"
 });
 formatter.result({
-  "duration": 545201,
+  "duration": 30200,
   "status": "passed"
 });
 formatter.scenario({
@@ -1927,7 +2267,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 20700,
+  "duration": 18700,
   "status": "passed"
 });
 formatter.match({
@@ -1952,14 +2292,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 171603200,
+  "duration": 149653900,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.no_consigue_registrarse()"
 });
 formatter.result({
-  "duration": 22000,
+  "duration": 21900,
   "status": "passed"
 });
 });

@@ -33,7 +33,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value="login", method = RequestMethod.POST)
+	@RequestMapping(value="login", method = RequestMethod.GET)
 	public String login(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -51,7 +51,7 @@ public class HomeController {
 		
 	}
 	
-	@RequestMapping(value="registrar", method = RequestMethod.POST)
+	@RequestMapping(value="registrar", method = RequestMethod.GET)
 	public String registrar(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("email");
 		String password = request.getParameter("password-register");
