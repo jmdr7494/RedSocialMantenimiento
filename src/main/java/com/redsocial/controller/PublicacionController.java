@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.bind.DatatypeConverter;
 
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Like;
@@ -44,12 +47,18 @@ public class PublicacionController {
 			 // Montamos la fecha actual para saber cuando se hizo la publicacion.
 			String fechaPublicacion=Utilidades.obtenerFecha();
 			
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("fichero");
+			byte[] imagenBytes = multipartFile.getBytes();
+			
+			
 			
 			Publicacion publicacion = new Publicacion();
 			publicacion.setEmail(user.getemail());
 			publicacion.setNombre(user.getNombre());
 			publicacion.setMensaje(mensaje);
 			publicacion.setFecha(fechaPublicacion);
+			publicacion.setImagen(imagenBytes);
 			
 			Publicacion newPublicacion = DAOPublicacion.insert(publicacion);
 			
@@ -129,7 +138,11 @@ public class PublicacionController {
 			String fecha = request.getParameter("update-fecha");
 			String mensaje = request.getParameter("update-mensaje");
 			
-			Publicacion publicacion = new Publicacion(idPublicacion, email, nombre, fecha, "", mensaje);
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("fichero");
+			byte[] imagenBytes = multipartFile.getBytes();
+			
+			Publicacion publicacion = new Publicacion(idPublicacion, email, nombre, fecha, imagenBytes, mensaje);
 			DAOPublicacion.update(publicacion);
 			
 			return "redirect:wall";

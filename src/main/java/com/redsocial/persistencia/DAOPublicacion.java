@@ -2,10 +2,12 @@ package com.redsocial.persistencia;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
+import javax.xml.bind.DatatypeConverter;
+
 
 import org.bson.Document;
+import org.bson.types.Binary;
 import org.bson.types.ObjectId;
 
 import com.mongodb.BasicDBObject;
@@ -60,6 +62,7 @@ public class DAOPublicacion {
 		Document newValue = new Document();
 		newValue.append("mensaje", publicacion.getMensaje());
 		newValue.append("fecha", fechaPublicacion);
+		newValue.append("imagen", publicacion.getImagen());
 		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();
@@ -78,9 +81,14 @@ public class DAOPublicacion {
 		FindIterable<Document> resultado=publicaciones.find(criterio);
 		Document publicacion=resultado.first();
 		
+		
+		Binary imagen = publicacion.get(img, org.bson.types.Binary.class);
+		byte[]imagenFinal=imagen.getData();
+		String imagenCodificada= DatatypeConverter.printBase64Binary(imagenFinal);
+		
 		if (publicacion!=null) {
 			result = new Publicacion(publicacion.getString("idPublicacion"), publicacion.getString("email"), 
-			publicacion.getString("name"), publicacion.getString("fecha"), publicacion.getString("imagen"), publicacion.getString("mensaje"));
+			publicacion.getString("name"), publicacion.getString("fecha"), imagenCodificada, publicacion.getString("mensaje"));
 		}
 		
 		return result;
@@ -97,7 +105,12 @@ public class DAOPublicacion {
 		while (cursor.hasNext()) {
 			Document doc = cursor.next();
 			ObjectId id = (ObjectId)doc.get( idd );
-			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), doc.getString(img), doc.getString(sms));
+						
+			Binary imagen = doc.get(img, org.bson.types.Binary.class);
+			byte[]imagenFinal=imagen.getData();
+			String imagenCodificada= DatatypeConverter.printBase64Binary(imagenFinal);
+			
+			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), imagenCodificada, doc.getString(sms));
 			result.add(publi);
 		}
 
