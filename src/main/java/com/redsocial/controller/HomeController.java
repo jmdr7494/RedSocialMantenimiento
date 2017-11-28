@@ -1,6 +1,9 @@
 package com.redsocial.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +36,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("username");
@@ -42,8 +46,11 @@ public class HomeController {
 			model.addAttribute("user",user);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
+			Long fechaModPwd=user.getFechaModPwd();
+			Long hoy=new Date().getTime();
+			if(hoy>fechaModPwd+300000)
+				return "nuevaPwd";
 			return "redirect:wall";
-		
 		}else {
 			model.addAttribute("message", "No se puede loguear");
 			return "home";
@@ -57,7 +64,7 @@ public class HomeController {
 		String password = request.getParameter("password-register");
 		String username = request.getParameter("username");
 		
-		Usuario usuario = new Usuario(username, email, Utilidades.Encriptar(password));
+		Usuario usuario = new Usuario(username, email, DigestUtils.md5Hex(password));
 		Usuario usuarioInsertado = DAOUsuario.insert(usuario);
 		
 		if (usuarioInsertado!=null) {
@@ -79,19 +86,26 @@ public class HomeController {
 		return "viewRecordarPass";
 	}
 	
-	@RequestMapping(value="forgotpassword", method = RequestMethod.POST)
-	public String forgotpassword(HttpServletRequest request,Model model)throws Exception{
-		
+	@RequestMapping(value = "forgotpassword", method = RequestMethod.POST)
+	public String forgotpassword(HttpServletRequest request, Model model) throws Exception {
+
 		String email = request.getParameter("email");
 		Usuario usuario = new Usuario("", email, "");
 		Usuario user = DAOUsuario.select(usuario);
-		 
-		 if (user!=null) {
-				SendMail send = new SendMail();
-				send.sendMail(user.getemail(), Utilidades.Desencriptar(user.getPwd()));
-				model.addAttribute("message", "Se ha enviado correctamente la contraseña");
-		 }
+
+		// Crear pwd aleatoria
+		int pin = (int) (Math.random() * (9999 - 1000 + 1) + 1000);
+		String pinEmail = "redsocial" + String.valueOf(pin);
+		
+		user.setPwd(DigestUtils.md5Hex(pinEmail));
+		DAOUsuario.update(user, 1);
+
+		if (user != null) {
+			SendMail send = new SendMail();
+			send.sendMail(user.getemail(), pinEmail);
+			model.addAttribute("message", "Se ha enviado correctamente la contraseña");
+		}
 		return "viewRecordarPass";
 	}
-	
+
 }

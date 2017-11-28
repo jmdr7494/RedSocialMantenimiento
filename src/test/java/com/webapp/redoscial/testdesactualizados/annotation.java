@@ -4,6 +4,8 @@ package com.webapp.redoscial.testdesactualizados;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.MensajesPrivados;
 import com.redsocial.modelo.Publicacion;
@@ -216,8 +218,8 @@ public class annotation {
 	@Then("^se modifica usuario$")
 	public void se_modifica_usuario() throws Exception {
 		if(user!=null)
-			user.setPwd(Utilidades.Encriptar("PRUEBAprueba"));
-	    	DAOUsuario.update(user);
+			user.setPwd(DigestUtils.md5Hex("PRUEBAprueba"));
+	    	DAOUsuario.update(user, 1);
 	}
 	
 	@Given("^Una publicacion$")

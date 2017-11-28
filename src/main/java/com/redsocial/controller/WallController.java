@@ -31,6 +31,14 @@ import com.redsocial.persistencia.DAOPublicacion;
 import com.redsocial.persistencia.DAORespuesta;
 import com.redsocial.persistencia.DAOUsuario;
 
+/***
+ * 
+ * @method Diferentes muros que se necesitaran en la red social
+ * Para las publicaciones, mensajes, like´s...
+ * Implementacion de las funciones like y mensajes privados (incluye enviar mensajes)
+ * 
+ */
+
 @Controller
 public class WallController {
 

@@ -2,6 +2,8 @@ package com.webapp.redsocial;
 
 import static org.junit.Assert.assertTrue;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
@@ -24,24 +26,24 @@ public class ModificarCuentaTest {
 		Usuario aux=new Usuario();
 		aux.setNombre("whatever");
 		aux.setemail("whatever@hotmail.com");
-		aux.setPwd(Utilidades.Encriptar("whatever"));
+		aux.setPwd(DigestUtils.md5Hex("whatever"));
 		user=DAOUsuario.insert(aux);
 		assertTrue(user.getNombre().equals("whatever"));
 		assertTrue(user.getemail().equals("whatever@hotmail.com"));
-		assertTrue(user.getPwd().equals(Utilidades.Encriptar("whatever")));
+		assertTrue(user.getPwd().equals(DigestUtils.md5Hex("whatever")));
 		
 		
 		user.setNombre(nombre);
 		user.setemail(email);
-		user.setPwd(Utilidades.Encriptar(pwd));
-		DAOUsuario.update(user);
+		user.setPwd(DigestUtils.md5Hex(pwd));
+		DAOUsuario.update(user, 1);
 	}
 
 	@Then("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" modificado correctamente$")
 	public void modificado_correctamente(String nombre, String email, String pwd) {
 		assertTrue(user.getNombre().equals(nombre));
 		assertTrue(user.getemail().equals(email));
-		assertTrue(user.getPwd().equals(Utilidades.Encriptar(pwd)));
+		assertTrue(user.getPwd().equals(DigestUtils.md5Hex(pwd)));
 		DAOUsuario.deleteConEmail(email);
 	}
 

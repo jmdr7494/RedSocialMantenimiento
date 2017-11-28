@@ -86,9 +86,15 @@
 									<div class="form-group">
 										<input type="password" id="confirm-password" name="confirm-password" autocomplete="off" tabindex="2" class="form-control" placeholder="Confirmar contraseña" required>
 									</div>
-									<div id="status">
-									
+									<script>
+										function activarRegistro(){
+											document.getElementById("register-submit").disabled = false;
+										}
+									</script>
+									<%-- By JA captcha registro--%>
+									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR" data-callback="activarRegistro">	
 									</div>
+								
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -96,9 +102,9 @@
 											</div>
 										</div>
 									</div>
-									<%-- By JA captcha registro--%>
-									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu"></div>
+									
 								</form>
+								
 							</div>
 						</div>
 					</div>
