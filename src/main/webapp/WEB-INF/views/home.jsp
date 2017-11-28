@@ -91,9 +91,8 @@
 											document.getElementById("register-submit").disabled = false;
 										}
 									</script>
-									<%-- By JA captcha registro
-									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR" data-callback="activarRegistro">--%>
-									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR">
+									<%-- By JA captcha registro--%>
+									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR" data-callback="activarRegistro">	
 									</div>
 								
 									<div class="form-group">
