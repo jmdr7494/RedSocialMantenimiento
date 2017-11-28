@@ -36,7 +36,7 @@ public class ModificarCuentaTest {
 		user.setNombre(nombre);
 		user.setemail(email);
 		user.setPwd(DigestUtils.md5Hex(pwd));
-		DAOUsuario.update(user);
+		DAOUsuario.update(user, 1);
 	}
 
 	@Then("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" modificado correctamente$")

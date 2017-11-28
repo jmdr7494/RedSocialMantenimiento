@@ -1,5 +1,7 @@
 package com.redsocial.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -34,6 +36,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(HttpServletRequest request, Model model)throws Exception{
 		String email = request.getParameter("username");
@@ -43,8 +46,11 @@ public class HomeController {
 			model.addAttribute("user",user);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
+			Long fechaModPwd=user.getFechaModPwd();
+			Long hoy=new Date().getTime();
+			if(hoy>fechaModPwd+300000)
+				return "nuevaPwd";
 			return "redirect:wall";
-		
 		}else {
 			model.addAttribute("message", "No se puede loguear");
 			return "home";
@@ -92,7 +98,7 @@ public class HomeController {
 		String pinEmail = "redsocial" + String.valueOf(pin);
 		
 		user.setPwd(DigestUtils.md5Hex(pinEmail));
-		DAOUsuario.update(user);
+		DAOUsuario.update(user, 1);
 
 		if (user != null) {
 			SendMail send = new SendMail();

@@ -44,11 +44,16 @@ public class UsuarioController {
 		if (request.getSession().getAttribute("user")!=null) {
 			String nombre = request.getParameter("edit-nombre");
 			String email = request.getParameter("edit-email");
-			String newpwd = request.getParameter("edit-new-pwd");
+			Usuario aux=(Usuario) request.getSession().getAttribute("user");
+			String pwdAntigua=aux.getPwd();
 			
+			String newpwd = request.getParameter("edit-new-pwd");
+			int pwdModificada=0;
+			if(!pwdAntigua.equals(newpwd))
+				pwdModificada=1;
 			Usuario usuario = new Usuario(((Usuario)request.getSession().getAttribute("user")).getid(),nombre, email, DigestUtils.md5Hex(newpwd));
 			
-			DAOUsuario.update(usuario);
+			DAOUsuario.update(usuario, pwdModificada);
 			return "redirect:wall";
 		}else {
 			return "home";
@@ -56,6 +61,24 @@ public class UsuarioController {
 		
 	}
 	
+	@RequestMapping(value = "renovarPwd", method = RequestMethod.POST)
+	public String renovarPwd(HttpServletRequest request,Model model) throws Exception {
+		Usuario usuario =(Usuario) request.getSession().getAttribute("user");
+
+		if (usuario!=null) {
+			String newpwd = request.getParameter("txtUsuarioClave");
+			String newpwd1 = request.getParameter("txtUsuarioClave1");
+			if(!newpwd1.equals(newpwd))
+				return "nuevaPwd";
+			usuario.setPwd(DigestUtils.md5Hex(newpwd));
+			
+			DAOUsuario.updatePwd(usuario);
+			return "redirect:wall";
+		}else {
+			return "home";
+		}
+		
+	}
 	@RequestMapping(value = "borrarusuario", method = RequestMethod.GET)
 	public String borrarusuario(HttpServletRequest request,Model model) throws Exception {
 		
@@ -147,7 +170,7 @@ public class UsuarioController {
 			Usuario user = new Usuario(idUsuario, nombre, email, DigestUtils.md5Hex(pwd));
 			ArrayList<MensajesPrivados> mensajes = DAOMensajesPrivados.selectMsgUser(((Usuario) request.getSession().getAttribute("user")).getemail());
 			
-			DAOUsuario.update(user);
+			DAOUsuario.update(user, 1);
 			ArrayList<Usuario> users = new ArrayList<Usuario>();
 			users = DAOUsuario.selectAll();
 			
