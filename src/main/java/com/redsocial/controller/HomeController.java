@@ -2,7 +2,10 @@ package com.redsocial.controller;
 
 import java.util.Date;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 import org.slf4j.Logger;
@@ -59,7 +62,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="registrar", method = RequestMethod.POST)
-	public String registrar(HttpServletRequest request, Model model)throws Exception{
+	public String registrar(HttpServletRequest request, HttpServletResponse response, Model model)throws Exception{
 		String email = request.getParameter("email");
 		String password = request.getParameter("password-register");
 		String username = request.getParameter("username");
@@ -72,6 +75,9 @@ public class HomeController {
 			model.addAttribute("user",usuario);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", usuario);
+			Cookie cookieCaptcha = new Cookie("captcha", "true");
+			cookieCaptcha.setMaxAge(3000000);
+			response.addCookie(cookieCaptcha);
 			return "redirect:wall";
 		}else {
 			model.addAttribute("message", "No se puede registrar");
