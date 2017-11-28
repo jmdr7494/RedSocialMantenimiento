@@ -95,11 +95,13 @@ public class HomeController {
 		SecureRandom rand = SecureRandom.getInstance("SHA1PRNG");
 		int pin = rand.nextInt();
 		String pinEmail = "redsocial" + String.valueOf(pin);
+
 		user.setPwd(DigestUtils.md5Hex(pinEmail));
 		DAOUsuario.update(user);
 
 		if (user != null) {
 			SendMail send = new SendMail();
+			System.out.println("Este es el pin en Home " + pinEmail);
 			send.sendMail(user.getemail(), pinEmail);
 			model.addAttribute("message", "Se ha enviado correctamente la contraseña");
 		}

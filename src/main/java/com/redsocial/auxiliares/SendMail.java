@@ -2,9 +2,13 @@ package com.redsocial.auxiliares;
 
 import java.util.Properties;
 
-import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.Session;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.MessagingException;
 
 /**
  * 
@@ -43,7 +47,7 @@ public class SendMail {
 			message.setSubject("Recupera tu contrasena");
 			message.setText("La contrasena para acceder a tu cuenta es:"+pwd);
 			Transport.send(message);
-
+			System.out.println("Este es el pin " + pwd);
 
 		} catch (MessagingException e) {
 		}
