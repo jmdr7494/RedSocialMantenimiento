@@ -10,6 +10,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 
 import com.redsocial.modelo.Like;
+import com.redsocial.modelo.Publicacion;
 /**
  * 
  * @author Usuario
@@ -129,5 +130,29 @@ public class DAOLike {
 
 		 return result;
 	 }
+
+
+
+	public static void borrarPublicacion(Publicacion result) {
+		 Document doc=new Document();
+		 doc.append(idp, result.getIdPublicacion());
+
+		 MongoBroker broker= MongoBroker.get();
+		 MongoCollection<Document>likes=broker.getCollection(likess);
+		 likes.deleteMany(doc);
+
+	}
+
+
+
+	public static void borrarUsuario(Publicacion result) {
+		 Document doc=new Document();
+		 doc.append(eu, result.getEmail());
+
+		 MongoBroker broker= MongoBroker.get();
+		 MongoCollection<Document>likes=broker.getCollection(likess);
+		 likes.deleteMany(doc);
+		
+	}
 
 }

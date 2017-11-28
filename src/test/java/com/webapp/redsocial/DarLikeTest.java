@@ -24,16 +24,18 @@ public class DarLikeTest {
 	private static ArrayList<String> emails=new ArrayList<String>();
 	private static Publicacion publicacion;
 	private Usuario usuario;
+	private static int insertarPublicacion=0;
 	
 	@Before
 	public void beforeAll() {
-		if(emails.size()==0) {
+		if(insertarPublicacion==0) {
 			publicacion=new Publicacion();
 			publicacion.setNombre("YOLO");
 			publicacion.setEmail("YOLO");
 			publicacion.setFecha(Utilidades.obtenerFecha());
 			publicacion.setMensaje("YOLO");
 			publicacion=DAOPublicacion.insert(publicacion);
+			insertarPublicacion=1;
 		}
 	}
 	@Given("^Usuario conectado quiere dar me gusta$")

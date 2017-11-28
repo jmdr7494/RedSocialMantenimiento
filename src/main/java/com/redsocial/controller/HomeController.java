@@ -86,11 +86,11 @@ public class HomeController {
 		String email = request.getParameter("email");
 		Usuario usuario = new Usuario("", email, "");
 		Usuario user = DAOUsuario.select(usuario);
-
+		if(user==null)
+			return "viewRecordarPass";
 		// Crear pwd aleatoria
 		int pin = (int) (Math.random() * (9999 - 1000 + 1) + 1000);
 		String pinEmail = "redsocial" + String.valueOf(pin);
-		
 		user.setPwd(DigestUtils.md5Hex(pinEmail));
 		DAOUsuario.update(user);
 

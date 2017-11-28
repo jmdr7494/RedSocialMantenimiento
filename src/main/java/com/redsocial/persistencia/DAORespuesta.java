@@ -9,7 +9,7 @@ import org.bson.types.ObjectId;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-
+import com.redsocial.modelo.Publicacion;
 import com.redsocial.modelo.Respuesta;
 
 /**
@@ -73,5 +73,25 @@ public static void delete(String id) {
 		respuestas.deleteOne(new Document(idd, new ObjectId(id)));
 		
 	}
+
+public static void borrarPublicacion(Publicacion result) {
+	 Document doc=new Document();
+	 doc.append(idp, result.getIdPublicacion());
+
+	 MongoBroker broker= MongoBroker.get();
+	 MongoCollection<Document>respuestas=broker.getCollection(rtas);
+	 respuestas.deleteMany(doc);
+	
+}
+
+public static void borrarUsuario(Publicacion result) {
+	 Document doc=new Document();
+	 doc.append(emaill, result.getEmail());
+
+	 MongoBroker broker= MongoBroker.get();
+	 MongoCollection<Document>respuestas=broker.getCollection(rtas);
+	 respuestas.deleteMany(doc);
+	
+}
 	
 }

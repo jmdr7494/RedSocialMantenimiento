@@ -4,6 +4,7 @@ package com.redsocial.persistencia;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -13,7 +14,8 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.redsocial.auxiliares.Utilidades;
-import com.redsocial.modelo.Publicacion;;
+import com.redsocial.modelo.Publicacion;
+import com.redsocial.modelo.Usuario;;
 /**
  * 
  * @author Usuario
@@ -110,6 +112,32 @@ public class DAOPublicacion {
 		MongoCollection<Document>publicaciones=broker.getCollection(pub);
 		publicaciones.deleteOne(new Document(idd, new ObjectId(id)));
 		
+	}
+
+
+
+	public static void borradoUsuario(Usuario borrar) {
+		Publicacion result = null;
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> publicaciones=broker.getCollection("Publicaciones");
+		Document criterio=new Document();
+		criterio.append(emaill, borrar.getemail());
+		
+		FindIterable<Document> resultado=publicaciones.find(criterio);
+		Iterator <Document> it=resultado.iterator();
+		Document publicacion;
+		while(it.hasNext()) {
+			publicacion=it.next();
+			result = new Publicacion(publicacion.getString("idPublicacion"), publicacion.getString("email"), 
+			publicacion.getString("name"), publicacion.getString("fecha"), publicacion.getString("imagen"), publicacion.getString("mensaje"));
+			DAOLike.borrarPublicacion(result);
+			DAORespuesta.borrarPublicacion(result);
+			
+			DAOLike.borrarUsuario(result);
+			DAORespuesta.borrarUsuario(result);
+			publicaciones.deleteOne(new Document(idd, new ObjectId(result.getIdPublicacion())));
+			
+		}	
 	}
 	
 
