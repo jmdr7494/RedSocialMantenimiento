@@ -44,7 +44,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 131552700,
+  "duration": 145947900,
   "status": "passed"
 });
 formatter.match({
@@ -65,14 +65,14 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 462649100,
+  "duration": 403351200,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 261038600,
+  "duration": 249513200,
   "status": "passed"
 });
 formatter.scenario({
@@ -113,7 +113,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 159900,
+  "duration": 148000,
   "status": "passed"
 });
 formatter.match({
@@ -134,14 +134,14 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrar_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 382870000,
+  "duration": 370405800,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 293878200,
+  "duration": 244090100,
   "status": "passed"
 });
 formatter.scenario({
@@ -182,7 +182,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 15500,
+  "duration": 13300,
   "status": "passed"
 });
 formatter.match({
@@ -203,14 +203,14 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 143864600,
+  "duration": 122546100,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 23400,
+  "duration": 121800,
   "status": "passed"
 });
 formatter.scenario({
@@ -251,7 +251,7 @@ formatter.match({
   "location": "BorrarCuentaTest.Un_usuario_quiere_borrar_su_cuenta()"
 });
 formatter.result({
-  "duration": 22900,
+  "duration": 17900,
   "status": "passed"
 });
 formatter.match({
@@ -272,14 +272,14 @@ formatter.match({
   "location": "BorrarCuentaTest.para_borrarincorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 173165600,
+  "duration": 148417900,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarCuentaTest.no_se_borra_al_usuario()"
 });
 formatter.result({
-  "duration": 24300,
+  "duration": 21600,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\BorrarPublicacion.feature');
@@ -328,7 +328,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 5122000,
+  "duration": 4655700,
   "status": "passed"
 });
 formatter.match({
@@ -349,14 +349,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
 });
 formatter.result({
-  "duration": 261853600,
+  "duration": 246938800,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
 });
 formatter.result({
-  "duration": 131299000,
+  "duration": 121936900,
   "status": "passed"
 });
 formatter.scenario({
@@ -397,7 +397,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 24600,
+  "duration": 34300,
   "status": "passed"
 });
 formatter.match({
@@ -418,14 +418,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.es_autor_de(String,String,String)"
 });
 formatter.result({
-  "duration": 273515100,
+  "duration": 265313300,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_correcto()"
 });
 formatter.result({
-  "duration": 125192500,
+  "duration": 122433700,
   "status": "passed"
 });
 formatter.scenario({
@@ -466,7 +466,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 17300,
+  "duration": 15700,
   "status": "passed"
 });
 formatter.match({
@@ -487,14 +487,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
 });
 formatter.result({
-  "duration": 147050400,
+  "duration": 194305500,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
 });
 formatter.result({
-  "duration": 154235400,
+  "duration": 125596100,
   "status": "passed"
 });
 formatter.scenario({
@@ -535,7 +535,7 @@ formatter.match({
   "location": "BorrarPublicacionTest.Usuario_en_el_muro_quiere_borrar_una_publicacion()"
 });
 formatter.result({
-  "duration": 20500,
+  "duration": 22000,
   "status": "passed"
 });
 formatter.match({
@@ -556,14 +556,14 @@ formatter.match({
   "location": "BorrarPublicacionTest.no_es_autor_del(String,String,String)"
 });
 formatter.result({
-  "duration": 205546600,
+  "duration": 151616200,
   "status": "passed"
 });
 formatter.match({
   "location": "BorrarPublicacionTest.borrado_de_publicacion_incorrecto()"
 });
 formatter.result({
-  "duration": 125229800,
+  "duration": 122916700,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\DarLike.feature');
@@ -610,7 +610,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 6096200,
+  "duration": 3952700,
   "status": "passed"
 });
 formatter.match({
@@ -623,14 +623,14 @@ formatter.match({
   "location": "DarLikeTest.No_le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 127131100,
+  "duration": 123504700,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.Le_gusta_publicacion()"
 });
 formatter.result({
-  "duration": 250999300,
+  "duration": 244978900,
   "status": "passed"
 });
 formatter.scenario({
@@ -669,7 +669,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 60200,
+  "duration": 16800,
   "status": "passed"
 });
 formatter.match({
@@ -682,14 +682,14 @@ formatter.match({
   "location": "DarLikeTest.No_le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 146971800,
+  "duration": 137862400,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.Le_gusta_publicacion()"
 });
 formatter.result({
-  "duration": 251008000,
+  "duration": 243987200,
   "status": "passed"
 });
 formatter.scenario({
@@ -728,7 +728,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 16200,
+  "duration": 15000,
   "status": "passed"
 });
 formatter.match({
@@ -741,14 +741,14 @@ formatter.match({
   "location": "DarLikeTest.Le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 132637400,
+  "duration": 133484700,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.No_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 151251500,
+  "duration": 122645400,
   "status": "passed"
 });
 formatter.scenario({
@@ -787,7 +787,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 15800,
+  "duration": 16400,
   "status": "passed"
 });
 formatter.match({
@@ -800,14 +800,14 @@ formatter.match({
   "location": "DarLikeTest.Le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 154910300,
+  "duration": 139017700,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.No_dar_me_gusta()"
 });
 formatter.result({
-  "duration": 140051300,
+  "duration": 124169600,
   "status": "passed"
 });
 formatter.scenario({
@@ -846,7 +846,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 46300,
+  "duration": 29800,
   "status": "passed"
 });
 formatter.match({
@@ -859,14 +859,14 @@ formatter.match({
   "location": "DarLikeTest.Le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 149296800,
+  "duration": 122082100,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.Dejar_de_gustar_publicacion()"
 });
 formatter.result({
-  "duration": 269483800,
+  "duration": 247322400,
   "status": "passed"
 });
 formatter.scenario({
@@ -905,7 +905,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 19000,
+  "duration": 21200,
   "status": "passed"
 });
 formatter.match({
@@ -918,14 +918,14 @@ formatter.match({
   "location": "DarLikeTest.Le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 129553100,
+  "duration": 132010900,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.Dejar_de_gustar_publicacion()"
 });
 formatter.result({
-  "duration": 251189000,
+  "duration": 250511900,
   "status": "passed"
 });
 formatter.scenario({
@@ -964,7 +964,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 19900,
+  "duration": 17500,
   "status": "passed"
 });
 formatter.match({
@@ -977,14 +977,14 @@ formatter.match({
   "location": "DarLikeTest.No_le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 149994900,
+  "duration": 132422300,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.No_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 133196500,
+  "duration": 124601100,
   "status": "passed"
 });
 formatter.scenario({
@@ -1023,7 +1023,7 @@ formatter.match({
   "location": "DarLikeTest.Usuario_conectado_quiere_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 16200,
+  "duration": 17800,
   "status": "passed"
 });
 formatter.match({
@@ -1036,14 +1036,14 @@ formatter.match({
   "location": "DarLikeTest.No_le_gusta_a(String)"
 });
 formatter.result({
-  "duration": 173871500,
+  "duration": 133537700,
   "status": "passed"
 });
 formatter.match({
   "location": "DarLikeTest.No_quitar_me_gusta()"
 });
 formatter.result({
-  "duration": 146020400,
+  "duration": 122934400,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Login.feature');
@@ -1091,7 +1091,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 5920900,
+  "duration": 4949400,
   "status": "passed"
 });
 formatter.match({
@@ -1108,14 +1108,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 136590600,
+  "duration": 128931200,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.se_loguea_correctamente()"
 });
 formatter.result({
-  "duration": 246100,
+  "duration": 384600,
   "status": "passed"
 });
 formatter.scenario({
@@ -1155,7 +1155,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 29400,
+  "duration": 20000,
   "status": "passed"
 });
 formatter.match({
@@ -1172,14 +1172,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 188329200,
+  "duration": 135011900,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.se_loguea_correctamente()"
 });
 formatter.result({
-  "duration": 25200,
+  "duration": 16300,
   "status": "passed"
 });
 formatter.scenario({
@@ -1219,7 +1219,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 18800,
+  "duration": 17200,
   "status": "passed"
 });
 formatter.match({
@@ -1236,14 +1236,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 133475300,
+  "duration": 122918800,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.no_consigue_loguearse()"
 });
 formatter.result({
-  "duration": 43800,
+  "duration": 27700,
   "status": "passed"
 });
 formatter.scenario({
@@ -1283,7 +1283,7 @@ formatter.match({
   "location": "LoginTest.Un_usuario_y_password_para_login()"
 });
 formatter.result({
-  "duration": 19400,
+  "duration": 20900,
   "status": "passed"
 });
 formatter.match({
@@ -1300,14 +1300,14 @@ formatter.match({
   "location": "LoginTest.y_se_quiere_loguear(String,String)"
 });
 formatter.result({
-  "duration": 150075200,
+  "duration": 134511700,
   "status": "passed"
 });
 formatter.match({
   "location": "LoginTest.no_consigue_loguearse()"
 });
 formatter.result({
-  "duration": 28400,
+  "duration": 18400,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\MensajesPrivados.feature');
@@ -1360,7 +1360,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
 });
 formatter.result({
-  "duration": 52148900,
+  "duration": 4308200,
   "status": "passed"
 });
 formatter.match({
@@ -1385,7 +1385,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.son_correctos_y_existe(String,String,String,String)"
 });
 formatter.result({
-  "duration": 252236600,
+  "duration": 246855800,
   "status": "passed"
 });
 formatter.match({
@@ -1398,7 +1398,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.enviado(String)"
 });
 formatter.result({
-  "duration": 256561400,
+  "duration": 244256500,
   "status": "passed"
 });
 formatter.scenario({
@@ -1443,7 +1443,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
 });
 formatter.result({
-  "duration": 25500,
+  "duration": 16400,
   "status": "passed"
 });
 formatter.match({
@@ -1468,7 +1468,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.son_correctos_y_existe(String,String,String,String)"
 });
 formatter.result({
-  "duration": 285690300,
+  "duration": 243124700,
   "status": "passed"
 });
 formatter.match({
@@ -1481,7 +1481,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.enviado(String)"
 });
 formatter.result({
-  "duration": 252283300,
+  "duration": 243120200,
   "status": "passed"
 });
 formatter.scenario({
@@ -1526,7 +1526,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
 });
 formatter.result({
-  "duration": 19300,
+  "duration": 17500,
   "status": "passed"
 });
 formatter.match({
@@ -1551,7 +1551,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.son_correctos_pero_no_existe(String,String,String,String)"
 });
 formatter.result({
-  "duration": 731177700,
+  "duration": 384057300,
   "status": "passed"
 });
 formatter.match({
@@ -1564,7 +1564,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.no_enviado(String)"
 });
 formatter.result({
-  "duration": 41400,
+  "duration": 65500,
   "status": "passed"
 });
 formatter.scenario({
@@ -1609,7 +1609,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.Un_usuario_quiere_enviar_un_mensaje_privado()"
 });
 formatter.result({
-  "duration": 18600,
+  "duration": 18700,
   "status": "passed"
 });
 formatter.match({
@@ -1634,7 +1634,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.son_correctos_pero_no_existe(String,String,String,String)"
 });
 formatter.result({
-  "duration": 580345500,
+  "duration": 244318200,
   "status": "passed"
 });
 formatter.match({
@@ -1647,7 +1647,7 @@ formatter.match({
   "location": "MensajesPrivadosTest.no_enviado(String)"
 });
 formatter.result({
-  "duration": 49100,
+  "duration": 33300,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\ModificarCuenta.feature');
@@ -1701,7 +1701,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 7312000,
+  "duration": 2400400,
   "status": "passed"
 });
 formatter.match({
@@ -1722,7 +1722,7 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 404630900,
+  "duration": 373825300,
   "status": "passed"
 });
 formatter.match({
@@ -1743,7 +1743,7 @@ formatter.match({
   "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 124723700,
+  "duration": 121968600,
   "status": "passed"
 });
 formatter.scenario({
@@ -1789,7 +1789,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 24300,
+  "duration": 18000,
   "status": "passed"
 });
 formatter.match({
@@ -1810,7 +1810,7 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_correctos(String,String,String)"
 });
 formatter.result({
-  "duration": 393845900,
+  "duration": 367065100,
   "status": "passed"
 });
 formatter.match({
@@ -1831,7 +1831,7 @@ formatter.match({
   "location": "ModificarCuentaTest.modificado_correctamente(String,String,String)"
 });
 formatter.result({
-  "duration": 167019100,
+  "duration": 121612100,
   "status": "passed"
 });
 formatter.scenario({
@@ -1872,7 +1872,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 21700,
+  "duration": 27900,
   "status": "passed"
 });
 formatter.match({
@@ -1893,14 +1893,14 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 140989500,
+  "duration": 131014200,
   "status": "passed"
 });
 formatter.match({
   "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 29400,
+  "duration": 22100,
   "status": "passed"
 });
 formatter.scenario({
@@ -1941,7 +1941,7 @@ formatter.match({
   "location": "ModificarCuentaTest.Un_Usuario_quiere_modificar_su_cuenta()"
 });
 formatter.result({
-  "duration": 22000,
+  "duration": 18500,
   "status": "passed"
 });
 formatter.match({
@@ -1962,14 +1962,14 @@ formatter.match({
   "location": "ModificarCuentaTest.usuario_incorrectos(String,String,String)"
 });
 formatter.result({
-  "duration": 190110300,
+  "duration": 128722000,
   "status": "passed"
 });
 formatter.match({
   "location": "ModificarCuentaTest.usuario_no_sufre_cambios()"
 });
 formatter.result({
-  "duration": 22800,
+  "duration": 18000,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\ModificarPublicacion.feature');
@@ -2023,7 +2023,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 5764900,
+  "duration": 2389600,
   "status": "passed"
 });
 formatter.match({
@@ -2052,7 +2052,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 127115000,
+  "duration": 183887200,
   "status": "passed"
 });
 formatter.match({
@@ -2065,7 +2065,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 147670700,
+  "duration": 121875200,
   "status": "passed"
 });
 formatter.scenario({
@@ -2111,7 +2111,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 18800,
+  "duration": 26400,
   "status": "passed"
 });
 formatter.match({
@@ -2140,7 +2140,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 152399700,
+  "duration": 131558200,
   "status": "passed"
 });
 formatter.match({
@@ -2153,7 +2153,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 126766700,
+  "duration": 121680100,
   "status": "passed"
 });
 formatter.scenario({
@@ -2199,7 +2199,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 18100,
+  "duration": 16500,
   "status": "passed"
 });
 formatter.match({
@@ -2228,7 +2228,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 124548300,
+  "duration": 121642400,
   "status": "passed"
 });
 formatter.match({
@@ -2241,7 +2241,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 36800,
+  "duration": 46600,
   "status": "passed"
 });
 formatter.scenario({
@@ -2287,7 +2287,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Usuario_en_el_muro_quiere_editar()"
 });
 formatter.result({
-  "duration": 18000,
+  "duration": 18900,
   "status": "passed"
 });
 formatter.match({
@@ -2316,7 +2316,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.Cuando_no_coinciden_y_para_modificar(String,String,String,String,String)"
 });
 formatter.result({
-  "duration": 124570100,
+  "duration": 164118000,
   "status": "passed"
 });
 formatter.match({
@@ -2329,7 +2329,7 @@ formatter.match({
   "location": "ModificarPublicacionTest.no_sustituir_la_publicacion_por(String)"
 });
 formatter.result({
-  "duration": 32700,
+  "duration": 34200,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Publicar.feature');
@@ -2378,7 +2378,7 @@ formatter.match({
   "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
 });
 formatter.result({
-  "duration": 3995800,
+  "duration": 6086300,
   "status": "passed"
 });
 formatter.match({
@@ -2399,14 +2399,14 @@ formatter.match({
   "location": "PublicarTest.con_privacidad_publica(String,String,String)"
 });
 formatter.result({
-  "duration": 127615500,
+  "duration": 121909500,
   "status": "passed"
 });
 formatter.match({
   "location": "PublicarTest.publicacion_publica_correcta()"
 });
 formatter.result({
-  "duration": 249962900,
+  "duration": 242629300,
   "status": "passed"
 });
 formatter.scenario({
@@ -2447,7 +2447,7 @@ formatter.match({
   "location": "PublicarTest.Usuario_en_el_muro_quiere_publicar()"
 });
 formatter.result({
-  "duration": 24900,
+  "duration": 18700,
   "status": "passed"
 });
 formatter.match({
@@ -2468,14 +2468,14 @@ formatter.match({
   "location": "PublicarTest.con_privacidad_publica(String,String,String)"
 });
 formatter.result({
-  "duration": 170905600,
+  "duration": 131556100,
   "status": "passed"
 });
 formatter.match({
   "location": "PublicarTest.publicacion_publica_correcta()"
 });
 formatter.result({
-  "duration": 280161600,
+  "duration": 242750600,
   "status": "passed"
 });
 formatter.uri('com\webapp\redsocial\Registrar.feature');
@@ -2525,7 +2525,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 14443900,
+  "duration": 7418800,
   "status": "passed"
 });
 formatter.match({
@@ -2550,14 +2550,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 388236800,
+  "duration": 380018300,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.se_registra_correctamente()"
 });
 formatter.result({
-  "duration": 43800,
+  "duration": 32700,
   "status": "passed"
 });
 formatter.scenario({
@@ -2599,7 +2599,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 22300,
+  "duration": 52500,
   "status": "passed"
 });
 formatter.match({
@@ -2624,14 +2624,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1275735200,
+  "duration": 365336200,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.se_registra_correctamente()"
 });
 formatter.result({
-  "duration": 20300,
+  "duration": 19700,
   "status": "passed"
 });
 formatter.scenario({
@@ -2673,7 +2673,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 91600,
+  "duration": 18900,
   "status": "passed"
 });
 formatter.match({
@@ -2698,14 +2698,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 161888400,
+  "duration": 142675600,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.no_consigue_registrarse()"
 });
 formatter.result({
-  "duration": 69100,
+  "duration": 25300,
   "status": "passed"
 });
 formatter.scenario({
@@ -2747,7 +2747,7 @@ formatter.match({
   "location": "RegistrarTest.Un_nombre_email_dos_pwd_para_registrar()"
 });
 formatter.result({
-  "duration": 19600,
+  "duration": 18600,
   "status": "passed"
 });
 formatter.match({
@@ -2772,14 +2772,14 @@ formatter.match({
   "location": "RegistrarTest.y_se_quiere_registrar(String,String,String,String)"
 });
 formatter.result({
-  "duration": 259152200,
+  "duration": 139150600,
   "status": "passed"
 });
 formatter.match({
   "location": "RegistrarTest.no_consigue_registrarse()"
 });
 formatter.result({
-  "duration": 23700,
+  "duration": 17700,
   "status": "passed"
 });
 });
