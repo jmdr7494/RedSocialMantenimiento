@@ -50,7 +50,8 @@ public class WallController {
 			Usuario user = DAOUsuario.select((Usuario) request.getSession().getAttribute("user"));
 			Hashtable<String,ArrayList<Respuesta>> respuestas = new Hashtable<String,ArrayList<Respuesta>>();
 			request.getSession().setAttribute("user", user);
-			for (int i=0;i<publicaciones.size();i++) {
+			int sizePubli = publicaciones.size();
+			for (int i=0;i<sizePubli;i++) {
 				int totalPublicaciones = 0;
 				totalPublicaciones = DAOLike.select(publicaciones.get(i).getIdPublicacion()).size();
 				likes.put(publicaciones.get(i).getIdPublicacion(), totalPublicaciones);

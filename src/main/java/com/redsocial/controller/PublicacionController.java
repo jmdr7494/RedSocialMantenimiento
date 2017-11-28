@@ -86,7 +86,8 @@ public class PublicacionController {
 		if (request.getSession().getAttribute("user")!=null) {
 			String idPublicacion = request.getParameter("id");
 			ArrayList<Respuesta> respuestas = DAORespuesta.select(idPublicacion);
-			for (int i=0;i<respuestas.size();i++) {
+			int sizeResp = respuestas.size();
+			for (int i=0;i<sizeResp;i++) {
 				DAORespuesta.delete(respuestas.get(i).getIdPublicacion());
 			}
 			Usuario user = DAOUsuario.select((Usuario) request.getSession().getAttribute("user"));
