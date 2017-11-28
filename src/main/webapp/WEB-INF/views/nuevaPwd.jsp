@@ -13,26 +13,45 @@
 	<script type="text/javascript" src="resources/js/password.js"></script>
 	<%-- By JA captcha registro--%>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<title>redSocial</title>
+	<title>Actualizar Contrase&ntilde;a - IntraVita</title>
 </head>
 <body>
-	<div class="row">
-		<div class="col-md-1 col-md-offset-10">
-			<br>
-			<form action="renovarPwd" method="POST">
-				<label for="pwd" style="color: white; font-size: 15px">Contrase&ntilde;a:</label>
-				<input type="password" class="form-control" id="pwd" name="txtUsuarioClave" placeholder="password"> 
-				
-				<label for="pwd2" style="color: white; font-size: 15px">Confirmar contrase&ntilde;a:</label>
-				<input type="password" class="form-control" id="pwd2" name="txtUsuarioClave1" placeholder="confirmacion">
-				
-				<button class="btn btn-danger btn-block btn-md login" type="submit">
-					<strong><span class="glyphicon glyphicon-menu-left"></span>&nbsp;Aceptar</strong>
-				</button>
-			</form>
 
-			<br/>
+
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-login">
+			<div class="panel-heading">
+				<div class="row">
+					<div>
+						<strong>Actualizar Contrase&ntilde;a</strong>
+					</div>
+				</div>
+				<hr>
+			</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-12">
+							<form action="renovarPwd" method="POST" autocomplete="off" role="form" style="display: block;">
+								<div class="form-group">
+									<input type="password" name="txtUsuarioClave" tabindex="1" class="form-control" autocomplete="off" placeholder="Contrase&ntilde;a">
+								</div>
+								<div class="form-group">
+									<input type="password" name="txtUsuarioClave1" tabindex="2" class="form-control" autocomplete="off" placeholder="Repita la Contrase&ntilde;a">
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-sm-6 col-sm-offset-3">
+											<button type="submit" tabindex="4" class="form-control btn btn-primary">
+												<strong><span class="glyphicon glyphicon-refresh"></span>&nbsp;Actualizar</strong>
+											</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 </body>
 </html>
