@@ -92,8 +92,8 @@
 										}
 									</script>
 									<%-- By JA captcha registro
-									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu" data-callback="activarRegistro">--%>
-									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu">
+									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR" data-callback="activarRegistro">--%>
+									<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR">
 									</div>
 								
 									<div class="form-group">
