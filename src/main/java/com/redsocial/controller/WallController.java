@@ -42,12 +42,11 @@ public class WallController {
 	 */
 	@RequestMapping(value="wall", method = RequestMethod.GET)
 	public String wall(HttpServletRequest request, Model model) throws Exception {
-		
-		if (request.getSession().getAttribute("user")!=null) {
+		Usuario user = DAOUsuario.select((Usuario) request.getSession().getAttribute("user"));
+		if (user!=null) {
 			ArrayList<Publicacion> publicaciones = DAOPublicacion.selectAll();
 			Hashtable<String,Integer> likes = new Hashtable<String,Integer>();
 			Hashtable<String,Integer> checklikes = new Hashtable<String,Integer>();
-			Usuario user = DAOUsuario.select((Usuario) request.getSession().getAttribute("user"));
 			Hashtable<String,ArrayList<Respuesta>> respuestas = new Hashtable<String,ArrayList<Respuesta>>();
 			request.getSession().setAttribute("user", user);
 			int sizePubli = publicaciones.size();
@@ -63,7 +62,6 @@ public class WallController {
 				}
 				ArrayList<Respuesta> resultadoRespuesta = DAORespuesta.select(publicaciones.get(i).getIdPublicacion());
 				respuestas.put(publicaciones.get(i).getIdPublicacion(), resultadoRespuesta);
-				
 			}
 			
 			ArrayList<MensajesPrivados> mensajes = DAOMensajesPrivados.selectMsgUser(((Usuario) request.getSession().getAttribute("user")).getemail());

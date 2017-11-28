@@ -137,34 +137,6 @@ public class UsuarioController {
 		
 		if (request.getSession().getAttribute("user")!=null) {
 			Usuario usuario = DAOUsuario.selectWithID(id);
-			
-			ArrayList<Publicacion> publicaciones = DAOPublicacion.selectAll();
-			for(int i=0;i<publicaciones.size();i++) {
-				if (publicaciones.get(i).getEmail().equals(usuario.getemail())) {
-					Like like = DAOLike.checkLike(publicaciones.get(i).getIdPublicacion(), usuario.getemail());
-					if (like!=null) {
-						DAOLike.delete(like);
-					}
-					ArrayList<Respuesta> respuestas = DAORespuesta.select(publicaciones.get(i).getIdPublicacion());
-					for (int j=0; j<respuestas.size();j++) {
-						if (respuestas.get(j).getEmail().equals(usuario.getemail())) {
-							DAORespuesta.delete(respuestas.get(j).getId());
-						}
-					}
-					DAOPublicacion.delete(publicaciones.get(i).getIdPublicacion());
-				}else {
-					Like like = DAOLike.checkLike(publicaciones.get(i).getIdPublicacion(), usuario.getemail());
-					if (like!=null) {
-						DAOLike.delete(like);
-					}
-					ArrayList<Respuesta> respuestas = DAORespuesta.select(publicaciones.get(i).getIdPublicacion());
-					for (int j=0; j<respuestas.size();j++) {
-						if (respuestas.get(j).getEmail().equals(usuario.getemail())) {
-							DAORespuesta.delete(respuestas.get(j).getId());
-						}
-					}
-				}
-			}
 			DAOUsuario.delete(usuario.getid());
 			
 			
