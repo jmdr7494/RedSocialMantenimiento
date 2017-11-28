@@ -1,5 +1,7 @@
 package com.redsocial.controller;
 
+import java.security.SecureRandom;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -89,7 +91,9 @@ public class HomeController {
 		if(user==null)
 			return "viewRecordarPass";
 		// Crear pwd aleatoria
-		int pin = (int) (Math.random() * (9999 - 1000 + 1) + 1000);
+		//int pin = (int) (Math.random() * (9999 - 1000 + 1) + 1000);
+		SecureRandom rand = SecureRandom.getInstance("SHA1PRNG");
+		int pin = rand.nextInt();
 		String pinEmail = "redsocial" + String.valueOf(pin);
 		user.setPwd(DigestUtils.md5Hex(pinEmail));
 		DAOUsuario.update(user);
