@@ -46,7 +46,6 @@ public class SendMail {
 
 
 		} catch (MessagingException e) {
-			throw new RuntimeException(e);
 		}
 	}
 }

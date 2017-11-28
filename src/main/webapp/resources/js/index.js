@@ -35,7 +35,7 @@ $( document ).ready(function() {
 	
 	$('#password').keyup(function(){
 		$('.error-list').hide();
-	})
+	});
 	
 	$( "#password-register" ).keyup(function() {
 		$('.error-list').show();
