@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.redsocial.auxiliares.Utilidades;
+
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
 

@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import com.redsocial.auxiliares.Utilidades;
-import com.redsocial.modelo.Publicacion;
 import com.redsocial.modelo.Usuario;
 
 
