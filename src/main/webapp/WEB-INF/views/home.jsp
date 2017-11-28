@@ -86,8 +86,14 @@
 									<div class="form-group">
 										<input type="password" id="confirm-password" name="confirm-password" autocomplete="off" tabindex="2" class="form-control" placeholder="Confirmar contraseña" required>
 									</div>
+									<script>
+										function activarRegistro(){
+											document.getElementById("register-submit").disabled = false;
+										}
+									</script>
 									<%-- By JA captcha registro--%>
-									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu" data-callback=<script type="text/javascript" document.getElementById("register-submit").disabled = false;</script>></div>
+									<div class="g-recaptcha" data-sitekey="6LfhyjkUAAAAAHb3b-EcKiaqtOMXIh40J1xJoguu" data-callback="activarRegistro">
+									</div>
 								
 									<div class="form-group">
 										<div class="row">
