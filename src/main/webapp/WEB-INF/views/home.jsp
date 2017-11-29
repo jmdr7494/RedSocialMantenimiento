@@ -61,8 +61,8 @@
 										}
 									}
 									if (mostrarCaptcha) { %>
-										<%-- By JA captcha registro<div class="g-recaptcha" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
-										</div>	--%>									
+										<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
+										</div>										
 									<% 			
 									}%>
 									<div class="form-group">
@@ -108,7 +108,7 @@
 										}
 									</script>
 									<%-- By JA captcha registro--%>
-									<div class="g-recaptcha" data-sitekey="6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47" data-callback="activarRegistro">	
+									<div class="g-recaptcha" id="captchaRegistro" data-sitekey="6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47" data-callback="activarRegistro">	
 									</div>
 								
 									<div class="form-group">
