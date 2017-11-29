@@ -124,17 +124,17 @@
 									</div>
 									<%-- By JA script con una funcion que permite tener dos captcha en una misma vista --%>
 									<script>
-      										var captchaLogin;
-      										var captchaRegistro;
+										var captchaRegistro;
+      										var captchaLogin;      										
       										var myCallBack = function() {
-        										captchaLogin = grecaptcha.render('captchaLogin', {
-          										'sitekey' : '6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk',
-          										'theme' : 'light'
-        										});
-        										captchaRegistro = grecaptcha.render('captchaRegistro', {
+											captchaRegistro = grecaptcha.render('captchaRegistro', {
           										'sitekey' : '6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47',
           										'theme' : 'light'
         										});
+        										captchaLogin = grecaptcha.render('captchaLogin', {
+          										'sitekey' : '6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk',
+          										'theme' : 'light'
+        										});        										
        										};
     									</script>
 								</form>
