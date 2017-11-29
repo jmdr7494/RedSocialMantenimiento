@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.MensajesPrivados;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOMensajesPrivados;
@@ -202,5 +203,102 @@ public class UsuarioController {
 		}
 
 	}
+	/**
+	 * 
+	 * @return dado un filtro busca todas las coincidencias
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/buscarAmigos", method = RequestMethod.POST)
+	public String buscarAmigos(HttpServletRequest request, Model model) throws Exception {
+		String filtro = request.getParameter("txtUsuarioNombre");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		model.addAttribute("amigos", Utilidades.buscadorUsuario(usuario, filtro));
+		mostrarNotificaciones(request, model);
+		return "vistaAmigos";
+
+	}
 	
+	@RequestMapping(value = "/mostrarNotificaciones", method = RequestMethod.GET)
+	public String mostrarNotificaciones(HttpServletRequest request, Model model){
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		model.addAttribute("notificaciones", Utilidades.mostrarNotificaciones(usuario));
+		return "vistaAmigos";
+	}
+	
+	/**
+	  * 
+	  * @return aceptar solicitud
+	  * @throws Exception
+	  */
+	@RequestMapping(value = "/aceptarSolicitud", method = RequestMethod.POST)
+	public String aceptarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String emisor = request.getParameter("txtNombre");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Utilidades.aceptarSolicitud(new Usuario(emisor), usuario);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		mostrarNotificaciones(request, model);
+		return "vistaAmigos";
+	}
+	/**
+	 * 
+	 * @return rechazar solicitud
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/rechazarSolicitud", method = RequestMethod.POST)
+	public String rechazarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String emisor = request.getParameter("txtNombre");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Utilidades.rechazarSolicitud(new Usuario(emisor), usuario);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		mostrarNotificaciones(request, model);
+		return "vistaAmigos";
+	}
+
+	/**
+	 * 
+	 * @return enviar solicitud a la persona seleccionado
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/enviarSolicitud", method = RequestMethod.POST)
+	public String enviarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String receptor = request.getParameter("txtNombreEnviar");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Utilidades.enviarSolicitud(usuario, new Usuario(receptor));
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		mostrarNotificaciones(request, model);
+		return "vistaAmigos";
+	}
+	
+	/**
+	 * 
+	 * @return eliminar el amigo seleccionado
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/eliminarAmigo", method = RequestMethod.POST)
+	public String eliminarAmigo(HttpServletRequest request, Model model) throws Exception {
+		String receptor = request.getParameter("txtNombreEliminar");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Utilidades.borrarAmistad(usuario, new Usuario(receptor));
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		mostrarNotificaciones(request, model);
+		return "vistaAmigos";
+	}
 }
