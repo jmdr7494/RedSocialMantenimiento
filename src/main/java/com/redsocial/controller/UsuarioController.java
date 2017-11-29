@@ -13,16 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.redsocial.auxiliares.Utilidades;
-import com.redsocial.modelo.Like;
 import com.redsocial.modelo.MensajesPrivados;
-import com.redsocial.modelo.Publicacion;
-import com.redsocial.modelo.Respuesta;
 import com.redsocial.modelo.Usuario;
-import com.redsocial.persistencia.DAOLike;
 import com.redsocial.persistencia.DAOMensajesPrivados;
-import com.redsocial.persistencia.DAOPublicacion;
-import com.redsocial.persistencia.DAORespuesta;
 import com.redsocial.persistencia.DAOUsuario;
 
 /***

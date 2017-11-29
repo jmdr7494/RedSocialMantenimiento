@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOUsuario;
 
@@ -108,7 +107,7 @@ public class HomeController {
 
 		if (user != null) {
 			SendMail send = new SendMail();
-			send.sendMail(user.getemail(), pinEmail);
+			send.sendMailRecoverPwd(user.getemail(), pinEmail);
 			model.addAttribute("message", "Se ha enviado correctamente la contraseña");
 		}
 		return "viewRecordarPass";

@@ -1,15 +1,7 @@
 package com.redsocial.auxiliares;
 
-import java.security.MessageDigest;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.tomcat.util.codec.binary.Base64;
  
 /**
  * 

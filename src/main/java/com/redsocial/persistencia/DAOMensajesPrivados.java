@@ -2,8 +2,6 @@ package  com.redsocial.persistencia;
 
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -13,7 +11,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.MensajesPrivados;
-import com.redsocial.modelo.Respuesta;
 /**
  * 
  * @author Usuario

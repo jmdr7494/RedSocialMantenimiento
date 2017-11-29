@@ -33,7 +33,7 @@ public class Usuario {
 	}
 
 	public Usuario(String nombre) {
-		setNombre(nombre);
+		this.nombre = nombre;
 	}
 	
 	public String getid() {
