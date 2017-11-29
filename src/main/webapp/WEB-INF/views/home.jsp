@@ -49,6 +49,20 @@
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
 									</div>
+									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
+									<% boolean mostrarCaptcha = true; 
+									Cookie [] cookies = request.getCookies(); 
+									for (int i=0; i<cookies.length; i++){
+										Cookie cookie=cookies[i];
+										if (cookie.getName().equals("cookieCaptcha")){
+											mostrarCaptcha = false;
+										}
+									}
+									if (mostrarCaptcha) { %>
+										<div class="g-recaptcha" data-sitekey="6Lc2uzoUAAAAAN9FSo2NGZB3WHmalLPfMOFv9cJR">	
+										</div>										
+									<% 			
+									}%>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

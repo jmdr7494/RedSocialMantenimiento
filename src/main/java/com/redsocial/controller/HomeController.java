@@ -75,8 +75,8 @@ public class HomeController {
 			model.addAttribute("user",usuario);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", usuario);
-			Cookie cookieCaptcha = new Cookie("captcha", "true");
-			cookieCaptcha.setMaxAge(3000000);
+			Cookie cookieCaptcha = new Cookie("cookieCaptcha", "cookie para controlar el captcha");
+			cookieCaptcha.setMaxAge(300);
 			response.addCookie(cookieCaptcha);
 			return "redirect:wall";
 		}else {
