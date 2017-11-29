@@ -1,6 +1,7 @@
 package com.redsocial.controller;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -213,9 +214,11 @@ public class UsuarioController {
 		String filtro = request.getParameter("txtUsuarioNombre");
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
-		model.addAttribute("amigos", Utilidades.buscadorUsuario(usuario, filtro));
-		mostrarNotificaciones(request, model);
-		return "vistaAmigos";
+		ArrayList<Usuario> amigos=DAOUsuario.buscador(filtro);
+		Hashtable<String, Integer> sonAmigos=Utilidades.sonAmigos(amigos, usuario);
+		model.addAttribute("amigos", amigos);
+		model.addAttribute("sonAmigos", sonAmigos);
+		return "redirect:vistaAmigos";
 
 	}
 	
@@ -223,8 +226,10 @@ public class UsuarioController {
 	public String mostrarNotificaciones(HttpServletRequest request, Model model){
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
+		model.addAttribute("alerta", "COÑO");
+		model.addAttribute("body","vistaAmigos");
 		model.addAttribute("notificaciones", Utilidades.mostrarNotificaciones(usuario));
-		return "vistaAmigos";
+		return "redirect:vistaAmigos";
 	}
 	
 	/**
@@ -242,8 +247,9 @@ public class UsuarioController {
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
+		model.addAttribute("body","vistaAmigos");
 		mostrarNotificaciones(request, model);
-		return "vistaAmigos";
+		return "redirect:vistaAmigos";
 	}
 	/**
 	 * 
@@ -260,8 +266,9 @@ public class UsuarioController {
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
+		model.addAttribute("body","vistaAmigos");
 		mostrarNotificaciones(request, model);
-		return "vistaAmigos";
+		return "redirect:vistaAmigos";
 	}
 
 	/**
@@ -279,8 +286,9 @@ public class UsuarioController {
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
+		model.addAttribute("body","vistaAmigos");
 		mostrarNotificaciones(request, model);
-		return "vistaAmigos";
+		return "redirect:vistaAmigos";
 	}
 	
 	/**
@@ -298,7 +306,8 @@ public class UsuarioController {
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
+		model.addAttribute("body","vistaAmigos");
 		mostrarNotificaciones(request, model);
-		return "vistaAmigos";
+		return "redirect:vistaAmigos";
 	}
 }

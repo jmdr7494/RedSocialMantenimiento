@@ -12,8 +12,10 @@
                 </li>
                 <li>
                   <a href="vistaAmigos">
-               <i class="fa fa-home fa-lg" aria-hidden="true"></i> Amigos
-                  </a>
+               		<i class="fa fa-home fa-lg" aria-hidden="true"></i> Amigos
+                  <span class="label label-danger notifications">
+                     ${totalNotificaciones}</span>
+                   </a>
                 </li>
                 <li>
                   <a href="messages">

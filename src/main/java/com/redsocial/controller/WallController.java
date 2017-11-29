@@ -117,7 +117,6 @@ public class WallController {
 	
 	@RequestMapping(value = "messages", method = RequestMethod.GET)
 	public String messages(HttpServletRequest request,Model model) throws Exception {
-		
 		if (request.getSession().getAttribute("user")!=null) {
 			Usuario user = (Usuario) request.getSession().getAttribute("user");
 			ArrayList<MensajesPrivados> mensajes = DAOMensajesPrivados.selectMsgUser(user.getemail());	
@@ -135,7 +134,20 @@ public class WallController {
 		}
 		
 	}
-	
+	@RequestMapping(value = "vistaAmigos", method = RequestMethod.GET)
+	public String vistaAmigos(HttpServletRequest request,Model model) throws Exception {
+		if (request.getSession().getAttribute("user")!=null) {
+			Usuario user = (Usuario) request.getSession().getAttribute("user");
+			model.addAttribute("body","vistaAmigos");
+			model.addAttribute("notificaciones",Utilidades.mostrarNotificaciones(user));
+			model.addAttribute("totalNotificaciones", DAOUsuario.obtenerSolicitudes(user).size());
+			return "wall";
+		}
+		else {
+			return "home";
+		}
+		
+	}
 	@RequestMapping(value = "sendMessage", method = RequestMethod.POST)
 	public String sendMessage(HttpServletRequest request,Model model) throws Exception {
 		

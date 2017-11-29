@@ -3,6 +3,7 @@ package com.redsocial.auxiliares;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Hashtable;
 import java.util.Iterator;
 
 import com.redsocial.modelo.Usuario;
@@ -168,4 +169,19 @@ public class Utilidades {
     	}
     	return retorno;
     }
+
+	public static Hashtable<String, Integer> sonAmigos(ArrayList<Usuario> amigos, Usuario usuario) {
+		Hashtable<String, Integer> retorno=new Hashtable<String,Integer>();
+		Iterator<Usuario> it=amigos.iterator();
+		Usuario aux;
+		while(it.hasNext()) {
+			aux=it.next();
+			if(comprobarAmistad(aux,usuario))
+				retorno.put(aux.getemail(), 1);
+			else
+				retorno.put(aux.getemail(), 0);
+		}
+		return retorno;
+		
+	}
 }
