@@ -109,13 +109,16 @@ public class DAOUsuario {
 	/**
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 * @method borra el usuario asociado a el id
 	 */
-	public static void delete(String id) {
-		
+	public static void delete(String id) throws Exception {
+		Usuario borrar=selectWithID(id);
+		DAOPublicacion.borradoUsuario(borrar);
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
 		usuarios.deleteOne(new Document(idd, new ObjectId(id)));
+		
 		
 	}
 	/**

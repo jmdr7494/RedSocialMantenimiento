@@ -155,7 +155,7 @@ public class annotation {
 	}
 
 	@Then("^se borra$")
-	public void se_borra() {
+	public void se_borra() throws Exception {
 	    DAOUsuario.delete(user.getid());
 	}
 
