@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="resources/js/password.js"></script>
 	<%-- By JA captcha registro--%>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<title>redSocial</title>
 </head>
 <body>
@@ -62,8 +61,8 @@
 										}
 									}
 									if (mostrarCaptcha) { %>
-										<div class="g-recaptcha" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
-										</div>										
+										<%-- By JA captcha registro<div class="g-recaptcha" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
+										</div>	--%>									
 									<% 			
 									}%>
 									<div class="form-group">
