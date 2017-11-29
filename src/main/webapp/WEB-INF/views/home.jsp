@@ -11,8 +11,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 	<script src="resources/js/index.js"></script>
 	<script type="text/javascript" src="resources/js/password.js"></script>
-	<%-- By JA captcha registro--%>
-	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<%-- By JA captcha registro
+	<script src='https://www.google.com/recaptcha/api.js'></script>--%>
+	<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
 	<title>redSocial</title>
 </head>
 <body>
@@ -61,8 +62,9 @@
 										}
 									}
 									if (mostrarCaptcha) { %>
-										<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
-										</div>										
+										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
+										</div>--%>
+										<div id="captchaLogin"></div>
 									<% 			
 									}%>
 									<div class="form-group">
@@ -107,9 +109,10 @@
 											document.getElementById("register-submit").disabled = false;
 										}
 									</script>
-									<%-- By JA captcha registro--%>
+									<%-- By JA captcha registro
 									<div class="g-recaptcha" id="captchaRegistro" data-sitekey="6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47" data-callback="activarRegistro">	
-									</div>
+									</div>--%>
+									<div id="captchaRegistro"></div>
 								
 									<div class="form-group">
 										<div class="row">
@@ -118,7 +121,20 @@
 											</div>
 										</div>
 									</div>
-									
+									<script>
+      										var captchaLogin;
+      										var captchaRegistro;
+      										var myCallBack = function() {
+        										captchaLogin = grecaptcha.render('captchaLogin', {
+          										'sitekey' : '6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk',
+          										'theme' : 'light'
+        										});
+        										captchaRegistro = grecaptcha.render('captchaRegistro', {
+          										'sitekey' : '6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47',
+          										'theme' : 'light'
+        										});
+       										};
+    									</script>
 								</form>
 								
 							</div>
