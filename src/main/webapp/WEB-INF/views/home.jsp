@@ -112,7 +112,7 @@
 									<%-- By JA captcha registro
 									<div class="g-recaptcha" id="captchaRegistro" data-sitekey="6Ld66joUAAAAAHQfsK5AjOjmzzBXO13l8S8tjJ47" data-callback="activarRegistro">	
 									</div>--%>
-									<div id="captchaRegistro"></div>
+									<div id="captchaRegistro" data-callback="activarRegistro"></div>
 								
 									<div class="form-group">
 										<div class="row">
