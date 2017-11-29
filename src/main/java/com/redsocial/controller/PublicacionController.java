@@ -1,11 +1,8 @@
 package com.redsocial.controller;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.DatatypeConverter;
 
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Controller;
