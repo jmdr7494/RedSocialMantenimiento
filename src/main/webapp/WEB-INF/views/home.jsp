@@ -51,11 +51,13 @@
 									</div>
 									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
 									<% boolean mostrarCaptcha = true; 
-									Cookie [] cookies = request.getCookies(); 
-									for (int i=0; i<cookies.length; i++){
-										Cookie cookie=cookies[i];
-										if (cookie.getName().equals("cookieCaptcha")){
-											mostrarCaptcha = false;
+									Cookie [] cookies = request.getCookies();
+									if (cookies!=null){
+										for (int i=0; i<cookies.length; i++){
+											Cookie cookie=cookies[i];
+											if (cookie.getName().equals("cookieCaptcha")){
+												mostrarCaptcha = false;
+											}
 										}
 									}
 									if (mostrarCaptcha) { %>
