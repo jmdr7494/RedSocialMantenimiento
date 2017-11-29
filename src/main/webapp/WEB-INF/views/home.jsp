@@ -104,6 +104,7 @@
 									<div class="form-group">
 										<input type="password" id="confirm-password" name="confirm-password" autocomplete="off" tabindex="2" class="form-control" placeholder="Confirmar contraseña" required>
 									</div>
+									<%-- By JA script con una funcion que permite activar el boton de registro despues de realizar el captcha --%>
 									<script>
 										function activarRegistro(){
 											document.getElementById("register-submit").disabled = false;
@@ -121,6 +122,7 @@
 											</div>
 										</div>
 									</div>
+									<%-- By JA script con una funcion que permite tener dos captcha en una misma vista --%>
 									<script>
       										var captchaLogin;
       										var captchaRegistro;
