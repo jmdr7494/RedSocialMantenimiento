@@ -24,11 +24,13 @@ public class DAOUsuario {
 	
 	private final static String nombre = "nombre";
 	private final static String pwdd = "pwd";
-	private final static String pwrd = "password";
 	private final static String emaill = "email";
 	private final static String Usuarioss = "Usuarios";
 	private final static String idd = "_id";
 	private final static String modPwd= "modificacionPwd";
+	private final static String solicitudes="solicitudes";
+	private final static String amigos="amigos";
+	private final static String enviadas="solicitudesEnviadas";
 	/**
 	 * 
 	 * @param email
@@ -169,6 +171,10 @@ public class DAOUsuario {
 		doc.append(emaill, usuario.getemail());
 		doc.append("pwd", usuario.getPwd());
 		doc.append(modPwd, new Date().getTime());
+		doc.append(solicitudes, new ArrayList<String>());
+		doc.append(amigos, new ArrayList<String>());
+		doc.append(enviadas, new ArrayList<String>());
+		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
 		usuarios.insertOne(doc);
@@ -226,6 +232,187 @@ public class DAOUsuario {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	public static ArrayList<String> obtenerAmigos(Usuario usuario) {
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> usuarios=broker.getCollection("Usuarios");
+		Document criterio=new Document();
+		criterio.append(emaill, usuario.getemail());
+		
+		FindIterable<Document> resultado=usuarios.find(criterio);
+		Document doc=resultado.first();
+	
+		ArrayList<String> retorno=null;
+		if (doc!=null) {
+			retorno= (ArrayList<String>)doc.get(amigos);
+		}
+		return retorno;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static ArrayList<String> obtenerSolicitudes(Usuario usuario) {
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> usuarios=broker.getCollection("Usuarios");
+		Document criterio=new Document();
+		criterio.append(emaill, usuario.getemail());
+		
+		FindIterable<Document> resultado=usuarios.find(criterio);
+		Document doc=resultado.first();
+	
+		ArrayList<String> retorno=null;
+		if (doc!=null) {
+			retorno= (ArrayList<String>)doc.get(solicitudes);
+		}
+		return retorno;
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public static ArrayList<String> obtenerEnviosSolicitud(Usuario usuario) {
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> usuarios=broker.getCollection("Usuarios");
+		Document criterio=new Document();
+		criterio.append(emaill, usuario.getemail());
+		
+		FindIterable<Document> resultado=usuarios.find(criterio);
+		Document doc=resultado.first();
+	
+		ArrayList<String> retorno=null;
+		if (doc!=null) {
+			retorno= (ArrayList<String>)doc.get(enviadas);
+		}
+		return retorno;
+	}
+	
+	
+	public static void enviarSolicitud(Usuario emisor, Usuario receptor) {
+		ArrayList<String> solicitudesReceptor=obtenerSolicitudes(receptor);
+		solicitudesReceptor.add(emisor.getemail());
+		
+		ArrayList<String> enviosEmisor=obtenerEnviosSolicitud(emisor);
+		enviosEmisor.add(receptor.getemail());
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		
+		
+		Document filter = new Document(emaill, receptor.getemail());
+		Document newValue = new Document();
+		newValue.append(solicitudes, solicitudesReceptor);
+		Document updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+		filter=new Document(emaill, emisor.getemail());
+		newValue= new Document();
+		newValue.append(enviadas, enviosEmisor);
+		updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+	}
+
+	public static void aceptarSolicitud(Usuario emisor, Usuario receptor) {
+		ArrayList<String> solicitudesReceptor=obtenerSolicitudes(receptor);
+		solicitudesReceptor.remove(emisor.getemail());
+		
+		ArrayList<String> amigosReceptor=obtenerAmigos(receptor);
+		amigosReceptor.add(emisor.getemail());
+		
+		ArrayList<String> amigosEmisor=obtenerAmigos(emisor);
+		amigosEmisor.add(receptor.getemail());
+		
+		ArrayList<String> enviosEmisor=obtenerEnviosSolicitud(emisor);
+		enviosEmisor.remove(receptor.getemail());
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		
+		
+		Document filter = new Document(emaill, receptor.getemail());
+		Document newValue = new Document();
+		newValue.append(solicitudes, solicitudesReceptor);
+		newValue.append(amigos, amigosReceptor);
+		Document updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+		
+		filter=new Document(emaill, emisor.getemail());
+		newValue=new Document();
+		newValue.append(amigos, amigosEmisor);
+		newValue.append(enviadas, enviosEmisor);
+		updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+	}
+
+	public static void rechazarSolicitud(Usuario emisor, Usuario receptor) {
+		ArrayList<String> solicitudesReceptor=obtenerSolicitudes(receptor);
+		solicitudesReceptor.remove(emisor.getemail());
+		
+		ArrayList<String> enviosEmisor=obtenerEnviosSolicitud(emisor);
+		enviosEmisor.remove(receptor.getemail());
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		
+		
+		Document filter = new Document(emaill, receptor.getemail());
+		Document newValue = new Document();
+		newValue.append(solicitudes, solicitudesReceptor);
+		Document updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+		filter=new Document(emaill, emisor.getemail());
+		newValue= new Document();
+		newValue.append(enviadas, enviosEmisor);
+		updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+	}
+
+	public static void borrarAmistad(Usuario borrador, Usuario borrado) {
+		ArrayList<String> amigosBorrador=obtenerAmigos(borrador);
+		amigosBorrador.remove(borrado.getemail());
+		
+		ArrayList<String> amigosBorrado=obtenerAmigos(borrado);
+		amigosBorrado.remove(borrador.getemail());
+		
+		MongoBroker broker= MongoBroker.get();
+		MongoCollection<Document>usuarios=broker.getCollection("Usuarios");
+		
+		
+		Document filter = new Document(emaill, borrador.getemail());
+		Document newValue = new Document();
+		newValue.append(amigos, amigosBorrador);
+		Document updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+		
+		
+		filter=new Document(emaill, borrado.getemail());
+		newValue=new Document();
+		newValue.append(amigos, amigosBorrado);
+		updateOperationDocument = new Document("$set", newValue);
+		usuarios.updateOne(filter, updateOperationDocument);
+	}
+	
+	/**
+	 * @result devuelve una lista de usuarios que tengan en su nombre el filtro indicado
+	 */
+	public static ArrayList<Usuario> buscador(String filtro){
+		ArrayList<Usuario> result = new ArrayList<Usuario>();
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> usuarios=broker.getCollection(Usuarioss);
+		FindIterable<Document> it = usuarios.find();
+		MongoCursor<Document> cursor = it.iterator();
+	
+		while (cursor.hasNext()) {
+			Document doc = cursor.next();
+			if(doc.getString(emaill).contains(filtro)) {
+				ObjectId id = (ObjectId)doc.get("_id");
+				Usuario usu = new Usuario(id.toString(),doc.getString(nombre), doc.getString(emaill), doc.getString(pwdd));
+				result.add(usu);
+			}
+		}
+
+		return result;
+	}
 }
 
 

@@ -41,7 +41,7 @@ public class HomeController {
 
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+	public String login(HttpServletRequest request, Model model) throws Exception {
 		String email = request.getParameter("username");
 		String password = request.getParameter("password");
 		Usuario user = DAOUsuario.login(email, password);
@@ -49,12 +49,9 @@ public class HomeController {
 			model.addAttribute("user", user);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
-			Cookie cookieCaptcha = new Cookie("cookieCaptchaLogin", "cookieControlCaptchaLogin");
-			cookieCaptcha.setMaxAge(300);
-			response.addCookie(cookieCaptcha);
 			Long fechaModPwd = user.getFechaModPwd();
 			Long hoy = new Date().getTime();
-			if (hoy > fechaModPwd + 300000)
+			if (hoy > fechaModPwd + 300000*6)
 				return "nuevaPwd";
 			return "redirect:wall";
 		} else {
@@ -78,7 +75,7 @@ public class HomeController {
 			model.addAttribute("user", usuario);
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", usuario);
-			Cookie cookieCaptcha = new Cookie("cookieCaptchaRegistro", "cookieControlCaptchaRegistro");
+			Cookie cookieCaptcha = new Cookie("cookieCaptcha", "cookie para controlar el captcha");
 			cookieCaptcha.setMaxAge(300);
 			response.addCookie(cookieCaptcha);
 			return "redirect:wall";
