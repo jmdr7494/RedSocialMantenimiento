@@ -87,6 +87,11 @@
 										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
 										</div>--%>
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
+										<script>
+ +										
+ +											document.getElementById("entra-submit").disabled = true;
+ +										
+ +										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
 									<% 			
