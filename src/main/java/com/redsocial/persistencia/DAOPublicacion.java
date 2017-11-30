@@ -32,6 +32,7 @@ public class DAOPublicacion {
 	private final static String img = "imagen";
 	private final static String pub = "Publicaciones";
 	private final static String idd = "_id";
+	private final static String privacidad="privacidad";
 	
 	public static Publicacion insert(Publicacion publicacion) {
 		Document doc=new Document();
@@ -40,7 +41,7 @@ public class DAOPublicacion {
 		doc.append(fechaa, publicacion.getFecha());
 		doc.append(sms, publicacion.getMensaje());
 		doc.append(img, publicacion.getImagen());
-		
+		doc.append(privacidad, publicacion.getPrivacidad());
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>publicaciones=broker.getCollection(pub);
 		publicaciones.insertOne(doc);
@@ -113,12 +114,63 @@ public class DAOPublicacion {
 			String imagenCodificada= DatatypeConverter.printBase64Binary(imagenFinal);
 			
 			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), imagenCodificada, doc.getString(sms));
+			publi.setIdPublicacion(id.toString());
 			result.add(publi);
 		}
 
 		return result;
 	}
 	
+
+	public static ArrayList<Publicacion> selectPublicas() {
+		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> publicaciones=broker.getCollection(pub);
+		Document criterio=new Document();
+		criterio.append(privacidad, "Publica");
+		FindIterable<Document> it = publicaciones.find(criterio).sort(new BasicDBObject(idd,-1));
+		MongoCursor<Document> cursor = it.iterator();
+	
+		while (cursor.hasNext()) {
+			Document doc = cursor.next();
+			ObjectId id = (ObjectId)doc.get( idd );
+						
+			Binary imagen = doc.get(img, org.bson.types.Binary.class);
+			byte[]imagenFinal=imagen.getData();
+			String imagenCodificada= DatatypeConverter.printBase64Binary(imagenFinal);
+			
+			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), imagenCodificada, doc.getString(sms));
+			publi.setIdPublicacion(id.toString());
+			result.add(publi);
+		}
+
+		return result;
+	}
+	public static ArrayList<Publicacion> selectPrivadas(String email) {
+		ArrayList<Publicacion> result = new ArrayList<Publicacion>();
+		MongoBroker broker = MongoBroker.get();
+		MongoCollection<Document> publicaciones=broker.getCollection(pub);
+		Document criterio=new Document();
+		criterio.append(privacidad, "Amigos");
+		criterio.append(emaill, email);
+		FindIterable<Document> it = publicaciones.find(criterio).sort(new BasicDBObject(idd,-1));
+		MongoCursor<Document> cursor = it.iterator();
+	
+		while (cursor.hasNext()) {
+			Document doc = cursor.next();
+			ObjectId id = (ObjectId)doc.get( idd );
+						
+			Binary imagen = doc.get(img, org.bson.types.Binary.class);
+			byte[]imagenFinal=imagen.getData();
+			String imagenCodificada= DatatypeConverter.printBase64Binary(imagenFinal);
+			
+			Publicacion publi = new Publicacion(id.toString(), doc.getString(emaill), doc.getString(name), doc.getString(fechaa), imagenCodificada, doc.getString(sms));
+			publi.setIdPublicacion(id.toString());
+			result.add(publi);
+		}
+
+		return result;
+	}
 	public static void delete(String id) {
 		
 		MongoBroker broker= MongoBroker.get();
@@ -152,6 +204,8 @@ public class DAOPublicacion {
 			
 		}	
 	}
-	
+
+
+
 
 }

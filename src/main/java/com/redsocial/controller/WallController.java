@@ -1,7 +1,10 @@
 package com.redsocial.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Hashtable;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -44,10 +47,24 @@ public class WallController {
 	public String wall(HttpServletRequest request, Model model) throws Exception {
 		
 		if (request.getSession().getAttribute("user")!=null) {
-			ArrayList<Publicacion> publicaciones = DAOPublicacion.selectAll();
+			ArrayList<Publicacion> publicaciones = DAOPublicacion.selectPublicas();
 			Hashtable<String,Integer> likes = new Hashtable<String,Integer>();
 			Hashtable<String,Integer> checklikes = new Hashtable<String,Integer>();
 			Usuario user = DAOUsuario.select((Usuario) request.getSession().getAttribute("user"));
+			ArrayList<String> amigos=DAOUsuario.obtenerAmigos(user);
+			amigos.add(user.getemail());
+			Iterator<String> it=amigos.iterator();
+			while(it.hasNext()) {
+				publicaciones.addAll(DAOPublicacion.selectPrivadas(it.next()));
+			}
+			Collections.sort(publicaciones, new Comparator<Publicacion>() {
+		        @Override
+		        public int compare(Publicacion publi1, Publicacion publi2)
+		        {
+
+		            return  publi2.getIdPublicacion().compareTo(publi1.getIdPublicacion());
+		        }
+		    });
 			Hashtable<String,ArrayList<Respuesta>> respuestas = new Hashtable<String,ArrayList<Respuesta>>();
 			request.getSession().setAttribute("user", user);
 			int sizePubl = publicaciones.size();
@@ -117,7 +134,6 @@ public class WallController {
 	
 	@RequestMapping(value = "messages", method = RequestMethod.GET)
 	public String messages(HttpServletRequest request,Model model) throws Exception {
-		
 		if (request.getSession().getAttribute("user")!=null) {
 			Usuario user = (Usuario) request.getSession().getAttribute("user");
 			ArrayList<MensajesPrivados> mensajes = DAOMensajesPrivados.selectMsgUser(user.getemail());	
@@ -135,7 +151,30 @@ public class WallController {
 		}
 		
 	}
-	
+	@RequestMapping(value = "vistaAmigos", method = RequestMethod.GET)
+	public String vistaAmigos(HttpServletRequest request,Model model) throws Exception {
+		if (request.getSession().getAttribute("user")!=null) {
+			Usuario user = (Usuario) request.getSession().getAttribute("user");
+			model.addAttribute("body","vistaAmigos");
+			model.addAttribute("notificaciones",Utilidades.mostrarNotificaciones(user));
+			model.addAttribute("totalNotificaciones", DAOUsuario.obtenerSolicitudes(user).size());
+			
+			try{
+				String filtro = request.getParameter("txtUsuarioNombre");
+				Usuario usuario;
+				usuario = (Usuario) request.getSession().getAttribute("user");
+				model.addAttribute("amigos", Utilidades.buscadorUsuario(usuario, filtro));
+			}catch (Exception e) {
+				
+			}
+
+			return "wall";
+		}
+		else {
+			return "home";
+		}
+		
+	}
 	@RequestMapping(value = "sendMessage", method = RequestMethod.POST)
 	public String sendMessage(HttpServletRequest request,Model model) throws Exception {
 		

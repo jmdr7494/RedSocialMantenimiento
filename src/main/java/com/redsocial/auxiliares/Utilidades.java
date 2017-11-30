@@ -1,7 +1,13 @@
 package com.redsocial.auxiliares;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.Iterator;
+
+import com.redsocial.modelo.Usuario;
+import com.redsocial.persistencia.DAOUsuario;
  
 /**
  * 
@@ -29,4 +35,153 @@ public class Utilidades {
 	     fechaEnvio = dayS+"/"+monthS+"/"+year+" "+hour+":"+minute;
 	     return fechaEnvio;
     }
+    
+    public static boolean comprobarAmistad(Usuario usuarioA, Usuario usuarioB) {
+    	ArrayList<String> amigosA=DAOUsuario.obtenerAmigos(usuarioA);
+    	return amigosA.contains(usuarioB.getemail());
+    }
+    
+    public static boolean comprobarSolicitudes(Usuario emisor, Usuario receptor) {
+    	ArrayList<String> solicitudesReceptor=DAOUsuario.obtenerSolicitudes(receptor);
+    	return solicitudesReceptor.contains(emisor.getemail());
+    }
+    
+    public static void enviarSolicitud (Usuario emisor, Usuario receptor) throws Exception{
+    	if (comprobarSolicitudes(emisor, receptor))
+    		throw new Exception("Ya has enviado una solicitud a ese usuario.");
+    	if (comprobarSolicitudes(receptor, emisor))
+    		throw new Exception("Ya tienes una solicitud de ese usuario.");
+    	if (comprobarAmistad(emisor, receptor))
+    		throw new Exception("Ya sois amigos");
+    	if (comprobarAmistad(receptor, emisor))
+    		throw new Exception("Ya sois amigos");
+
+    	DAOUsuario.enviarSolicitud(emisor, receptor);
+    }
+    
+    public static void aceptarSolicitud(Usuario emisor, Usuario receptor) throws Exception {
+    	if (!comprobarSolicitudes(emisor, receptor))
+    		throw new Exception("No te ha mandado solicitud");
+    	DAOUsuario.aceptarSolicitud(emisor, receptor);
+    } 
+    
+    public static void rechazarSolicitud(Usuario emisor, Usuario receptor) throws Exception {
+    	if (!comprobarSolicitudes(emisor, receptor))
+    		throw new Exception("No te ha mandado solicitud");
+    	DAOUsuario.rechazarSolicitud(emisor, receptor);
+    }
+    
+    /**
+     * 
+     * @param borrador(persona que inicia el borrado de amigos)
+     * @param borrado(persona que va a ser borrada de amigos)
+     * @throws Exception
+     */
+    public static void borrarAmistad(Usuario borrador, Usuario borrado) throws Exception {
+    	if (!comprobarAmistad(borrador, borrado))
+    		throw new Exception("No puedes eliminar a alguien que no es tu amigo");
+    	if (!comprobarAmistad(borrado, borrador))
+    		throw new Exception("No puedes eliminar a alguien que no es tu amigo");
+    	DAOUsuario.borrarAmistad(borrador, borrado);
+
+    }
+
+    public static String buscadorUsuario(Usuario busca, String filtro) {
+    	  ArrayList<Usuario> coincidencias = DAOUsuario.buscador(filtro);
+    	  String retorno = "";
+    	  Iterator<Usuario> it = coincidencias.iterator();
+    	  if (!it.hasNext())
+    	   return "No se encontraron resultados";
+    	  Usuario aux;
+    	  while (it.hasNext()) {
+    	   aux = it.next();
+    	   if (!aux.getNombre().equals(busca.getNombre())) {
+    	    if (!comprobarAmistad(busca, aux) && !comprobarAmistad(busca, aux)) {
+    	     retorno+="  <form action=\"enviarSolicitud\" method=\"POST\"> \r\n" + 
+    	       "   <div class=\"row\">\r\n" + 
+    	       "          <div class=\"col-md-6\">\r\n" +
+    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
+    	       "     <input name=\"txtNombreEnviar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
+    	       "    </div>\r\n" + 
+    	       "    <div class=\"col-md-3\">\r\n" + 
+    	       "     <button class=\"btn btn-success btn-block btn-md login\" type=\"submit\">" +
+    	       "      <strong><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;Agregar</strong>" +
+    	       "     </button>\r\n" +
+    	       "     <br>\r\n" + 
+    	       "    </div>\r\n" +
+    	       "   </div>\r\n" +
+    	       "  </form>";
+    	    }else {
+    	     retorno+="  <form action=\"eliminarAmigo\" method=\"POST\"> \r\n" + 
+    	       "   <div class=\"row\">\r\n" + 
+    	       "          <div class=\"col-md-6\">\r\n" +
+    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
+    	       "     <input name=\"txtNombreEliminar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
+    	       "    </div>\r\n" + 
+    	       "    <div class=\"col-md-3\">\r\n" +
+    	       "     <button class=\"btn btn-danger btn-block btn-md login\"  type=\"submit\">" +
+    	       "      <strong><span class=\"glyphicon glyphicon-trash\"></span>&nbsp;Eliminar</strong>" +
+    	       "     </button>\r\n" +
+    	       "     <br>\r\n" + 
+    	       "    </div>\r\n" +
+    	       "   </div>\r\n" +
+    	       "  </form>";
+    	    }
+    	   }
+    	  }
+    	  return retorno;
+    	 }
+
+    /**
+     * 
+     * @param usuario
+     *            (solo el nombre)
+     * @return devuelve las peticiones de amistad pendientes
+     */
+    public static String mostrarNotificaciones(Usuario usuario) {
+    	ArrayList<String> notificacionesPendientes = DAOUsuario.obtenerSolicitudes(usuario);
+    	Iterator<String> it = notificacionesPendientes.iterator();
+    	String retorno = "";
+    	String aux;
+    	if (!it.hasNext())
+    		return "No tienes notificaciones pendientes";
+    	while (it.hasNext()) {
+    		aux = it.next();
+    		retorno+="    <form action=\"aceptarSolicitud\" method=\"POST\">\r\n" +
+    				"  <br/> "+
+    				"      <div class=\"row\">\r\n" + 
+    				"        <div class=\"col-md-6\">\r\n" +
+    				"          <input name=\"noSirve\" type=\"text\" class=\"form-control\" value=\""+aux+"\" id=\"usr\" placeholder=\"usuario\" disabled>\r\n" + 
+    				"          <input name=\"txtNombre\" type=\"hidden\" class=\"form-control\" value=\""+aux+"\" id=\"usr\" placeholder=\"usuario\" >\r\n" +
+    				"        </div>\r\n" + 
+    				"        <div class=\"col-md-3\">\r\n" + 
+    				"          <button class=\"btn btn-success btn-block btn-md login\"  type=\"submit\">" +
+    				"    <strong><span class=\"glyphicon glyphicon-hand-up\"></span> &nbsp;Aceptar</strong>" +
+    				"   </button>\r\n" +
+    				"        </div>\r\n" + 
+    				"        <div class=\"col-md-3\">\r\n" +
+    				"          <button class=\"btn btn-danger btn-block btn-md login\"  formaction=\"rechazarSolicitud\" type=\"submit\">"+
+    				"      <strong><span class=\"glyphicon glyphicon-hand-down\"></span> &nbsp;Rechazar</strong>"+
+    				"    </button>\r\n" +
+    				"   <br>\r\n" +
+    				"      </div></div>\r\n" +  
+    				"    </form>";
+    	}
+    	return retorno;
+    }
+
+	public static Hashtable<String, Integer> sonAmigos(ArrayList<Usuario> amigos, Usuario usuario) {
+		Hashtable<String, Integer> retorno=new Hashtable<String,Integer>();
+		Iterator<Usuario> it=amigos.iterator();
+		Usuario aux;
+		while(it.hasNext()) {
+			aux=it.next();
+			if(comprobarAmistad(aux,usuario))
+				retorno.put(aux.getemail(), 1);
+			else
+				retorno.put(aux.getemail(), 0);
+		}
+		return retorno;
+		
+	}
 }

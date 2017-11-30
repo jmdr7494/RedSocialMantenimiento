@@ -9,6 +9,7 @@
 			<textarea rows="8" cols="60" name="mensaje"></textarea>
 			<input id="input-b5" name="fichero" type="file">
 		</div>
+		<button type="submit" class="btn btn-primary btn-outline" formaction="publicarAmigos">Solo Amigos</button>
 		<button type="submit" class="btn btn-primary btn-outline">Publicar</button>	
 	</form>
     </div>

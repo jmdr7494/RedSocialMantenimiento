@@ -1,6 +1,7 @@
 package com.redsocial.controller;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.redsocial.auxiliares.Utilidades;
 import com.redsocial.modelo.MensajesPrivados;
 import com.redsocial.modelo.Usuario;
 import com.redsocial.persistencia.DAOMensajesPrivados;
@@ -202,5 +204,97 @@ public class UsuarioController {
 		}
 
 	}
+
 	
+	@RequestMapping(value = "/mostrarNotificaciones", method = RequestMethod.GET)
+	public String mostrarNotificaciones(HttpServletRequest request, Model model){
+		return "redirect:vistaAmigos";
+	}
+	
+	/**
+	  * 
+	  * @return aceptar solicitud
+	  * @throws Exception
+	  */
+	@RequestMapping(value = "/aceptarSolicitud", method = RequestMethod.POST)
+	public String aceptarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String emisor = request.getParameter("txtNombre");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Usuario aux=new Usuario();
+			aux.setemail(emisor);
+			Utilidades.aceptarSolicitud(aux, usuario);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		model.addAttribute("body","vistaAmigos");
+		mostrarNotificaciones(request, model);
+		return "redirect:vistaAmigos";
+	}
+	/**
+	 * 
+	 * @return rechazar solicitud
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/rechazarSolicitud", method = RequestMethod.POST)
+	public String rechazarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String emisor = request.getParameter("txtNombre");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Usuario aux=new Usuario();
+			aux.setemail(emisor);
+			Utilidades.rechazarSolicitud(aux, usuario);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		model.addAttribute("body","vistaAmigos");
+		mostrarNotificaciones(request, model);
+		return "redirect:vistaAmigos";
+	}
+
+	/**
+	 * 
+	 * @return enviar solicitud a la persona seleccionado
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/enviarSolicitud", method = RequestMethod.POST)
+	public String enviarSolicitud(HttpServletRequest request, Model model) throws Exception {
+		String receptor = request.getParameter("txtNombreEnviar");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Usuario aux=new Usuario();
+			aux.setemail(receptor);
+			Utilidades.enviarSolicitud(usuario, aux);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		model.addAttribute("body","vistaAmigos");
+		mostrarNotificaciones(request, model);
+		return "redirect:vistaAmigos";
+	}
+	
+	/**
+	 * 
+	 * @return eliminar el amigo seleccionado
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/eliminarAmigo", method = RequestMethod.POST)
+	public String eliminarAmigo(HttpServletRequest request, Model model) throws Exception {
+		String receptor = request.getParameter("txtNombreEliminar");
+		Usuario usuario;
+		usuario = (Usuario) request.getSession().getAttribute("user");
+		try {
+			Usuario aux=new Usuario();
+			aux.setemail(receptor);
+			Utilidades.borrarAmistad(usuario, aux);
+		} catch (Exception e) {
+			model.addAttribute("alerta", e.getMessage());
+		}
+		model.addAttribute("body","vistaAmigos");
+		mostrarNotificaciones(request, model);
+		return "redirect:vistaAmigos";
+	}
 }

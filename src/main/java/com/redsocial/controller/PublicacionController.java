@@ -56,6 +56,39 @@ public class PublicacionController {
 			publicacion.setMensaje(mensaje);
 			publicacion.setFecha(fechaPublicacion);
 			publicacion.setImagen(imagenBytes);
+			publicacion.setPrivacidad("Publica");
+
+			Publicacion newPublicacion = DAOPublicacion.insert(publicacion);
+			
+			return "redirect:wall";
+		}else {
+			return "home";
+		}
+
+	}
+	@RequestMapping(value = "publicarAmigos", method = RequestMethod.POST)
+	public String publicarAmigos(HttpServletRequest request,Model model) {
+		
+		if (request.getSession().getAttribute("user")!=null) {
+			String mensaje = request.getParameter("mensaje");
+			Usuario user = (Usuario) request.getSession().getAttribute("user");
+			
+			 // Montamos la fecha actual para saber cuando se hizo la publicacion.
+			String fechaPublicacion=Utilidades.obtenerFecha();
+			
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("fichero");
+			byte[] imagenBytes = multipartFile.getBytes();
+			
+			
+			
+			Publicacion publicacion = new Publicacion();
+			publicacion.setEmail(user.getemail());
+			publicacion.setNombre(user.getNombre());
+			publicacion.setMensaje(mensaje);
+			publicacion.setFecha(fechaPublicacion);
+			publicacion.setImagen(imagenBytes);
+			publicacion.setPrivacidad("Amigos");
 			
 			Publicacion newPublicacion = DAOPublicacion.insert(publicacion);
 			
@@ -65,7 +98,6 @@ public class PublicacionController {
 		}
 
 	}
-	
 	@RequestMapping(value = "comentar", method = RequestMethod.POST)
 	public String comentar(HttpServletRequest request,Model model) {
 		
