@@ -8,7 +8,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
       
-         <form action="buscarAmigos" method="post" id="formlogin">
+         <form action="vistaAmigos" method="get" id="formlogin">
           <div class="row">
          <div class="col-md-12">
           <label for="usr" style="color:black; font-size:15px;">Buscar amigos:</label>
@@ -32,24 +32,7 @@
      
       <div class="row">
        <div class="col-md-12">
-        <c:forEach items="${amigos}" var="amigo">
-        ghmjhfhgfdhgfdghfdg
-       		<p>${amigo.email}</p>
-       		<c:if test="${sonAmigos[amigo.email]==0}">
-		        <form action="enviarSolicitud" method="post">
-		        	<button class="btn btn-primary btn-block login" type="submit">
-		         		<strong><span class="glyphicon glyphicon-bell"></span>&nbsp;Agregar</strong>
-		        	</button>
-		       </form>      			
-       		</c:if>
-       		<c:if test="${sonAmigos[amigo.email]==1}">
-		        <form action="eliminarAmigo" method="post">
-		        	<button class="btn btn-primary btn-block login" type="submit">
-		         		<strong><span class="glyphicon glyphicon-bell"></span>&nbsp;Borrar</strong>
-		        	</button>
-		       </form>      			
-       		</c:if>
-        </c:forEach>
+		<span><em>${amigos}</em></span>
        </div>
       </div>
       

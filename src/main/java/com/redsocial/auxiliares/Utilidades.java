@@ -100,8 +100,8 @@ public class Utilidades {
     	     retorno+="  <form action=\"enviarSolicitud\" method=\"POST\"> \r\n" + 
     	       "   <div class=\"row\">\r\n" + 
     	       "          <div class=\"col-md-6\">\r\n" +
-    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
-    	       "     <input name=\"txtNombreEnviar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\">"+
+    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
+    	       "     <input name=\"txtNombreEnviar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
     	       "    </div>\r\n" + 
     	       "    <div class=\"col-md-3\">\r\n" + 
     	       "     <button class=\"btn btn-success btn-block btn-md login\" type=\"submit\">" +
@@ -115,8 +115,8 @@ public class Utilidades {
     	     retorno+="  <form action=\"eliminarAmigo\" method=\"POST\"> \r\n" + 
     	       "   <div class=\"row\">\r\n" + 
     	       "          <div class=\"col-md-6\">\r\n" +
-    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
-    	       "     <input name=\"txtNombreEliminar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getNombre()+"\" id=\"usr\" placeholder=\"usuario\">"+
+    	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
+    	       "     <input name=\"txtNombreEliminar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
     	       "    </div>\r\n" + 
     	       "    <div class=\"col-md-3\">\r\n" +
     	       "     <button class=\"btn btn-danger btn-block btn-md login\"  type=\"submit\">" +

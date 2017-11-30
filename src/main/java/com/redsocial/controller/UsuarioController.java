@@ -204,31 +204,10 @@ public class UsuarioController {
 		}
 
 	}
-	/**
-	 * 
-	 * @return dado un filtro busca todas las coincidencias
-	 * @throws Exception
-	 */
-	@RequestMapping(value = "/buscarAmigos", method = RequestMethod.POST)
-	public String buscarAmigos(HttpServletRequest request, Model model) throws Exception {
-		String filtro = request.getParameter("txtUsuarioNombre");
-		Usuario usuario;
-		usuario = (Usuario) request.getSession().getAttribute("user");
-		ArrayList<Usuario> amigos=DAOUsuario.buscador(filtro);
-		Hashtable<String, Integer> sonAmigos=Utilidades.sonAmigos(amigos, usuario);
-		model.addAttribute("amigos", amigos);
-		model.addAttribute("sonAmigos", sonAmigos);
-		return "redirect:vistaAmigos";
 
-	}
 	
 	@RequestMapping(value = "/mostrarNotificaciones", method = RequestMethod.GET)
 	public String mostrarNotificaciones(HttpServletRequest request, Model model){
-		Usuario usuario;
-		usuario = (Usuario) request.getSession().getAttribute("user");
-		model.addAttribute("alerta", "COÑO");
-		model.addAttribute("body","vistaAmigos");
-		model.addAttribute("notificaciones", Utilidades.mostrarNotificaciones(usuario));
 		return "redirect:vistaAmigos";
 	}
 	
@@ -243,7 +222,9 @@ public class UsuarioController {
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
 		try {
-			Utilidades.aceptarSolicitud(new Usuario(emisor), usuario);
+			Usuario aux=new Usuario();
+			aux.setemail(emisor);
+			Utilidades.aceptarSolicitud(aux, usuario);
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
@@ -262,7 +243,9 @@ public class UsuarioController {
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
 		try {
-			Utilidades.rechazarSolicitud(new Usuario(emisor), usuario);
+			Usuario aux=new Usuario();
+			aux.setemail(emisor);
+			Utilidades.rechazarSolicitud(aux, usuario);
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
@@ -282,7 +265,9 @@ public class UsuarioController {
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
 		try {
-			Utilidades.enviarSolicitud(usuario, new Usuario(receptor));
+			Usuario aux=new Usuario();
+			aux.setemail(receptor);
+			Utilidades.enviarSolicitud(usuario, aux);
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
@@ -302,7 +287,9 @@ public class UsuarioController {
 		Usuario usuario;
 		usuario = (Usuario) request.getSession().getAttribute("user");
 		try {
-			Utilidades.borrarAmistad(usuario, new Usuario(receptor));
+			Usuario aux=new Usuario();
+			aux.setemail(receptor);
+			Utilidades.borrarAmistad(usuario, aux);
 		} catch (Exception e) {
 			model.addAttribute("alerta", e.getMessage());
 		}
