@@ -84,7 +84,7 @@
 											</div>
 										</div>
 									</div>
-									if (desactivarBoton) { 	%>
+									<% if (desactivarBoton) { %>
 										<script>
 											document.getElementById("entra-submit").disabled = true;
 										</script>
