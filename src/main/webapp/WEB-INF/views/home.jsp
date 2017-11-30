@@ -67,7 +67,7 @@
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
 										<script>
 											var x = function() {
-											document.getElementById("entra-submit").disabled = true;
+												document.getElementById("entra-submit").disabled = true;
 											};
 										</script>
 									
@@ -85,7 +85,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" disabled>Entra</button>
 											</div>
 										</div>
 									</div>
