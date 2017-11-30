@@ -99,32 +99,34 @@ public class Utilidades {
     	    if (!comprobarAmistad(busca, aux) && !comprobarAmistad(busca, aux)) {
     	     retorno+="  <form action=\"enviarSolicitud\" method=\"POST\"> \r\n" + 
     	       "   <div class=\"row\">\r\n" + 
-    	       "          <div class=\"col-md-6\">\r\n" +
+    	       "          <div class=\"col-md-10\">\r\n" +
     	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
     	       "     <input name=\"txtNombreEnviar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
     	       "    </div>\r\n" + 
-    	       "    <div class=\"col-md-3\">\r\n" + 
-    	       "     <button class=\"btn btn-success btn-block btn-md login\" type=\"submit\">" +
-    	       "      <strong><span class=\"glyphicon glyphicon-plus\"></span>&nbsp;Agregar</strong>" +
+    	       "    <div class=\"col-md-2\">\r\n" + 
+    	       "     <button class=\"btn btn-primary btn-outline\" type=\"submit\" title=\"Enviar Solicitud de Amistad\">" +
+    	       "     	<strong><i class=\"fa fa-user\" aria-hidden=\"true\"></i><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></strong>" +
     	       "     </button>\r\n" +
     	       "     <br>\r\n" + 
     	       "    </div>\r\n" +
     	       "   </div>\r\n" +
+    	       "	 <hr>	"+
     	       "  </form>";
     	    }else {
     	     retorno+="  <form action=\"eliminarAmigo\" method=\"POST\"> \r\n" + 
     	       "   <div class=\"row\">\r\n" + 
-    	       "          <div class=\"col-md-6\">\r\n" +
+    	       "          <div class=\"col-md-10\">\r\n" +
     	       "     <input name=\"noSirve\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\" disabled>"+ 
     	       "     <input name=\"txtNombreEliminar\" type=\"hidden\" class=\"form-control\" value=\""+aux.getemail()+"\" id=\"usr\" placeholder=\"usuario\">"+
     	       "    </div>\r\n" + 
-    	       "    <div class=\"col-md-3\">\r\n" +
-    	       "     <button class=\"btn btn-danger btn-block btn-md login\"  type=\"submit\">" +
-    	       "      <strong><span class=\"glyphicon glyphicon-trash\"></span>&nbsp;Eliminar</strong>" +
+    	       "    <div class=\"col-md-2\">\r\n" +
+    	       "     <button class=\"btn btn-primary btn-outline\" type=\"submit\" title=\"Eliminar Amigo\">" +
+    	       "      <strong><i class=\"fa fa-user\" aria-hidden=\"true\"></i><i class=\"fa fa-trash\" aria-hidden=\"true\"></i></strong>" +
     	       "     </button>\r\n" +
     	       "     <br>\r\n" + 
     	       "    </div>\r\n" +
     	       "   </div>\r\n" +
+    	       "	 <hr>	"+
     	       "  </form>";
     	    }
     	   }
@@ -150,18 +152,18 @@ public class Utilidades {
     		retorno+="    <form action=\"aceptarSolicitud\" method=\"POST\">\r\n" +
     				"  <br/> "+
     				"      <div class=\"row\">\r\n" + 
-    				"        <div class=\"col-md-6\">\r\n" +
+    				"        <div class=\"col-md-8\">\r\n" +
     				"          <input name=\"noSirve\" type=\"text\" class=\"form-control\" value=\""+aux+"\" id=\"usr\" placeholder=\"usuario\" disabled>\r\n" + 
     				"          <input name=\"txtNombre\" type=\"hidden\" class=\"form-control\" value=\""+aux+"\" id=\"usr\" placeholder=\"usuario\" >\r\n" +
     				"        </div>\r\n" + 
-    				"        <div class=\"col-md-3\">\r\n" + 
-    				"          <button class=\"btn btn-success btn-block btn-md login\"  type=\"submit\">" +
-    				"    <strong><span class=\"glyphicon glyphicon-hand-up\"></span> &nbsp;Aceptar</strong>" +
+    				"        <div class=\"col-md-2\">\r\n" + 
+    				"          <button class=\"btn btn-primary btn-outline\" type=\"submit\" title=\"Aceptar Solicitud\">" +
+    				"    <i class=\"fa fa-plus-square\" aria-hidden=\"true\"></i>" +
     				"   </button>\r\n" +
     				"        </div>\r\n" + 
-    				"        <div class=\"col-md-3\">\r\n" +
-    				"          <button class=\"btn btn-danger btn-block btn-md login\"  formaction=\"rechazarSolicitud\" type=\"submit\">"+
-    				"      <strong><span class=\"glyphicon glyphicon-hand-down\"></span> &nbsp;Rechazar</strong>"+
+    				"        <div class=\"col-md-2\">\r\n" +
+    				"          <button class=\"btn btn-primary btn-outline\"  formaction=\"rechazarSolicitud\" type=\"submit\" title=\"Rechazar Solicitud\">"+
+    				"      <i class=\"fa fa-minus-square\" aria-hidden=\"true\"></i>"+
     				"    </button>\r\n" +
     				"   <br>\r\n" +
     				"      </div></div>\r\n" +  

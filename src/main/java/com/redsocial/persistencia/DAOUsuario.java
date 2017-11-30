@@ -2,6 +2,7 @@ package com.redsocial.persistencia;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.bson.Document;
@@ -115,6 +116,24 @@ public class DAOUsuario {
 	public static void delete(String id) throws Exception {
 		Usuario borrar=selectWithID(id);
 		DAOPublicacion.borradoUsuario(borrar);
+		
+		Usuario aux;
+		ArrayList<String> amigos=obtenerAmigos(borrar);
+		Iterator <String> itAmigos=amigos.iterator();
+		while(itAmigos.hasNext()) {
+			aux=new Usuario();
+			aux.setemail(itAmigos.next());
+			borrarAmistad(borrar, aux);
+		}
+		ArrayList<String> solicitudesEnviadas=obtenerEnviosSolicitud(borrar);
+		Iterator <String> itSolicitudesEnviadas=solicitudesEnviadas.iterator();
+		Usuario receptor;
+		while(itSolicitudesEnviadas.hasNext()) {
+			receptor=new Usuario();
+			receptor.setemail(itSolicitudesEnviadas.next());
+			rechazarSolicitud(borrar, receptor);
+		}
+		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
 		usuarios.deleteOne(new Document(idd, new ObjectId(id)));
@@ -124,14 +143,35 @@ public class DAOUsuario {
 	/**
 	 * 
 	 * @param id
+	 * @throws Exception 
 	 * @method borra el usuario asociado a el elmail
 	 */
-	public static void deleteConEmail(String email) {
+	public static void deleteConEmail(String email) throws Exception {
+		Usuario borrar=new Usuario();
+		borrar.setemail(email);
+		borrar=select(borrar);
+		DAOPublicacion.borradoUsuario(borrar);
+		
+		Usuario aux;
+		ArrayList<String> amigos=obtenerAmigos(borrar);
+		Iterator <String> itAmigos=amigos.iterator();
+		while(itAmigos.hasNext()) {
+			aux=new Usuario();
+			aux.setemail(itAmigos.next());
+			borrarAmistad(borrar, aux);
+		}
+		ArrayList<String> solicitudesEnviadas=obtenerEnviosSolicitud(borrar);
+		Iterator <String> itSolicitudesEnviadas=solicitudesEnviadas.iterator();
+		Usuario receptor;
+		while(itSolicitudesEnviadas.hasNext()) {
+			receptor=new Usuario();
+			receptor.setemail(itSolicitudesEnviadas.next());
+			rechazarSolicitud(borrar, receptor);
+		}
 		
 		MongoBroker broker= MongoBroker.get();
 		MongoCollection<Document>usuarios=broker.getCollection(Usuarioss);
-		usuarios.deleteOne(new Document(emaill, email));
-		
+		usuarios.deleteOne(new Document(idd, new ObjectId(borrar.getid())));
 	}
 	
 	/**

@@ -57,7 +57,7 @@ public class RegistrarTest {
 	}
 	
 	@After
-	public static void despuesAll(){
+	public static void despuesAll() throws Exception{
 		if(emails.size()==4) {
 			Iterator <String> it=emails.iterator();
 			while(it.hasNext())
