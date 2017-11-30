@@ -14,7 +14,7 @@ public class Publicacion {
 	private byte[] imagen;
 	private String imagenCodificada;
 	private String mensaje;
-	
+	private String privacidad; //Publica, Amigos
 	public Publicacion() {
 		
 	}
@@ -27,6 +27,7 @@ public class Publicacion {
 		this.fecha=fecha;
 		this.imagen=imagen;
 		this.mensaje=mensaje;	
+		this.privacidad="Publica";
 	}
 	
 	public Publicacion(String idPublicacion, String email, String nombre, String fecha, String imagenCodificada, String mensaje) {
@@ -36,9 +37,31 @@ public class Publicacion {
 		this.nombre=nombre;
 		this.fecha=fecha;
 		this.imagenCodificada=imagenCodificada;
-		this.mensaje=mensaje;	
-	}
+		this.mensaje=mensaje;
+		this.privacidad="Publica";
 
+	}
+	public Publicacion(String idPublicacion, String email, String nombre, String fecha, String imagenCodificada, String mensaje, String privacidad) {
+		
+		this.idPublicacion= idPublicacion;
+		this.email=email;
+		this.nombre=nombre;
+		this.fecha=fecha;
+		this.imagenCodificada=imagenCodificada;
+		this.mensaje=mensaje;
+		this.privacidad=privacidad;
+
+	}
+	public Publicacion(String idPublicacion, String email, String nombre, String fecha, byte[] imagen, String mensaje, String privacidad) {
+		
+		this.idPublicacion= idPublicacion;
+		this.email=email;
+		this.nombre=nombre;
+		this.fecha=fecha;
+		this.imagen=imagen;
+		this.mensaje=mensaje;	
+		this.privacidad=privacidad;
+	}
 	public String getIdPublicacion() {
 		return idPublicacion;
 	}
@@ -94,11 +117,14 @@ public class Publicacion {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
-	@Override
-	public String toString() {
-		return "Publicaciones [idPublicacion=" + idPublicacion + ", email=" + email + ", nombre=" + nombre + ", fecha="
-				+ fecha + ", imagen=" + imagen + ", mensaje=" + mensaje + "]";
+
+
+	public String getPrivacidad() {
+		return privacidad;
+	}
+
+	public void setPrivacidad(String privacidad) {
+		this.privacidad = privacidad;
 	}
 	
 
