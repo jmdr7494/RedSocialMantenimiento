@@ -51,7 +51,12 @@
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
 									</div>				
 									
-									
+									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
+									<script>
+										function activarEntra(){
+											document.getElementById("entra-submit").disabled = false;
+										}
+									</script>
 									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
 									<% boolean mostrarCaptcha = true; 
 									Cookie [] cookies = request.getCookies();
@@ -83,12 +88,7 @@
 											</div>
 										</div>
 									</div>
-									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
-									<script>
-										function activarEntra(){
-											document.getElementById("entra-submit").disabled = false;
-										}
-									</script>
+									
 									
 									<div class="form-group">
 										<div class="row">
