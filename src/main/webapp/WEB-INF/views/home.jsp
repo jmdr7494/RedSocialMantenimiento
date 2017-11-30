@@ -53,10 +53,19 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" disabled>Entra</button>
 											</div>
 										</div>
-									</div>	
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="viewRecordarPass" tabindex="5" class="forgot-password">Recordar Contraseña</a>
+												</div>
+											</div>
+										</div>
+									</div>
 									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
 									<script>
 										function activarEntra(){
@@ -82,19 +91,9 @@
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
 									<% 			
-									}%>
-																	
-									
-									
-									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12">
-												<div class="text-center">
-													<a href="viewRecordarPass" tabindex="5" class="forgot-password">Recordar Contraseña</a>
-												</div>
-											</div>
-										</div>
-									</div>
+									}%>									
+																
+								
 								</form>
 							</div>
 							<%-- By JA captcha registro--%>
