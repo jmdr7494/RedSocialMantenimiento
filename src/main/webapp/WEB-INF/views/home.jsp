@@ -50,7 +50,13 @@
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
 									</div>				
-									
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
+											</div>
+										</div>
+									</div>	
 									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
 									<script>
 										function activarEntra(){
@@ -77,21 +83,8 @@
 									
 									<% 			
 									}%>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
-											</div>
-										</div>
-									</div>
-									<% if (desactivarBoton) { %>
-										<script>
-											document.getElementById("entra-submit").disabled = true;
-										</script>
+																	
 									
-									<% 			
-									}%>
-																			
 									
 									<div class="form-group">
 										<div class="row">
