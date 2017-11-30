@@ -50,8 +50,8 @@ public class HomeController {
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
 			Cookie cookieCaptcha = new Cookie("cookieCaptchaLogin", "cookieControlCaptchaLogin");
- -			cookieCaptcha.setMaxAge(300);
- -			response.addCookie(cookieCaptcha);
+ 			cookieCaptcha.setMaxAge(300);
+ 			response.addCookie(cookieCaptcha);
 			Long fechaModPwd = user.getFechaModPwd();
 			Long hoy = new Date().getTime();
 			if (hoy > fechaModPwd + 300000*6)
