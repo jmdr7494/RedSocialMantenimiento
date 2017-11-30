@@ -73,9 +73,9 @@
 										</div>--%>
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
 										<script>
-										
-											document.getElementById("entra-submit").disabled = true;
-										
+											var x = function() {
+												document.getElementById("entra-submit").disabled = true;
+											};
 										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
