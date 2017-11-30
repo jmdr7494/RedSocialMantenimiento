@@ -84,7 +84,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" disabled>Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" enabled>Entra</button>
 											</div>
 										</div>
 									</div>
