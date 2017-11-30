@@ -50,7 +50,7 @@ public class HomeController {
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", user);
 			Cookie cookieCaptcha = new Cookie("cookieCaptchaLogin", "cookieControlCaptchaLogin");
- 			cookieCaptcha.setMaxAge(300);
+ 			cookieCaptcha.setMaxAge(7776000);
  			response.addCookie(cookieCaptcha);
 			Long fechaModPwd = user.getFechaModPwd();
 			Long hoy = new Date().getTime();
@@ -79,7 +79,7 @@ public class HomeController {
 			request.getSession().setMaxInactiveInterval(600);
 			request.getSession().setAttribute("user", usuario);
 			Cookie cookieCaptcha = new Cookie("cookieCaptchaRegistro", "cookieControlCaptchaRegistro");
-			cookieCaptcha.setMaxAge(300);
+			cookieCaptcha.setMaxAge(7776000);
 			response.addCookie(cookieCaptcha);
 			return "redirect:wall";
 		} else {
