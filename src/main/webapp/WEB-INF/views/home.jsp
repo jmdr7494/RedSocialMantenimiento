@@ -68,15 +68,11 @@
 											}
 										}
 									}
-									if (mostrarCaptcha) { %>
+									if (mostrarCaptcha) { 
+										boolean desactivarBoton = true;	%>
 										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
 										</div>--%>
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
-										<script>
-											var x = function() {
-												document.getElementById("entra-submit").disabled = true;
-											};
-										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
 									<% 			
@@ -84,11 +80,18 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" enabled>Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
 											</div>
 										</div>
 									</div>
+									if (desactivarBoton) { 	%>
+										<script>
+											document.getElementById("entra-submit").disabled = true;
+										</script>
 									
+									<% 			
+									}%>
+																			
 									
 									<div class="form-group">
 										<div class="row">
