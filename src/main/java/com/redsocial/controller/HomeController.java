@@ -54,7 +54,7 @@ public class HomeController {
  			response.addCookie(cookieCaptcha);
 			Long fechaModPwd = user.getFechaModPwd();
 			Long hoy = new Date().getTime();
-			if (hoy > fechaModPwd + 300000*6)
+			if (hoy > fechaModPwd + 7776000*2)
 				return "nuevaPwd";
 			return "redirect:wall";
 		} else {

@@ -40,7 +40,7 @@ public class ModificarCuentaTest {
 	}
 
 	@Then("^\"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" modificado correctamente$")
-	public void modificado_correctamente(String nombre, String email, String pwd) {
+	public void modificado_correctamente(String nombre, String email, String pwd) throws Exception {
 		assertTrue(user.getNombre().equals(nombre));
 		assertTrue(user.getemail().equals(email));
 		assertTrue(user.getPwd().equals(DigestUtils.md5Hex(pwd)));
