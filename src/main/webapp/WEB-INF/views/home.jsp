@@ -56,7 +56,7 @@
 									if (cookies!=null){
 										for (int i=0; i<cookies.length; i++){
 											Cookie cookie=cookies[i];
-											if (cookie.getName().equals("cookieCaptcha")){
+											if (cookie.getName().equals("cookieCaptchaLogin") || cookie.getName().equals("cookieCaptchaRegistro")){
 												mostrarCaptcha = false;
 											}
 										}
