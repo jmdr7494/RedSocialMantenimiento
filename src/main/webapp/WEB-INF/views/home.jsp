@@ -64,13 +64,28 @@
 									if (mostrarCaptcha) { %>
 										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
 										</div>--%>
-										<div id="captchaLogin"></div>
+										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
+										<script>
+										
+											document.getElementById("entra-submit").disabled = true;
+										
+										</script>
+									
+										<div id="captchaLogin" data-callback="activarEntra"></div>
 									<% 			
 									}%>
+									
+									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
+									<script>
+										function activarEntra(){
+											document.getElementById("entra-submit").disabled = false;
+										}
+									</script>
+									
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
 											</div>
 										</div>
 									</div>
