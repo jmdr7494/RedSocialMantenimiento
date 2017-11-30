@@ -88,6 +88,7 @@ public class WallController {
 			model.addAttribute("publicaciones",publicaciones);
 			model.addAttribute("respuestas",respuestas);
 			model.addAttribute("totalMensajes", mensajes.size());
+			model.addAttribute("totalNotificaciones", DAOUsuario.obtenerSolicitudes(user).size());
 			model.addAttribute("likes",likes);
 			model.addAttribute("user",user);
 			model.addAttribute("checklikes",checklikes);
@@ -143,6 +144,7 @@ public class WallController {
 			model.addAttribute("user",user);
 			model.addAttribute("usuarios",usuarios);
 			model.addAttribute("totalMensajes", mensajes.size());
+			model.addAttribute("totalNotificaciones", DAOUsuario.obtenerSolicitudes(user).size());
 			model.addAttribute("body","mensajes");
 			return "wall";
 		}
@@ -158,6 +160,7 @@ public class WallController {
 			model.addAttribute("body","vistaAmigos");
 			model.addAttribute("notificaciones",Utilidades.mostrarNotificaciones(user));
 			model.addAttribute("totalNotificaciones", DAOUsuario.obtenerSolicitudes(user).size());
+			model.addAttribute("totalMensajes", DAOMensajesPrivados.selectMsgUser(((Usuario) request.getSession().getAttribute("user")).getemail()).size());
 			
 			try{
 				String filtro = request.getParameter("txtUsuarioNombre");

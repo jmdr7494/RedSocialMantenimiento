@@ -49,34 +49,7 @@
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
-									</div>
-									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
-									<% boolean mostrarCaptcha = true; 
-									Cookie [] cookies = request.getCookies();
-									if (cookies!=null){
-										for (int i=0; i<cookies.length; i++){
-											Cookie cookie=cookies[i];
-											if (cookie.getName().equals("cookieCaptchaLogin") || cookie.getName().equals("cookieCaptchaRegistro")){
-												mostrarCaptcha = false;
-											}
-										}
-									}
-									if (mostrarCaptcha) { %>
-										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
-										</div>--%>
-										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>												
-										<div id="captchaLogin" data-callback="activarEntra"></div>
-									
-									<% 			
-									}%>
-									
-									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
-									<script>
-										function activarEntra(){
-											document.getElementById("entra-submit").disabled = false;
-										}
-									</script>
-									
+									</div>				
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
@@ -93,6 +66,37 @@
 											</div>
 										</div>
 									</div>
+									<%-- By JA script con una funcion que permite activar el boton de entra despues de realizar el captcha --%>
+									<script>
+										function activarEntra(){
+											document.getElementById("entra-submit").disabled = false;
+										}
+									</script>
+									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
+									<% boolean mostrarCaptcha = true; 
+									Cookie [] cookies = request.getCookies();
+									if (cookies!=null){
+										for (int i=0; i<cookies.length; i++){
+											Cookie cookie=cookies[i];
+											if (cookie.getName().equals("cookieCaptchaLogin") || cookie.getName().equals("cookieCaptchaRegistro")){
+												mostrarCaptcha = false;
+											}
+										}
+									}
+									if (mostrarCaptcha) { 	%>
+										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
+										</div>--%>
+										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
+										<script>
+ 										
+ 											document.getElementById("entra-submit").disabled = true;
+ 										
+ 										</script>
+										<div id="captchaLogin" data-callback="activarEntra"></div>
+									
+									<% 			
+									}%>									
+									
 								</form>
 							</div>
 							<%-- By JA captcha registro--%>
@@ -159,4 +163,3 @@
 
 </body>
 </html>
-
