@@ -53,7 +53,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary" disabled>Entra</button>
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
 											</div>
 										</div>
 									</div>
@@ -83,8 +83,7 @@
 											}
 										}
 									}
-									if (mostrarCaptcha) { 
-										boolean desactivarBoton = true;	%>
+									if (mostrarCaptcha) { 	%>
 										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
 										</div>--%>
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
@@ -92,8 +91,7 @@
 									
 									<% 			
 									}%>									
-																
-								
+									
 								</form>
 							</div>
 							<%-- By JA captcha registro--%>
