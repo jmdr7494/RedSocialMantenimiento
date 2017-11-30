@@ -49,6 +49,14 @@
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" autocomplete="off" placeholder="Contraseña">
+									</div>				
+									
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
+											</div>
+										</div>
 									</div>
 									<%-- By JA Aqui se comprobara si sale o no el captcha con la cookie dependiendo del tiempo y PC--%>
 									<% boolean mostrarCaptcha = true; 
@@ -64,7 +72,12 @@
 									if (mostrarCaptcha) { %>
 										<%--<div class="g-recaptcha" id="captchaLogin" data-sitekey="6Ld76joUAAAAAHudgM-4Z_TsN1hRXKSZs5fj8cdk">	
 										</div>--%>
-										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>												
+										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
+										<script>
+										
+											document.getElementById("entra-submit").disabled = true;
+										
+										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
 									<% 			
@@ -77,13 +90,6 @@
 										}
 									</script>
 									
-									<div class="form-group">
-										<div class="row">
-											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="entra-submit" tabindex="4" class="form-control btn btn-primary">Entra</button>
-											</div>
-										</div>
-									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
