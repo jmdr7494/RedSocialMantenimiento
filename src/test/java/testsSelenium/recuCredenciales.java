@@ -17,7 +17,7 @@ public class recuCredenciales {
 
   @Before
   public void setUp() throws Exception {
-	  System.setProperty("webdriver.firefox.marionette","C:\\geckodriver.exe");
+	System.setProperty("webdriver.firefox.marionette","C:\\geckodriver.exe");
     driver = new FirefoxDriver();
     baseUrl = "https://intravita-g1-maintenance-g4.herokuapp.com/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

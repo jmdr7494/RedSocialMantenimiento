@@ -29,15 +29,16 @@ public class registro {
 		driver.get(baseUrl);
 	    driver.findElement(By.id("register-form-link")).click();
 	    driver.findElement(By.id("username")).clear();
-	    driver.findElement(By.id("username")).sendKeys("Miguel.Alvarez");
+	    driver.findElement(By.id("username")).sendKeys("Miguel.Alvar");
 	    driver.findElement(By.id("email")).clear();
-	    driver.findElement(By.id("email")).sendKeys("Miguel.Alvarez@alu.uclm.es");
+	    driver.findElement(By.id("email")).sendKeys("Miguel.Alvar@alu.uclm.es");
 	    driver.findElement(By.id("password-register")).clear();
 	    driver.findElement(By.id("password-register")).sendKeys("1234qwerty");
 	    driver.findElement(By.id("confirm-password")).clear();
 	    driver.findElement(By.id("confirm-password")).sendKeys("1234qwerty");
 	    
 	    driver.findElement(By.id("register-submit")).click();
+	    
     }catch(Error e) {
     	System.out.println("No se puede realizar el captcha");
     }
