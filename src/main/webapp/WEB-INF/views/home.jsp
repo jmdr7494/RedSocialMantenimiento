@@ -11,8 +11,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 	<script src="resources/js/index.js"></script>
 	<script type="text/javascript" src="resources/js/password.js"></script>
-	<%-- By JA captcha registro
-	<script src='https://www.google.com/recaptcha/api.js'></script>--%>
+	<%-- By JA captcha registro --%>
 	<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit" async defer></script>
 	<title>redSocial</title>
 </head>
@@ -88,7 +87,8 @@
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
 										<script>
  										
- 											document.getElementById("entra-submit").disabled = true;
+ 											<%--document.getElementById("entra-submit").disabled = true;
+											descomentar esta linea despues de pruebas en local--%>
  										
  										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
@@ -127,7 +127,9 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" disabled>Registrar</button>
+												<%--<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" disabled>Registrar</button> 
+												usar esta linea despues de pruebas en local--%>
+												<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register">Registrar</button>
 											</div>
 										</div>
 									</div>
