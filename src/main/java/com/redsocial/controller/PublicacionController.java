@@ -167,12 +167,10 @@ public class PublicacionController {
 			String email = request.getParameter("update-email");
 			String fecha = request.getParameter("update-fecha");
 			String mensaje = request.getParameter("update-mensaje");
+			String imagen = request.getParameter("imagen");
 			
-			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-			CommonsMultipartFile multipartFile = (CommonsMultipartFile) multipartRequest.getFile("fichero");
-			byte[] imagenBytes = multipartFile.getBytes();
 			
-			Publicacion publicacion = new Publicacion(idPublicacion, email, nombre, fecha, imagenBytes, mensaje);
+			Publicacion publicacion = new Publicacion(idPublicacion, email, nombre, fecha, imagen, mensaje);
 			DAOPublicacion.update(publicacion);
 			
 			return "redirect:wall";
