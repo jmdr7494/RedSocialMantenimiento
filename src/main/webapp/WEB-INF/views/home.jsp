@@ -85,11 +85,8 @@
 									if (mostrarCaptcha) { 	%>
 										
 										<%-- By JA Desactivar boton de login; Despues de superar el captcha llamar a funcion para activar el boton--%>
-										<script>
- 										
- 											<%--document.getElementById("entra-submit").disabled = true;
-											descomentar esta linea despues de pruebas en local--%>
- 										
+										<script> 										
+ 											document.getElementById("entra-submit").disabled = true;																		
  										</script>
 										<div id="captchaLogin" data-callback="activarEntra"></div>
 									
@@ -127,9 +124,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<%--<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" disabled>Registrar</button> 
-												usar esta linea despues de pruebas en local--%>
-												<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register">Registrar</button>
+												<button type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" disabled>Registrar</button> 												
 											</div>
 										</div>
 									</div>
