@@ -23,10 +23,7 @@
 		   <input type="hidden" name="idPublicacion" value="${id}">
 		  </div>
 		  
-		  <div class="form-group">
-		    <label for="edit-new-pwd">Imagen</label><br/>
-		    <input id="input-b5" name="fichero" type="file">
-		  </div>
+		 <img src="data:image/gif;base64,${publi.imagenCodificada}" name="imagen">
 		  
 		  <div class="modal-footer">
       		<button type="submit" class="btn btn-success">Guardar</button>

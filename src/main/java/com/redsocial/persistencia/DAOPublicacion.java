@@ -65,7 +65,7 @@ public class DAOPublicacion {
 		Document newValue = new Document();
 		newValue.append("mensaje", publicacion.getMensaje());
 		newValue.append("fecha", fechaPublicacion);
-		newValue.append("imagen", publicacion.getImagen());
+		//newValue.append("imagen", publicacion.getImagen());
 		Document updateOperationDocument = new Document("$set", newValue);
 		
 		MongoBroker broker= MongoBroker.get();
